@@ -1,0 +1,27 @@
+# core
+httpx[http2]>=0.27
+pandas>=2.2
+pyarrow>=15
+duckdb>=1.0
+lxml>=5.0
+
+# parsing
+pdfplumber>=0.11
+camelot-py[cv]>=0.11
+arelle-release>=2.20      # XBRL (both US GAAP and Indian taxonomy)
+beautifulsoup4>=4.12
+html5lib>=1.1
+
+# browser automation -- LAST RESORT, only for ASP.NET forms and captcha-assist
+playwright>=1.44
+
+# real-time
+redis>=5.0
+kiteconnect>=5.0          # India broker feed (NSE/BSE/MCX)
+
+# dashboard
+streamlit>=1.35
+plotly>=5.20
+
+# orchestration (graduate to this once you have 30+ jobs)
+# dagster>=1.7

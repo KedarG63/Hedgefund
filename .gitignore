@@ -1,0 +1,53 @@
+# ---------------------------------------------------------------- secrets
+# Session cookies from cURL captures ARE credentials. Broker keys are money.
+# Nothing in here ever gets committed.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+cookies.json
+kite_access_token*
+*.session
+
+# ---------------------------------------------------------------- data
+# The archive is large, immutable, and reproducible-by-fetch-date only.
+# It belongs on disk/backup, never in git.
+# (no un-ignore exception here: git does not descend into an ignored directory,
+#  so a !data/.gitkeep rule would never fire. storage.py mkdirs on demand.)
+data/
+*.parquet
+*.duckdb
+*.duckdb.wal
+warehouse.duckdb*
+
+# ---------------------------------------------------------------- discovery output
+# cURL captures contain live session cookies -- always sensitive.
+# rbi_service_catalog.json is ignored as a safe default until Phase 2 confirms
+# it holds only service-name strings from JS bundles; if so, commit it (it makes
+# the RBI connectors reproducible) by deleting that line.
+rbi_service_catalog.json
+*_curl_capture.txt
+*.har
+
+# ---------------------------------------------------------------- python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+htmlcov/
+.coverage
+
+# ---------------------------------------------------------------- tooling / os
+.streamlit/secrets.toml
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+*.log
+logs/

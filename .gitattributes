@@ -1,0 +1,14 @@
+# Normalise to LF in the repo; check out native on Windows.
+* text=auto
+
+*.py   text eol=lf
+*.md   text eol=lf
+*.json text eol=lf
+*.txt  text eol=lf
+
+# Archived payloads are bytes, not text -- never let git rewrite them.
+*.parquet binary
+*.duckdb  binary
+*.zip     binary
+*.xlsx    binary
+*.pdf     binary
