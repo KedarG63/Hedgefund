@@ -24,10 +24,9 @@ warehouse.duckdb*
 
 # ---------------------------------------------------------------- discovery output
 # cURL captures contain live session cookies -- always sensitive.
-# rbi_service_catalog.json is ignored as a safe default until Phase 2 confirms
-# it holds only service-name strings from JS bundles; if so, commit it (it makes
-# the RBI connectors reproducible) by deleting that line.
-rbi_service_catalog.json
+# rbi_service_catalog.json is NOT ignored: audited 2026-08-16, it holds only
+# service names and parameter hints scraped from public JS bundles, no
+# credentials. Committing it is what makes the RBI connectors reproducible.
 *_curl_capture.txt
 *.har
 

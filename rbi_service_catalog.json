@@ -1,0 +1,2241 @@
+{
+  "dbie_FileDownloadHDFSAction": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_FileDownloadHDFSAction",
+    "kind": "file/export",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "dashName",
+      "datatype",
+      "ilename",
+      "nseType",
+      "observe",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_GetFaqDetails": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_GetFaqDetails",
+    "kind": "site/account",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "factory",
+      "ion",
+      "keyToBeSearched",
+      "langCode",
+      "observe",
+      "portal",
+      "providedIn",
+      "responseType",
+      "token",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_GetLatLongByStateAction": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_GetLatLongByStateAction",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "district",
+      "observe",
+      "region",
+      "responseType",
+      "state",
+      "subDistrict",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_GetPopularReports": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_GetPopularReports",
+    "kind": "ui/navigation",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "limit",
+      "observe",
+      "portal",
+      "reportId",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_GetPopularReportsPortalNew": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_GetPopularReportsPortalNew",
+    "kind": "ui/navigation",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "createdBy",
+      "datatype",
+      "email",
+      "fileType",
+      "firstName",
+      "lastName",
+      "limit",
+      "observe",
+      "portal",
+      "reportCuid",
+      "reportId",
+      "reportIds",
+      "reportName",
+      "responseType",
+      "subscriptionEndDate",
+      "subscriptionRequestVO",
+      "subscriptionStartDate",
+      "xlsx",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_GetSearchQuestions": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_GetSearchQuestions",
+    "kind": "ui/navigation",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "currentDate",
+      "datatype",
+      "keyToBeSearched",
+      "langCode",
+      "observe",
+      "portal",
+      "providedIn",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_cancelUserSubscription": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_cancelUserSubscription",
+    "kind": "site/account",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "email",
+      "firstName",
+      "lastName",
+      "observe",
+      "responseType",
+      "subscriptionRequestVO",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_card": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_card",
+    "kind": "data",
+    "likely_params": [
+      "bItems",
+      "consts",
+      "decls",
+      "features",
+      "selectors",
+      "standalone",
+      "vars"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_contactus": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_contactus",
+    "kind": "site/account",
+    "likely_params": [
+      "events",
+      "olor"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_createDDLAction": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_createDDLAction",
+    "kind": "ui/navigation",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "dimData",
+      "elementCodes",
+      "entityCodes",
+      "observe",
+      "pdfFilePath",
+      "responseType"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_createDDLActionEnhanced": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_createDDLActionEnhanced",
+    "kind": "ui/navigation",
+    "likely_params": [
+      "channelkey",
+      "dimData",
+      "elementCodes",
+      "elementIds",
+      "elementLableDetails"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_csvConvert": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_csvConvert",
+    "kind": "file/export",
+    "likely_params": [
+      "active",
+      "authorization",
+      "channelkey",
+      "currentPage",
+      "disabledTrue",
+      "downloadFileType",
+      "dsdCode",
+      "erve",
+      "factory",
+      "fileName",
+      "height",
+      "implicit",
+      "itemsPerPage",
+      "observe",
+      "policyName",
+      "providedIn",
+      "responseType",
+      "token",
+      "totalItems"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_dataQueryFileDownloadHDFS": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_dataQueryFileDownloadHDFS",
+    "kind": "file/export",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "downloadFileType",
+      "dsdCode",
+      "factory",
+      "fileName",
+      "observe",
+      "policyName",
+      "responseType",
+      "token"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_downloadBatchJobFile": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_downloadBatchJobFile",
+    "kind": "file/export",
+    "likely_params": [
+      "address",
+      "authorization",
+      "bankGroupList",
+      "bankList",
+      "branch",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "factory",
+      "observe",
+      "part1Code",
+      "populationGroupList",
+      "providedIn",
+      "responseType",
+      "stateList",
+      "statusType",
+      "subTypeList",
+      "token",
+      "typeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_downloadDQDSDAction": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_downloadDQDSDAction",
+    "kind": "file/export",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "dimData",
+      "elementCodes",
+      "elementIds",
+      "elementLableDetails",
+      "observe",
+      "pdfFilePath",
+      "responseType"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_downloadDQManualFileAction": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_downloadDQManualFileAction",
+    "kind": "file/export",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "dimData",
+      "elementCodes",
+      "observe",
+      "pdfFilePath",
+      "responseType"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_emailForFeedback": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_emailForFeedback",
+    "kind": "site/account",
+    "likely_params": [
+      "address",
+      "authorization",
+      "channelkey",
+      "country",
+      "createdBy",
+      "datatype",
+      "email",
+      "factory",
+      "feedbackComment",
+      "feedbackType",
+      "feedbacksToBeSaved",
+      "gender",
+      "nature",
+      "number",
+      "observe",
+      "occupation",
+      "pendingDept",
+      "portal",
+      "providedIn",
+      "responseType",
+      "status",
+      "subjectArea",
+      "token",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_fetchReportFOrDashboardFoodIndex": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_fetchReportFOrDashboardFoodIndex",
+    "kind": "ui/navigation",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "ipAddress",
+      "observe",
+      "portalName",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_fetchReportFOrDashboardGenIndex": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_fetchReportFOrDashboardGenIndex",
+    "kind": "ui/navigation",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "ipAddress",
+      "observe",
+      "ogoutReason",
+      "portalName",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_firstEBRBaseReport": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_firstEBRBaseReport",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "bold",
+      "bottom",
+      "category",
+      "channelkey",
+      "color",
+      "datatype",
+      "factory",
+      "horizontal",
+      "left",
+      "observe",
+      "providedIn",
+      "responseType",
+      "rgb",
+      "right",
+      "token",
+      "top",
+      "vertical",
+      "wch",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_firstEBRBaseReportTabs": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_firstEBRBaseReportTabs",
+    "kind": "ui/navigation",
+    "likely_params": [
+      "authorization",
+      "bold",
+      "category",
+      "channelkey",
+      "datatype",
+      "factory",
+      "observe",
+      "providedIn",
+      "responseType",
+      "rgb",
+      "token",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_footerfileDownloadservice": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_footerfileDownloadservice",
+    "kind": "file/export",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "fileId",
+      "langCode",
+      "observe",
+      "portal",
+      "portalName",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_foreignExchangeReserves": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_foreignExchangeReserves",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "currencyCode",
+      "datatype",
+      "frequency",
+      "fromDate",
+      "itemCode",
+      "level1Code",
+      "level2Code",
+      "observe",
+      "reportName",
+      "requestVO",
+      "reserveCode",
+      "responseType",
+      "toDate",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_genericDashboardGraph": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_genericDashboardGraph",
+    "kind": "ui/navigation",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "dashName",
+      "datatype",
+      "https",
+      "ilename",
+      "observe",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getAboutUs": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getAboutUs",
+    "kind": "site/account",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "fileId",
+      "langCode",
+      "observe",
+      "portal",
+      "portalName",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getAlerts": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getAlerts",
+    "kind": "site/account",
+    "likely_params": [
+      "alertType",
+      "authorization",
+      "channelkey",
+      "datatype",
+      "langCode",
+      "limit",
+      "observe",
+      "portalName",
+      "quickLinkType",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getAllBankOpEntitiesAction": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getAllBankOpEntitiesAction",
+    "kind": "data",
+    "likely_params": [
+      "dimData",
+      "elementCodes",
+      "elementIds",
+      "entityCodes"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getAllDBIEReports": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getAllDBIEReports",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "createdBy",
+      "datatype",
+      "emailId",
+      "fileType",
+      "observe",
+      "responseType",
+      "subscriptionEndDate",
+      "subscriptionRequestVO",
+      "xlsx",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getAllWhatsNewData": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getAllWhatsNewData",
+    "kind": "ui/navigation",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "langCode",
+      "limit",
+      "observe",
+      "responseType",
+      "whatsNewType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getApiResponse": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getApiResponse",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "observe",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getAvgCreditAmountperPopulation": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getAvgCreditAmountperPopulation",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "observe",
+      "quarter",
+      "region",
+      "regions",
+      "responseType",
+      "states",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getAvgCreditAmountperPopulationByRegion": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getAvgCreditAmountperPopulationByRegion",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "observe",
+      "quarter",
+      "region",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getAvgDepositAmountperPopulation": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getAvgDepositAmountperPopulation",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "observe",
+      "quarter",
+      "region",
+      "responseType",
+      "states",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getAvgDepositAmountperPopulationByRegion": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getAvgDepositAmountperPopulationByRegion",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "observe",
+      "quarter",
+      "region",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getBSRDisrictWiseData": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getBSRDisrictWiseData",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "observe",
+      "quarter",
+      "region",
+      "regions",
+      "responseType",
+      "states",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getBSRRegionWiseData": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getBSRRegionWiseData",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "district",
+      "observe",
+      "regions",
+      "responseType",
+      "state",
+      "states",
+      "subDistrict",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getBSRStateWiseData": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getBSRStateWiseData",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "district",
+      "observe",
+      "regions",
+      "responseType",
+      "state",
+      "states",
+      "subDistrict",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getBankANDBankGrp": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getBankANDBankGrp",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "branch",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "limitValue",
+      "observe",
+      "offsetValue",
+      "populationGroupList",
+      "responseType",
+      "statusType",
+      "subTypeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getBankDetailByLatLong": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getBankDetailByLatLong",
+    "kind": "data",
+    "likely_params": [
+      "address",
+      "authorization",
+      "bankGroupList",
+      "bankList",
+      "branch",
+      "branchLocatorResultVO",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "districtList",
+      "lattitude",
+      "longitude",
+      "observe",
+      "part1Code",
+      "populationGroupList",
+      "responseType",
+      "stateList",
+      "statusType",
+      "subDistrictList",
+      "subTypeList",
+      "typeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getBankGetData": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getBankGetData",
+    "kind": "data",
+    "likely_params": [
+      "address",
+      "authorization",
+      "bankGroupList",
+      "bankList",
+      "branch",
+      "branchLocatorResultVO",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "districtList",
+      "limitValue",
+      "observe",
+      "offsetValue",
+      "part1Code",
+      "populationGroupList",
+      "responseType",
+      "state",
+      "stateList",
+      "statusType",
+      "subDistrictList",
+      "subTypeList",
+      "typeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getBankGetDataCount": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getBankGetDataCount",
+    "kind": "data",
+    "likely_params": [
+      "address",
+      "authorization",
+      "bankGroupList",
+      "bankList",
+      "branch",
+      "branchLocatorResultVO",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "districtList",
+      "observe",
+      "part1Code",
+      "populationGroupList",
+      "region",
+      "responseType",
+      "stateList",
+      "statusType",
+      "subDistrictList",
+      "subTypeList",
+      "typeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getBankGetDataCountByRegion": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getBankGetDataCountByRegion",
+    "kind": "data",
+    "likely_params": [
+      "address",
+      "authorization",
+      "bankGroupList",
+      "bankList",
+      "branch",
+      "branchLocatorResultVO",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "districtList",
+      "observe",
+      "part1Code",
+      "populationGroupList",
+      "quarter",
+      "responseType",
+      "stateList",
+      "statusType",
+      "subDistrictList",
+      "subTypeList",
+      "typeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getBankGetDataCountByState": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getBankGetDataCountByState",
+    "kind": "data",
+    "likely_params": [
+      "address",
+      "authorization",
+      "bankGroupList",
+      "bankList",
+      "branch",
+      "branchLocatorResultVO",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "districtList",
+      "observe",
+      "part1Code",
+      "populationGroupList",
+      "regionName",
+      "responseType",
+      "stateList",
+      "statusType",
+      "subDistrictList",
+      "subTypeList",
+      "typeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getBankingOutletDownloadAll": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getBankingOutletDownloadAll",
+    "kind": "file/export",
+    "likely_params": [
+      "address",
+      "authorization",
+      "bankGroupList",
+      "bankList",
+      "branch",
+      "branchLocatorResultVO",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "districtList",
+      "limitValue",
+      "observe",
+      "offsetValue",
+      "part1Code",
+      "populationGroupList",
+      "responseType",
+      "stateList",
+      "statusType",
+      "subDistrictList",
+      "subTypeList",
+      "typeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getBatchJobStatus": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getBatchJobStatus",
+    "kind": "data",
+    "likely_params": [
+      "address",
+      "authorization",
+      "bankGroupList",
+      "bankList",
+      "branch",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "districtList",
+      "factory",
+      "fileType",
+      "nelkey",
+      "observe",
+      "part1Code",
+      "populationGroupList",
+      "providedIn",
+      "requestVo",
+      "responseType",
+      "stateList",
+      "statusType",
+      "subDistrictList",
+      "subTypeList",
+      "token",
+      "typeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getCenterByDistOrSubDist": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getCenterByDistOrSubDist",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "district",
+      "observe",
+      "region",
+      "regions",
+      "responseType",
+      "state",
+      "subDistrict",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getCenterByState": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getCenterByState",
+    "kind": "data",
+    "likely_params": [
+      "ation",
+      "authorization",
+      "channelkey",
+      "datatype",
+      "observe",
+      "responseType",
+      "state",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getCentersByDistrict": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getCentersByDistrict",
+    "kind": "data",
+    "likely_params": [
+      "address",
+      "authorization",
+      "bankGroupList",
+      "bankList",
+      "branch",
+      "branchLocatorResultVO",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "districtList",
+      "lattitude",
+      "longitude",
+      "observe",
+      "offsetValue",
+      "part1Code",
+      "populationGroupList",
+      "responseType",
+      "stateList",
+      "statusType",
+      "subDistrictList",
+      "subTypeList",
+      "typeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getCodeListAction": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getCodeListAction",
+    "kind": "data",
+    "likely_params": [
+      "dimData",
+      "elementCodes",
+      "elementIds",
+      "entityCodes"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getCodeListActionEnhanced": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getCodeListActionEnhanced",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "dimData",
+      "elementCodes",
+      "elementIds",
+      "elementLableDetails",
+      "observe",
+      "responseType"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getCommonDimensionsAction": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getCommonDimensionsAction",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "dimData",
+      "elementCodes",
+      "observe",
+      "pdfFilePath",
+      "responseType"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getContactUsData": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getContactUsData",
+    "kind": "site/account",
+    "likely_params": [
+      "alertType",
+      "authorization",
+      "channelkey",
+      "datatype",
+      "fileId",
+      "langCode",
+      "limit",
+      "observe",
+      "portalName",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getCount": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getCount",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "nnelkey",
+      "observe",
+      "ogoutReason",
+      "responseType",
+      "sessionTokenId",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getCountry": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getCountry",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "lkey",
+      "observe",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getDBIERecommendedItems": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getDBIERecommendedItems",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "factory",
+      "observe",
+      "providedIn",
+      "responseType",
+      "token",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getDQTopIconsInfoAction": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getDQTopIconsInfoAction",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "elementName",
+      "langCode",
+      "observe",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getDashboardReportLink": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getDashboardReportLink",
+    "kind": "ui/navigation",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "code",
+      "datatype",
+      "departments",
+      "lang",
+      "menu",
+      "observe",
+      "portal",
+      "portalCode",
+      "reportId",
+      "responseType",
+      "user",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getDimensionDataQuery": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getDimensionDataQuery",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "elementName",
+      "langCode",
+      "observe",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getDisclaimer": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getDisclaimer",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "fileId",
+      "langCode",
+      "observe",
+      "portalName",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getDisclaimerDbie": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getDisclaimerDbie",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "currentDate",
+      "datatype",
+      "factory",
+      "observe",
+      "pageName",
+      "portal",
+      "portalName",
+      "providedIn",
+      "responseType",
+      "token",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getEBRApiSubscriptionData": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getEBRApiSubscriptionData",
+    "kind": "site/account",
+    "likely_params": [
+      "apiName",
+      "authorization",
+      "channelkey",
+      "datatype",
+      "elementCodes",
+      "emailId",
+      "https",
+      "ipAddress",
+      "observe",
+      "responseType",
+      "userName",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getEBRApiSubscriptionElements": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getEBRApiSubscriptionElements",
+    "kind": "site/account",
+    "likely_params": [
+      "apiName",
+      "authorization",
+      "channelkey",
+      "dashName",
+      "datatype",
+      "elementCodes",
+      "emailId",
+      "https",
+      "ipAddress",
+      "observe",
+      "responseType",
+      "userName",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getEcoHeader": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getEcoHeader",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "langCode",
+      "limit",
+      "observe",
+      "responseType",
+      "whatsNewType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getEcoSubHeader": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getEcoSubHeader",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "defaultSelection",
+      "departments",
+      "factory",
+      "menu",
+      "observe",
+      "portal",
+      "providedIn",
+      "responseType",
+      "token",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getElementDetailsAction": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getElementDetailsAction",
+    "kind": "data",
+    "likely_params": [
+      "dimData",
+      "elementCodes",
+      "elementIds",
+      "entityCodes"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getElementDetailsActionEnhanced": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getElementDetailsActionEnhanced",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "dimData",
+      "downloadFileType",
+      "elementCodes",
+      "elementIds",
+      "elementLableDetails",
+      "observe",
+      "responseType"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getElementsDataQuery": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getElementsDataQuery",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "elementName",
+      "langCode",
+      "observe",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getEntityDataQuery": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getEntityDataQuery",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "elementName",
+      "observe",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getErupeeReport": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getErupeeReport",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "currencyCode",
+      "datatype",
+      "frequency",
+      "fromDate",
+      "observe",
+      "reserveCode",
+      "responseType",
+      "title",
+      "toDate",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getFeedbackType": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getFeedbackType",
+    "kind": "site/account",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "fileId",
+      "langCode",
+      "observe",
+      "portal",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getFrequencyDataQuery": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getFrequencyDataQuery",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "elementName",
+      "langCode",
+      "observe",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getHomeBankName": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getHomeBankName",
+    "kind": "data",
+    "likely_params": [
+      "address",
+      "authorization",
+      "bankGroupList",
+      "bankList",
+      "branch",
+      "branchLocatorResultVO",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "districtList",
+      "limitValue",
+      "observe",
+      "offsetValue",
+      "part1Code",
+      "populationGroupList",
+      "responseType",
+      "stateList",
+      "statusType",
+      "subDistrictList",
+      "subTypeList",
+      "typeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getImpalaDQAction": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getImpalaDQAction",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "dimData",
+      "elementCodes",
+      "entityCodes",
+      "observe",
+      "pdfFilePath",
+      "responseType"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getImpalaDQActionEnhanced": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getImpalaDQActionEnhanced",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "dimData",
+      "downloadFileType",
+      "elementCodes",
+      "elementIds",
+      "elementLableDetails",
+      "ementCodes",
+      "fileName",
+      "observe",
+      "responseType"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getLatLongOfFinalResult": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getLatLongOfFinalResult",
+    "kind": "data",
+    "likely_params": [
+      "address",
+      "authorization",
+      "bankGroupList",
+      "bankList",
+      "branch",
+      "branchLocatorResultVO",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "districtList",
+      "observe",
+      "part1Code",
+      "populationGroupList",
+      "regionName",
+      "responseType",
+      "stateList",
+      "statusType",
+      "subDistrictList",
+      "subTypeList",
+      "typeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getMMIJson": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getMMIJson",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "observe",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getMMIKey": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getMMIKey",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "istrictPopulationGroupName",
+      "observe",
+      "responseType",
+      "ubDistrictPopulationGroup",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getOccupation": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getOccupation",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "langCode",
+      "observe",
+      "portal",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getPopulationGroup": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getPopulationGroup",
+    "kind": "data",
+    "likely_params": [
+      "address",
+      "authorization",
+      "bankGroupList",
+      "bankList",
+      "branch",
+      "branchLocatorResultVO",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "districtList",
+      "observe",
+      "offsetValue",
+      "part1Code",
+      "populationGroupList",
+      "responseType",
+      "state",
+      "stateList",
+      "statusType",
+      "subDistrictList",
+      "subTypeList",
+      "tion",
+      "typeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getPortalDashboardReportDetails": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getPortalDashboardReportDetails",
+    "kind": "ui/navigation",
+    "likely_params": [
+      "apiName",
+      "authorization",
+      "channelkey",
+      "datatype",
+      "elementCodes",
+      "emailId",
+      "ipAddress",
+      "observe",
+      "responseType",
+      "userName",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getPortalFooters": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getPortalFooters",
+    "kind": "data",
+    "likely_params": [
+      "alertType",
+      "authorization",
+      "channelkey",
+      "datatype",
+      "langCode",
+      "limit",
+      "observe",
+      "portalName",
+      "quickLinkType",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getPublicationDataImpala": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getPublicationDataImpala",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "ilename",
+      "observe",
+      "onseType",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getPublicationPrintReports": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getPublicationPrintReports",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "email",
+      "emailId",
+      "firstName",
+      "lastName",
+      "observe",
+      "responseType",
+      "sponseType",
+      "subscriptionRequestVO",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getQuickLinks": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getQuickLinks",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "langCode",
+      "limit",
+      "observe",
+      "quickLinkType",
+      "responseType",
+      "whatsNewType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getRecentSearches": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getRecentSearches",
+    "kind": "ui/navigation",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "observe",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getRegionCountAction": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getRegionCountAction",
+    "kind": "data",
+    "likely_params": [
+      "address",
+      "annelkey",
+      "authorization",
+      "bankGroupList",
+      "bankList",
+      "branch",
+      "branchLocatorResultVO",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "districtList",
+      "observe",
+      "part1Code",
+      "populationGroupList",
+      "region",
+      "responseType",
+      "state",
+      "stateList",
+      "statusType",
+      "subDistrictList",
+      "subTypeList",
+      "typeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getRegionLatLong": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getRegionLatLong",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "istrictPopulationGroupName",
+      "observe",
+      "region",
+      "responseType",
+      "ubDistrictPopulationGroup",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getRegionWiseCount": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getRegionWiseCount",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "istrictPopulationGroupName",
+      "observe",
+      "region",
+      "responseType",
+      "ubDistrictPopulationGroup",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getReportLink": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getReportLink",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "code",
+      "datatype",
+      "lang",
+      "observe",
+      "ody",
+      "portal",
+      "portalCode",
+      "reportId",
+      "responseType",
+      "user",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getReportsDbie": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getReportsDbie",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "code",
+      "datatype",
+      "defaultSelection",
+      "departments",
+      "menu",
+      "observe",
+      "portal",
+      "portalCode",
+      "responseType",
+      "user",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getSDMXExcelData": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getSDMXExcelData",
+    "kind": "file/export",
+    "likely_params": [
+      "active",
+      "authorization",
+      "channelkey",
+      "currentPage",
+      "disabledTrue",
+      "downloadFileType",
+      "dsdCode",
+      "factory",
+      "fileName",
+      "height",
+      "implicit",
+      "itemsPerPage",
+      "observe",
+      "policyName",
+      "providedIn",
+      "responseType",
+      "token"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getSapReportDownload": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getSapReportDownload",
+    "kind": "file/export",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "ilename",
+      "observe",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getSectorAction": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getSectorAction",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "dimData",
+      "elementCodes",
+      "elementIds",
+      "elementName",
+      "observe",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getSectorActionEnhanced": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getSectorActionEnhanced",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "dimData",
+      "elementCodes",
+      "elementIds",
+      "elementName",
+      "entityCodes",
+      "observe",
+      "responseType",
+      "seType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getSolrSearchMetadata": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getSolrSearchMetadata",
+    "kind": "ui/navigation",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "factory",
+      "observe",
+      "providedIn",
+      "responseType",
+      "token",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getStateAndDistrict": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getStateAndDistrict",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "observe",
+      "responseType",
+      "state",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getStateCountByRegionAction": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getStateCountByRegionAction",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "branch",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "ist",
+      "observe",
+      "populationGroupList",
+      "region",
+      "responseType",
+      "state",
+      "statusType",
+      "subTypeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getStateLatLong": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getStateLatLong",
+    "kind": "data",
+    "likely_params": [
+      "address",
+      "authorization",
+      "bankGroupList",
+      "bankList",
+      "branch",
+      "branchLocatorResultVO",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "districtList",
+      "observe",
+      "part1Code",
+      "populationGroupList",
+      "regionName",
+      "responseType",
+      "stateList",
+      "statusType",
+      "subDistrictList",
+      "subTypeList",
+      "tatype",
+      "typeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getStateWiseCount": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getStateWiseCount",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "istrictPopulationGroupName",
+      "observe",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getStateWiseCountByRegion": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getStateWiseCountByRegion",
+    "kind": "data",
+    "likely_params": [
+      "address",
+      "authorization",
+      "bankGroupList",
+      "bankList",
+      "branch",
+      "branchLocatorResultVO",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "districtList",
+      "ion",
+      "observe",
+      "part1Code",
+      "populationGroupList",
+      "region",
+      "responseType",
+      "stateList",
+      "statusType",
+      "subDistrictList",
+      "subTypeList",
+      "typeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getSubDistrict": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getSubDistrict",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "observe",
+      "responseType",
+      "serve",
+      "state",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getSubDistrictNewAction": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getSubDistrictNewAction",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "istrictPopulationGroupName",
+      "observe",
+      "responseType",
+      "ubDistrictPopulationGroup",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getSubDistrictsByDistrict": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getSubDistrictsByDistrict",
+    "kind": "data",
+    "likely_params": [
+      "address",
+      "authorization",
+      "bankGroupList",
+      "bankList",
+      "branch",
+      "branchLocatorResultVO",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "districtList",
+      "lattitude",
+      "longitude",
+      "observe",
+      "part1Code",
+      "populationGroupList",
+      "responseType",
+      "stateList",
+      "statusType",
+      "subDistrictList",
+      "subTypeList",
+      "typeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getSubscribedReportIdsByEmail": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getSubscribedReportIdsByEmail",
+    "kind": "site/account",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "createdBy",
+      "datatype",
+      "email",
+      "emailId",
+      "fileType",
+      "firstName",
+      "lastName",
+      "observe",
+      "reportCuid",
+      "reportIds",
+      "reportName",
+      "responseType",
+      "subscriptionEndDate",
+      "subscriptionRequestVO",
+      "subscriptionStartDate",
+      "xlsx",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_getlatLongByState": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_getlatLongByState",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "factory",
+      "observe",
+      "providedIn",
+      "responseType",
+      "state",
+      "token",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_insertPolicyAction": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_insertPolicyAction",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "dimData",
+      "elementCodes",
+      "elementIds",
+      "entityCodes",
+      "observe"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_insertPolicyActionEnhanced": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_insertPolicyActionEnhanced",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "dimData",
+      "downloadFileType",
+      "dsdCode",
+      "elementCodes",
+      "fileName",
+      "observe",
+      "policyName",
+      "responseType"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_mainMenuList": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_mainMenuList",
+    "kind": "ui/navigation",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "dashName",
+      "datatype",
+      "https",
+      "ilename",
+      "observe",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_menuMappingList": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_menuMappingList",
+    "kind": "ui/navigation",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "langCode",
+      "limit",
+      "observe",
+      "responseType",
+      "whatsNewType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_noOfDepositAccountPerPopulationByRegion": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_noOfDepositAccountPerPopulationByRegion",
+    "kind": "data",
+    "likely_params": [
+      "address",
+      "authorization",
+      "bankGroupList",
+      "bankList",
+      "branch",
+      "branchLocatorResultVO",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "districtList",
+      "observe",
+      "part1Code",
+      "populationGroupList",
+      "quarter",
+      "region",
+      "responseType",
+      "stateList",
+      "subDistrictList",
+      "typeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_noOfDepositAccountPerPopulationStateWise": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_noOfDepositAccountPerPopulationStateWise",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "observe",
+      "quarter",
+      "region",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_pdfFileDownloadDQAction": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_pdfFileDownloadDQAction",
+    "kind": "file/export",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "dimData",
+      "elementCodes",
+      "observe",
+      "pdfFilePath",
+      "responseType"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_renewSubscriptionEndDate": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_renewSubscriptionEndDate",
+    "kind": "site/account",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "email",
+      "esktop",
+      "firstName",
+      "lastName",
+      "observe",
+      "responseType",
+      "subscriptionRequestVO",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_saveFeedback": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_saveFeedback",
+    "kind": "site/account",
+    "likely_params": [
+      "address",
+      "authorization",
+      "channelkey",
+      "color",
+      "country",
+      "createdBy",
+      "datatype",
+      "email",
+      "feedbackComment",
+      "feedbackType",
+      "feedbacksToBeSaved",
+      "gender",
+      "index",
+      "inputcaptcha",
+      "nature",
+      "number",
+      "observe",
+      "occupation",
+      "pendingDept",
+      "portal",
+      "responseType",
+      "status",
+      "subjectArea",
+      "top",
+      "width",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_startDownloadAllBatchJob": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_startDownloadAllBatchJob",
+    "kind": "file/export",
+    "likely_params": [
+      "address",
+      "authorization",
+      "bankGroupList",
+      "bankList",
+      "branch",
+      "centerList",
+      "channelkey",
+      "datatype",
+      "districtList",
+      "fileType",
+      "limitValue",
+      "observe",
+      "offsetValue",
+      "part1Code",
+      "populationGroupList",
+      "requestVo",
+      "responseType",
+      "stateList",
+      "statusType",
+      "subDistrictList",
+      "subTypeList",
+      "typeList",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_subscribeUserToReport": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_subscribeUserToReport",
+    "kind": "site/account",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "createdBy",
+      "datatype",
+      "email",
+      "emailId",
+      "fileType",
+      "firstName",
+      "lastName",
+      "limit",
+      "observe",
+      "portal",
+      "reportCuid",
+      "reportIds",
+      "reportName",
+      "responseType",
+      "subscriptionEndDate",
+      "subscriptionRequestVO",
+      "subscriptionStartDate",
+      "xlsx",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_updateCount": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_updateCount",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "nnelkey",
+      "observe",
+      "responseType",
+      "sessionTokenId",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  },
+  "dbie_updateMaxCountReport": {
+    "endpoint": "/CIMS_Gateway_DBIE/GATEWAY/SERVICES/dbie_updateMaxCountReport",
+    "kind": "data",
+    "likely_params": [
+      "authorization",
+      "channelkey",
+      "datatype",
+      "lang",
+      "limit",
+      "observe",
+      "portal",
+      "reportId",
+      "responseType",
+      "ype"
+    ],
+    "bundle": "main.c9b089b046993734.js"
+  }
+}

@@ -20,6 +20,10 @@ BROWSER_HEADERS = {
     "Connection": "keep-alive",
 }
 
+# Worth another attempt: rate-limit and transient server faults. Everything else
+# in the 4xx range is a permanent answer.
+RETRYABLE_STATUS = {429, 500, 502, 503, 504}
+
 
 class Fetcher:
     def __init__(self, base_headers: dict | None = None, timeout: float = 30.0,
@@ -48,11 +52,19 @@ class Fetcher:
             self._throttle()
             try:
                 r = self.client.get(url, **kw)
-                if r.status_code in (429, 502, 503, 504):
+                if r.status_code in RETRYABLE_STATUS:
                     raise httpx.HTTPStatusError("retryable", request=r.request, response=r)
                 r.raise_for_status()
                 return r
-            except Exception as e:  # noqa
+            except httpx.HTTPStatusError as e:
+                # 404/403/400 mean "this will never work" -- retrying wastes the
+                # rate-limit budget (NSE) and turns speculative probes into
+                # minutes of backoff. Only 429/5xx are worth another attempt.
+                if e.response is not None and e.response.status_code not in RETRYABLE_STATUS:
+                    raise
+                last_err = e
+                time.sleep((2 ** attempt) + random.uniform(0, 1))
+            except Exception as e:  # network/timeout -- genuinely transient
                 last_err = e
                 time.sleep((2 ** attempt) + random.uniform(0, 1))
         raise RuntimeError(f"GET failed after {self.max_retries} tries: {url}") from last_err
