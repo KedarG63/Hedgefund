@@ -1,0 +1,416 @@
+{
+  "sections": [
+    {
+      "title": "Indicators",
+      "id": "3",
+      "url": "/dbie/indicators"
+    },
+    {
+      "title": "Statistics",
+      "id": "4",
+      "url": "/dbie/statistics"
+    },
+    {
+      "title": "Publication",
+      "id": "5",
+      "url": "/dbie/publications"
+    },
+    {
+      "title": "Unit Level Data",
+      "id": "6",
+      "url": "/dbie/unit_level_data"
+    }
+  ],
+  "screens": [
+    {
+      "screen": "Foreign Exchange Reserves",
+      "breadcrumb": "Indicators > External Sector Indicators > Foreign Exchange Reserves",
+      "section": "Indicators",
+      "route": "/dbie/indicators"
+    },
+    {
+      "screen": "Exchange Rate",
+      "breadcrumb": "Indicators > External Sector Indicators > Exchange Rate",
+      "section": "Indicators",
+      "route": "/dbie/indicators"
+    },
+    {
+      "screen": "Key Rates",
+      "breadcrumb": "Indicators > Financial Sector Indicators > Key Rates",
+      "section": "Indicators",
+      "route": "/dbie/indicators"
+    },
+    {
+      "screen": "Daily LAF Operation",
+      "breadcrumb": "Indicators > Financial Sector Indicators > Daily LAF Operation",
+      "section": "Indicators",
+      "route": "/dbie/indicators"
+    },
+    {
+      "screen": "Business of Scheduled Banks",
+      "breadcrumb": "Indicators > Financial Sector Indicators > Business of Scheduled Banks",
+      "section": "Indicators",
+      "route": "/dbie/indicators"
+    },
+    {
+      "screen": "Central Govt Market Borrowings",
+      "breadcrumb": "Indicators > Financial Sector Indicators > Central Govt Market Borrowings",
+      "section": "Indicators",
+      "route": "/dbie/indicators"
+    },
+    {
+      "screen": "Reserve Money",
+      "breadcrumb": "Indicators > Financial Sector Indicators > Reserve Money",
+      "section": "Indicators",
+      "route": "/dbie/indicators"
+    },
+    {
+      "screen": "RBI Balance Sheet",
+      "breadcrumb": "Indicators > Financial Sector Indicators > RBI Balance Sheet",
+      "section": "Indicators",
+      "route": "/dbie/indicators"
+    },
+    {
+      "screen": "Payment System Indicators",
+      "breadcrumb": "Indicators > Financial Sector Indicators > Payment System Indicators",
+      "section": "Indicators",
+      "route": "/dbie/indicators"
+    },
+    {
+      "screen": "G-Sec Turnover",
+      "breadcrumb": "Indicators > G-Sec Market Indicators > G-Sec Turnover",
+      "section": "Indicators",
+      "route": "/dbie/indicators"
+    },
+    {
+      "screen": "Money Market",
+      "breadcrumb": "Indicators > Money Market Indicators > Money Market",
+      "section": "Indicators",
+      "route": "/dbie/indicators"
+    },
+    {
+      "screen": "GDP",
+      "breadcrumb": "Indicators > Real Sector Indicators > GDP",
+      "section": "Indicators",
+      "route": "/dbie/indicators"
+    },
+    {
+      "screen": "CPI - Rural, Urban, Combined",
+      "breadcrumb": "Indicators > Real Sector Indicators > CPI - Rural, Urban, Combined",
+      "section": "Indicators",
+      "route": "/dbie/indicators"
+    },
+    {
+      "screen": "IIP - Monthly",
+      "breadcrumb": "Indicators > Real Sector Indicators > IIP - Monthly",
+      "section": "Indicators",
+      "route": "/dbie/indicators"
+    },
+    {
+      "screen": "Non-Government Non-Banking Financial and Investment Companies",
+      "breadcrumb": "Statistics > Corporate Sector > Non-Government Non-Banking Financial and Investment Companies",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Non-Government Non-Financial Private Limited Companies",
+      "breadcrumb": "Statistics > Corporate Sector > Non-Government Non-Financial Private Limited Companies",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Non-Government Non-Financial Public Limited Companies",
+      "breadcrumb": "Statistics > Corporate Sector > Non-Government Non-Financial Public Limited Companies",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Finances of FDI Companies",
+      "breadcrumb": "Statistics > Corporate Sector > Finances of FDI Companies",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Listed Non-Government Non-Financial Companies",
+      "breadcrumb": "Statistics > Corporate Sector > Listed Non-Government Non-Financial Companies",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "External Sector Indices",
+      "breadcrumb": "Statistics > External Sector > External Sector Indices",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Forex Reserve",
+      "breadcrumb": "Statistics > External Sector > Forex Reserve",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "International Finance",
+      "breadcrumb": "Statistics > External Sector > International Finance",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "International Trade",
+      "breadcrumb": "Statistics > External Sector > International Trade",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "External Debt",
+      "breadcrumb": "Statistics > External Sector > External Debt",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Equity and Corporate Debt Market",
+      "breadcrumb": "Statistics > Financial Market > Equity and Corporate Debt Market",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Money Market",
+      "breadcrumb": "Statistics > Financial Market > Money Market",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Government Securities Market",
+      "breadcrumb": "Statistics > Financial Market > Government Securities Market",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Forex Market",
+      "breadcrumb": "Statistics > Financial Market > Forex Market",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Key Rates",
+      "breadcrumb": "Statistics > Financial Sector > Key Rates",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Financial Institutions",
+      "breadcrumb": "Statistics > Financial Sector > Financial Institutions",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Monetary Statistics",
+      "breadcrumb": "Statistics > Financial Sector > Monetary Statistics",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Non Banking Financial Companies",
+      "breadcrumb": "Statistics > Financial Sector > Non Banking Financial Companies",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Banking - Sectoral Statistics",
+      "breadcrumb": "Statistics > Financial Sector > Banking - Sectoral Statistics",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Banking - Performance Indicators",
+      "breadcrumb": "Statistics > Financial Sector > Banking - Performance Indicators",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Payment Systems",
+      "breadcrumb": "Statistics > Financial Sector > Payment Systems",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Banking - Assets & Liabilities",
+      "breadcrumb": "Statistics > Financial Sector > Banking - Assets & Liabilities",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Central & State Govt. Finance (Combined)",
+      "breadcrumb": "Statistics > Public Finance > Central & State Govt. Finance (Combined)",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Central Govt. Finance",
+      "breadcrumb": "Statistics > Public Finance > Central Govt. Finance",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "State Govt. Finance",
+      "breadcrumb": "Statistics > Public Finance > State Govt. Finance",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Agriculture",
+      "breadcrumb": "Statistics > Real Sector > Agriculture",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Prices & Wages",
+      "breadcrumb": "Statistics > Real Sector > Prices & Wages",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "National Income",
+      "breadcrumb": "Statistics > Real Sector > National Income",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Industrial Statistics",
+      "breadcrumb": "Statistics > Real Sector > Industrial Statistics",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Socio-Economic Indicators",
+      "breadcrumb": "Statistics > Socio-Economic Indicators > Socio-Economic Indicators",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Survey of Professional Forecasters",
+      "breadcrumb": "Statistics > Surveys – Aggregated Data > Survey of Professional Forecasters",
+      "section": "Statistics",
+      "route": "/dbie/statistics"
+    },
+    {
+      "screen": "Data on International Banking Statistics of India",
+      "breadcrumb": "Publication > Time-Series Publications > Data on International Banking Statistics of India",
+      "section": "Publication",
+      "route": "/dbie/publications"
+    },
+    {
+      "screen": "Quarterly Basic Statistical Return (BSR)-2 on Deposits with Scheduled Commercial Banks - (Excluding Regional Rural Banks)",
+      "breadcrumb": "Publication > Time-Series Publications > Quarterly Basic Statistical Return (BSR)-2 on Deposits with Scheduled Commercial Banks - (Excluding Regional Rural Banks)",
+      "section": "Publication",
+      "route": "/dbie/publications"
+    },
+    {
+      "screen": "Quarterly Spatial Distribution of Deposits and Credit",
+      "breadcrumb": "Publication > Time-Series Publications > Quarterly Spatial Distribution of Deposits and Credit",
+      "section": "Publication",
+      "route": "/dbie/publications"
+    },
+    {
+      "screen": "Annual Spatial Distribution of Deposits and Credit - (Including Regional Rural Banks)",
+      "breadcrumb": "Publication > Time-Series Publications > Annual Spatial Distribution of Deposits and Credit - (Including Regional Rural Banks)",
+      "section": "Publication",
+      "route": "/dbie/publications"
+    },
+    {
+      "screen": "Report on Trend and Progress of Banking in India",
+      "breadcrumb": "Publication > Time-Series Publications > Report on Trend and Progress of Banking in India",
+      "section": "Publication",
+      "route": "/dbie/publications"
+    },
+    {
+      "screen": "Weekly Statistical Supplement",
+      "breadcrumb": "Publication > Time-Series Publications > Weekly Statistical Supplement",
+      "section": "Publication",
+      "route": "/dbie/publications"
+    },
+    {
+      "screen": "Handbook of Statistics on Indian States",
+      "breadcrumb": "Publication > Time-Series Publications > Handbook of Statistics on Indian States",
+      "section": "Publication",
+      "route": "/dbie/publications"
+    },
+    {
+      "screen": "Annual Basic Statistical Return (BSR)-1 on Credit by Scheduled Commercial Banks - (Including Regional Rural Banks)",
+      "breadcrumb": "Publication > Time-Series Publications > Annual Basic Statistical Return (BSR)-1 on Credit by Scheduled Commercial Banks - (Including Regional Rural Banks)",
+      "section": "Publication",
+      "route": "/dbie/publications"
+    },
+    {
+      "screen": "Quarterly Basic Statistical Return (BSR)-1 on Credit by Scheduled Commercial Banks - (Excluding Regional Rural Banks)",
+      "breadcrumb": "Publication > Time-Series Publications > Quarterly Basic Statistical Return (BSR)-1 on Credit by Scheduled Commercial Banks - (Excluding Regional Rural Banks)",
+      "section": "Publication",
+      "route": "/dbie/publications"
+    },
+    {
+      "screen": "Annual Basic Statistical Return (BSR)-2 on Deposits with Scheduled Commercial Banks - (Including Regional Rural Banks)",
+      "breadcrumb": "Publication > Time-Series Publications > Annual Basic Statistical Return (BSR)-2 on Deposits with Scheduled Commercial Banks - (Including Regional Rural Banks)",
+      "section": "Publication",
+      "route": "/dbie/publications"
+    },
+    {
+      "screen": "Primary (Urban) Co-operative Banks' Outlook",
+      "breadcrumb": "Publication > Time-Series Publications > Primary (Urban) Co-operative Banks' Outlook",
+      "section": "Publication",
+      "route": "/dbie/publications"
+    },
+    {
+      "screen": "Bank Branch Statistics",
+      "breadcrumb": "Publication > Time-Series Publications > Bank Branch Statistics",
+      "section": "Publication",
+      "route": "/dbie/publications"
+    },
+    {
+      "screen": "Statistical Tables Relating to Banks in India",
+      "breadcrumb": "Publication > Time-Series Publications > Statistical Tables Relating to Banks in India",
+      "section": "Publication",
+      "route": "/dbie/publications"
+    },
+    {
+      "screen": "Public Debt Statistics",
+      "breadcrumb": "Publication > Time-Series Publications > Public Debt Statistics",
+      "section": "Publication",
+      "route": "/dbie/publications"
+    },
+    {
+      "screen": "Handbook of Statistics on the Indian Economy",
+      "breadcrumb": "Publication > Time-Series Publications > Handbook of Statistics on the Indian Economy",
+      "section": "Publication",
+      "route": "/dbie/publications"
+    },
+    {
+      "screen": "Monthly RBI Bulletin",
+      "breadcrumb": "Publication > Time-Series Publications > Monthly RBI Bulletin",
+      "section": "Publication",
+      "route": "/dbie/publications"
+    },
+    {
+      "screen": "Urban Consumer Confidence Survey (UCCS)",
+      "breadcrumb": "Unit Level Data > Unit Level Data Reports > Urban Consumer Confidence Survey (UCCS)",
+      "section": "Unit Level Data",
+      "route": "/dbie/unit_level_data"
+    },
+    {
+      "screen": "Survey of Professional Forecasters (SPF)",
+      "breadcrumb": "Unit Level Data > Unit Level Data Reports > Survey of Professional Forecasters (SPF)",
+      "section": "Unit Level Data",
+      "route": "/dbie/unit_level_data"
+    },
+    {
+      "screen": "Inflation Expectations Survey of Household (IESH)",
+      "breadcrumb": "Unit Level Data > Unit Level Data Reports > Inflation Expectations Survey of Household (IESH)",
+      "section": "Unit Level Data",
+      "route": "/dbie/unit_level_data"
+    },
+    {
+      "screen": "Rural Consumer Confidence Survey (RCCS)",
+      "breadcrumb": "Unit Level Data > Unit Level Data Reports > Rural Consumer Confidence Survey (RCCS)",
+      "section": "Unit Level Data",
+      "route": "/dbie/unit_level_data"
+    }
+  ]
+}
