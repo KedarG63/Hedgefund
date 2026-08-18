@@ -1,42 +1,56 @@
 """
 RBI DBIE (data.rbi.org.in) -- CIMS Gateway client.
 
-WHAT YOUR cURL REVEALED
------------------------
+WHAT THE cURL + BUNDLE ANALYSIS REVEALED
+----------------------------------------
 Endpoint pattern:
-    POST https://data.rbi.org.in/CIMS_Gateway_DBIE/GATEWAY/SERVICES/<serviceName>
+    POST https://data.rbi.org.in/CIMS_Gateway_<GW>/GATEWAY/SERVICES/<serviceName>
     body: {"body": { ...service-specific params... }}
 
-So EVERY dataset on DBIE is one POST to a named service. Find the service
-names and you have the whole site. See discover_rbi_services.py.
+Five gateways exist, not one: DBIE, LOGIN, SAARC, RBIDATA, FRBS. Every service
+name is a string literal in the JS bundles -- see tools/discover_rbi_services.py,
+which enumerates 118 of them into rbi_service_catalog.json.
 
-THE AUTHORIZATION HEADER IS NOT A SECRET
-----------------------------------------
+AUTHORIZATION: A SERVER-ISSUED SESSION TOKEN (corrected 2026-08-16)
+-------------------------------------------------------------------
+An earlier reading of this API assumed the token was minted client-side, because
+it looks like <random prefix> + <epoch microseconds>:
+
     authorization: 2n3ze01786881491969196
-                   ^^^^^^ ^^^^^^^^^^^^^^^^
-                   random  epoch MICROSECONDS
 
-    1786881491969196 us -> 2026-08-16T11:58:11 UTC
+It is NOT client-minted. The SERVER mints it in that format and returns it in a
+*response* header. From main.js:
 
-It is minted in the browser's JavaScript on every request: a short random
-prefix concatenated with the current timestamp. There is no server-issued
-credential and nothing to expire. mint_token() below reproduces it.
+    getSession() -> POST /CIMS_Gateway_LOGIN/GATEWAY/SERVICES/security_generateSessionToken
+    this.sessionId = response.headers.get("authorization")
+    store.saveInSession("sessionId", this.sessionId)
 
-If RBI ever changes the scheme, fall back to harvest_token() (Playwright reads
-the header off a real page load) or PUBLICATIONS (fixed-URL Excel/PDF).
+Later calls echo that value back as the `authorization` request header. The
+give-away that it is server-side is that every response's `transactionid` has
+the identical shape -- the format is simply how RBI's gateway builds ids.
+
+Verified live: a locally minted token is rejected (errorCode 4302), and omitting
+the header is rejected (8706). The handshake returns data. mint_token() is kept
+only to document the dead end.
+
+TWO TRAPS
+---------
+1. HTTP 200 DOES NOT MEAN SUCCESS. Application errors come back as 200 with
+   {"header":{"status":"error","errorCode":...}}. Always check the payload.
+2. The JSON is HTML-ENTITY-ENCODED (an F5 WAF response filter), so it is not
+   directly json.loads-able. decode() unescapes it first.
 
 THE COOKIES ARE F5 BIG-IP WAF COOKIES
 -------------------------------------
     TS01eeff17..., TSe532997b027...
-These are set by RBI's web application firewall. You do not hardcode them --
-they expire and they are tied to your session. Instead, GET the homepage once
-and your HTTP client collects them automatically. bootstrap() does this.
+Set by RBI's firewall. Never hardcode them -- they expire and are session-bound.
+GET the homepage once and the client collects them. bootstrap() does this.
 
-*** DO NOT COMMIT YOUR OWN COOKIE VALUES TO GIT. *** They are session
-credentials. The ones in your cURL should be treated as burned.
+*** DO NOT COMMIT COOKIE OR TOKEN VALUES. *** They are session credentials.
 """
 from __future__ import annotations
 
+import html
 import json
 import random
 import string
@@ -50,14 +64,39 @@ from core.storage import save_raw, write_table
 
 BASE = "https://data.rbi.org.in"
 GATEWAY = f"{BASE}/CIMS_Gateway_DBIE/GATEWAY/SERVICES"
+LOGIN_GATEWAY = f"{BASE}/CIMS_Gateway_LOGIN/GATEWAY/SERVICES"
+
+# Reserve components, confirmed by probing the live service. The numbering in
+# fxReservesDescription (1, 1.1 .. 1.4) matches WSS Table 2, so this is the
+# complete breakdown -- TR is the sum of the other four.
+RESERVE_CODES = {
+    "TR": "Total Reserves",
+    "FCA": "Foreign Currency Assets",
+    "GOLD": "Gold",
+    "SDR": "SDRs",
+    "IMF": "Reserve Position in the IMF",
+}
+
+
+class RBIGatewayError(RuntimeError):
+    """The gateway returned status=error. Raised so a job fails loudly (rule 4)."""
 
 
 def mint_token(prefix_len: int = 6) -> str:
-    """Reproduce the client-side authorization token: random prefix + epoch microseconds."""
+    """
+    DEAD END, kept as documentation. Reproduces the token's *shape* (random
+    prefix + epoch microseconds) but not its provenance -- the server has never
+    issued it, so the gateway rejects it with errorCode 4302. Use
+    RBIClient._handshake() instead.
+    """
     alphabet = string.ascii_lowercase + string.digits
     prefix = "".join(random.choice(alphabet) for _ in range(prefix_len))
-    micros = int(time.time() * 1_000_000)
-    return f"{prefix}{micros}"
+    return f"{prefix}{int(time.time() * 1_000_000)}"
+
+
+def decode(text: str) -> str:
+    """Undo the WAF's HTML-entity encoding so the body can be parsed as JSON."""
+    return html.unescape(text).replace("\xa0", " ")
 
 
 class RBIClient:
@@ -84,24 +123,51 @@ class RBIClient:
             },
             min_delay=throttle,
         )
-        self._fixed_token = token
+        self._token = token
         self.bootstrap()
+        if not self._token:
+            self._token = self._handshake()
 
     def bootstrap(self):
         """Hit the homepage so the F5 WAF hands us its TS* cookies."""
         self.http.client.get(BASE + "/", timeout=30)
         time.sleep(0.5)
 
-    def _headers(self):
-        return {"authorization": self._fixed_token or mint_token()}
+    def _handshake(self) -> str:
+        """
+        Ask the LOGIN gateway for a session token. It arrives as the
+        `authorization` RESPONSE header, not in the body.
+        """
+        r = self.http.post(f"{LOGIN_GATEWAY}/security_generateSessionToken",
+                           json={"body": {}})
+        token = r.headers.get("authorization")
+        if not token:
+            raise RBIGatewayError(
+                "security_generateSessionToken returned no authorization header. "
+                f"status={r.status_code} body={decode(r.text)[:200]}"
+            )
+        return token
 
-    def call(self, service: str, body: dict, archive: bool = True) -> dict:
-        """POST one gateway service. Archives the raw response before parsing."""
-        url = f"{GATEWAY}/{service}"
-        r = self.http.post(url, json={"body": body}, headers=self._headers())
+    def call(self, service: str, body: dict, archive: bool = True,
+             gateway: str = GATEWAY) -> dict:
+        """
+        POST one gateway service. Archives the raw response BEFORE parsing
+        (rule 1), then raises if the payload reports an error (rule 4).
+        """
+        r = self.http.post(f"{gateway}/{service}", json={"body": body},
+                           headers={"authorization": self._token})
         if archive:
-            save_raw("rbi", service, r.content, "json", {"request_body": body})
-        return r.json()
+            save_raw("rbi", service, r.content, "json",
+                     {"request_body": body, "url": f"{gateway}/{service}"})
+
+        payload = json.loads(decode(r.text))
+        header = payload.get("header", {}) if isinstance(payload, dict) else {}
+        if header.get("status") == "error":
+            raise RBIGatewayError(
+                f"{service} failed: code={header.get('errorCode')} "
+                f"{header.get('errorMessage')}"
+            )
+        return payload
 
     # ---------------------------------------------------------------- helpers
 
@@ -116,60 +182,114 @@ class RBIClient:
         if isinstance(payload, list):
             return pd.DataFrame(payload)
 
-        # common wrappers: {"body": {...}}, {"data": [...]}, {"result": [...]}
-        for key in ("body", "data", "result", "records", "response", "Data"):
+        for key in ("resultList", "body", "data", "result", "records", "response", "Data"):
             if key in payload:
                 return RBIClient.to_frame(payload[key])
 
-        # a dict whose values are lists of records -> take the longest list
         list_vals = {k: v for k, v in payload.items() if isinstance(v, list)}
         if list_vals:
-            best = max(list_vals.values(), key=len)
-            return pd.DataFrame(best)
+            return pd.DataFrame(max(list_vals.values(), key=len))
 
         return pd.json_normalize(payload)
 
     # ---------------------------------------------------------------- services
 
     def forex_reserves(self, weeks: int = 52, currency: str = "USD",
-                       reserve: str = "TR", frequency: str = "Weekly") -> pd.DataFrame:
+                       components: tuple[str, ...] = tuple(RESERVE_CODES),
+                       frequency: str = "Weekly", persist: bool = True) -> pd.DataFrame:
         """
-        Weekly forex reserves -- RBI's highest-frequency release (every Friday).
-        reserve codes seen: TR = total reserves. Others exist (FCA, gold, SDR,
-        IMF reserve position) -- read them off the dropdown in DevTools.
+        Weekly foreign exchange reserves -- RBI's highest-frequency release,
+        published every Friday.
+
+        Why it matters for research: reserves are the RBI's intervention
+        war-chest. Week-on-week changes in FCA net of valuation effects are the
+        cleanest available read on whether the RBI is defending the rupee, which
+        drives USDINR carry and is a direct input to the gold-import premium in
+        connectors/commodities.py.
+
+        Returns one tidy row per (week_ended, component) rather than a wide
+        frame, so new components never change the schema.
         """
         to_dt = datetime.now()
         frm = to_dt - timedelta(weeks=weeks)
-        payload = self.call("dbie_foreignExchangeReserves", {
-            "currencyCode": currency,
-            "reserveCode": reserve,
-            "fromDate": frm.strftime("%Y-%m-%d 00:00:00"),
-            "toDate": to_dt.strftime("%Y-%m-%d 00:00:00"),
-            "frequency": frequency,
+
+        frames = []
+        for code in components:
+            payload = self.call("dbie_foreignExchangeReserves", {
+                "currencyCode": currency,
+                "reserveCode": code,
+                "fromDate": frm.strftime("%Y-%m-%d 00:00:00"),
+                "toDate": to_dt.strftime("%Y-%m-%d 00:00:00"),
+                "frequency": frequency,
+            })
+            df = self.to_frame(payload)
+            if df.empty:
+                continue
+            frames.append(df)
+
+        if not frames:
+            raise RBIGatewayError(
+                f"forex_reserves returned no rows for components={components}. "
+                "The service answered but the result list was empty -- check the "
+                "date window and reserveCode values."
+            )
+
+        out = pd.concat(frames, ignore_index=True)
+
+        # timeDate is epoch milliseconds in IST; RBI reports as-of Friday.
+        out["week_ended"] = (
+            pd.to_datetime(out["timeDate"], unit="ms", utc=True)
+              .dt.tz_convert("Asia/Kolkata").dt.date.astype(str)
+        )
+        out = out.rename(columns={
+            "fxReservesCode": "component_code",
+            "fxReservesDescription": "component",
+            "amount": "amount_usd",
+            "currencyCode": "currency",
+            "timeFisYear": "fiscal_year",
         })
-        df = self.to_frame(payload)
-        if not df.empty:
-            write_table(df, "rbi", "forex_reserves")
-        return df
+        out["fiscal_year"] = out["fiscal_year"].astype(str).str.strip()
+        out["frequency"] = frequency
+
+        cols = ["week_ended", "component_code", "component", "amount_usd",
+                "currency", "unit", "unitDescription", "fiscal_year", "frequency"]
+        out = out[[c for c in cols if c in out.columns]].sort_values(
+            ["week_ended", "component_code"], ignore_index=True)
+
+        if persist:
+            write_table(out, "rbi", "forex_reserves")
+        return out
 
 
 # ---------------------------------------------------------------------------
 # SERVICE CATALOG
-# Populate this by running discover_rbi_services.py -- it greps RBI's own
-# JavaScript bundle and returns every service name on the site at once.
+# Populated by tools/discover_rbi_services.py -> rbi_service_catalog.json
+# (118 services). Only a handful are per-series endpoints like the one below;
+# most data flows through a generic Impala query engine
+# (dbie_getImpalaDQAction / dbie_getElementDetailsActionEnhanced) addressed by
+# element code, and those codes are ENCRYPTED client-side before transmission
+# (encryptPipe.transform("encrypt", ...)). Driving that engine needs either the
+# encryption scheme lifted from the bundle or a captured cURL -- do not guess.
 # ---------------------------------------------------------------------------
 SERVICES: dict[str, dict] = {
     "dbie_foreignExchangeReserves": {
-        "desc": "Weekly forex reserves",
+        "desc": "Weekly forex reserves, by component",
+        "gateway": "DBIE",
         "body": {"currencyCode": "USD", "reserveCode": "TR",
                  "fromDate": "", "toDate": "", "frequency": "Weekly"},
     },
-    # ... add discovered services here
+    "security_generateSessionToken": {
+        "desc": "Issues the session token used as the authorization header",
+        "gateway": "LOGIN",
+        "body": {},
+    },
 }
 
 
 # ---------------------------------------------------------------------------
-# Fallback A: harvest a real token from a live page load (needs Playwright)
+# Fallback A: harvest a real token from a live page load (needs Playwright).
+# No longer required now that the handshake is understood -- kept for the case
+# where RBI starts validating something the plain handshake does not satisfy.
 # ---------------------------------------------------------------------------
 def harvest_token(timeout_ms: int = 30_000) -> str | None:
     """Load DBIE headlessly and read the authorization header off a real XHR."""
@@ -184,7 +304,6 @@ def harvest_token(timeout_ms: int = 30_000) -> str | None:
         def on_request(req):
             if "GATEWAY/SERVICES" in req.url and "authorization" in req.headers:
                 found.setdefault("token", req.headers["authorization"])
-                found.setdefault("url", req.url)
 
         page.on("request", on_request)
         page.goto(BASE, wait_until="networkidle", timeout=timeout_ms)
@@ -194,25 +313,8 @@ def harvest_token(timeout_ms: int = 30_000) -> str | None:
     return found.get("token")
 
 
-# ---------------------------------------------------------------------------
-# Fallback B: fixed-URL publications. No reverse engineering, never breaks.
-# ---------------------------------------------------------------------------
-PUBLICATIONS = {
-    "wss": "https://rbi.org.in/Scripts/WSSView.aspx",
-    "bulletin": "https://rbi.org.in/Scripts/BS_ViewBulletin.aspx",
-    "handbook": "https://rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook%20of%20Statistics%20on%20Indian%20Economy",
-    "press_releases": "https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx",
-}
-
-
-def fetch_publication(key: str) -> str:
-    r = Fetcher().get(PUBLICATIONS[key])
-    save_raw("rbi", f"pub_{key}", r.content, "html")
-    return r.text
-
-
 if __name__ == "__main__":
     rbi = RBIClient()
-    df = rbi.forex_reserves(weeks=52)
-    print(df.head(20))
+    df = rbi.forex_reserves(weeks=12)
+    print(df.to_string(max_rows=30))
     print(f"\n{len(df)} rows")

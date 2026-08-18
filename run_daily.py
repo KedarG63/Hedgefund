@@ -101,10 +101,43 @@ def _sec_idx():
 
 
 # ---------------------------------------------------------------- RBI
-@job("rbi_wss", schedule="weekly_friday", desc="Weekly Statistical Supplement -- forex reserves, credit, money supply")
+@job("rbi_forex_reserves", schedule="weekly_friday",
+     desc="Weekly forex reserves by component (DBIE gateway)")
+def _rbi_forex():
+    from connectors.rbi_dbie import RBIClient
+    return RBIClient().forex_reserves(weeks=52)
+
+
+@job("rbi_wss", schedule="weekly_friday",
+     desc="WSS extract -- bank credit, deposits, money stock, liquidity ops")
 def _rbi_wss():
-    from connectors.rbi_dbie import fetch_publication
-    return fetch_publication("wss")
+    from connectors.rbi_publications import wss_extract
+    return wss_extract()
+
+
+@job("rbi_money_market", desc="Daily money market operations -- call/repo volumes and rates")
+def _rbi_mmo():
+    from connectors.rbi_publications import money_market_operations
+    return money_market_operations()
+
+
+@job("rbi_policy_rates", desc="Policy repo/SDF/MSF corridor snapshot")
+def _rbi_rates():
+    from connectors.rbi_publications import policy_rates
+    return policy_rates()
+
+
+@job("rbi_press_index", desc="RBI press release index -- LAF auctions, operational actions")
+def _rbi_press():
+    from connectors.rbi_publications import press_release_index
+    return press_release_index()
+
+
+@job("rbi_banking_ratios", schedule="weekly_friday",
+     desc="NSDP fortnightly credit-deposit / cash-deposit ratios")
+def _rbi_ratios():
+    from connectors.rbi_publications import nsdp_banking_ratios
+    return nsdp_banking_ratios()
 
 
 def _plan(targets, on, run_all):
