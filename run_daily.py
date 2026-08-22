@@ -108,6 +108,17 @@ def _sec_fundamentals():
     return fundamentals_panel(latest_completed_quarter())
 
 
+@job("sec_13f", schedule="weekly_friday",
+     desc="13F institutional positioning -- polls the filing index, ingests what is new")
+def _sec_13f():
+    # Weekly poll, not a quarterly cron: filings scatter across the 45-day
+    # window (observed 07-22 .. 09-24 for one quarter), and polling also picks
+    # up 13F-HR/A amendments for free.
+    from connectors.sec_13f import ingest, latest_reported_quarter
+    year, quarter = latest_reported_quarter()
+    return ingest(year, quarter)
+
+
 @job("sec_daily_index", desc="Every SEC filing made market-wide today")
 def _sec_idx():
     from connectors.sec_edgar import daily_index

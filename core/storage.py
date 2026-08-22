@@ -77,6 +77,33 @@ def latest_raw(source: str, dataset: str) -> Path | None:
     return max(files, key=lambda p: p.stat().st_mtime) if files else None
 
 
+def find_raw(source: str, dataset: str, **match) -> Path | None:
+    """
+    Most recent archived file whose sidecar matches every key=value in `match`.
+
+    Lets a connector parse from the archive instead of refetching bytes it
+    already holds -- which is rule 1's intent, not just a nicety: SEC's
+    quarterly filing index is ~55 MB, and a completed quarter never changes.
+    """
+    folder = RAW / source / dataset
+    if not folder.exists():
+        return None
+    best = None
+    for meta_path in folder.rglob("*.meta.json"):
+        try:
+            meta = json.loads(meta_path.read_text())
+        except (OSError, json.JSONDecodeError):
+            continue
+        if any(meta.get(k) != v for k, v in match.items()):
+            continue
+        data_path = meta_path.with_name(meta_path.name[: -len(".meta.json")])
+        if not data_path.exists():
+            continue
+        if best is None or data_path.stat().st_mtime > best.stat().st_mtime:
+            best = data_path
+    return best
+
+
 def write_table(df, source: str, dataset: str, partition_col: str | None = None):
     """
     Write a parsed DataFrame to the parquet warehouse.

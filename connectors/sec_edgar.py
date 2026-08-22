@@ -8,7 +8,7 @@ import json
 import pandas as pd
 from core.config import require
 from core.http import sec_session
-from core.storage import save_raw, write_table
+from core.storage import find_raw, save_raw, write_table
 
 # SEC requires a User-Agent naming a real contact. Read it from the environment
 # rather than hardcoding: require() raises with a useful message if it is unset
@@ -114,11 +114,20 @@ def filing_index(year: int, quarter: int) -> pd.DataFrame:
     of one submissions() call per company.
     """
     url = f"https://www.sec.gov/Archives/edgar/full-index/{year}/QTR{quarter}/master.idx"
-    r = _s().get(url)
-    save_raw("sec", "filing_index", r.content, "idx", {"year": year, "quarter": quarter, "url": url})
+
+    # A completed quarter's index never changes and is ~55 MB. If we already
+    # archived it, parse the archive -- which is what rule 1 asks for anyway.
+    cached = find_raw("sec", "filing_index", year=year, quarter=quarter)
+    if cached is not None:
+        text = cached.read_text(encoding="utf-8", errors="replace")
+    else:
+        r = _s().get(url)
+        save_raw("sec", "filing_index", r.content, "idx",
+                 {"year": year, "quarter": quarter, "url": url})
+        text = r.text
 
     rows = []
-    for line in r.text.splitlines():
+    for line in text.splitlines():
         parts = line.split("|")
         if len(parts) != 5 or not parts[0].strip().isdigit():
             continue                       # header/preamble lines
@@ -171,8 +180,12 @@ def etf_holdings(cik: str = SP500_ETF_CIK, accn: str | None = None) -> pd.DataFr
     save_raw("sec", "nport", r.content, "xml", {"cik": cik, "accn": accn, "url": url})
 
     root = etree.fromstring(r.content)
-    ns = root.nsmap.get(None)
-    tag = (lambda t: f"{{{ns}}}{t}") if ns else (lambda t: t)
+
+    # Match any namespace or none: filers vary between a default namespace and
+    # a prefixed one for the same schema, and keying off nsmap[None] silently
+    # parses zero rows for the prefixed form.
+    def tag(t: str) -> str:
+        return "{*}" + t
 
     def child(el, name):
         found = el.find(tag(name))
