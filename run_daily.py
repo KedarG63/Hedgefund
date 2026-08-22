@@ -337,11 +337,21 @@ def cmd_run(targets, on, run_all):
     fails = [k for k, v in results.items() if v.startswith("FAIL")]
     ran = [k for k, v in results.items() if v != "SKIP"]
     print(f"\n{len(ran) - len(fails)}/{len(ran)} succeeded")
+
+    # Silent breakage is the #1 killer of scraped pipelines -- a job that stops
+    # running looks identical to a market with no news.
+    from core.alerting import alert_failures
+    outcome = alert_failures(results)
     if fails:
         print("Failed:", ", ".join(fails))
-        # Phase 6: alert here. Silent breakage is the #1 killer of scraped
-        # pipelines -- a job that stops running looks identical to a market
-        # with no news.
+        if outcome["sent"]:
+            print("  alert sent")
+        elif not any(outcome["channels"].values()):
+            # Say this loudly: the failures went nowhere. Unconfigured alerting
+            # looks exactly like healthy alerting until the day it matters.
+            print("  NO ALERT CHANNEL CONFIGURED -- set ALERT_WEBHOOK_URL in .env")
+        else:
+            print("  alert channel configured but the send did not succeed")
     return 1 if fails else 0
 
 

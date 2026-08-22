@@ -125,9 +125,20 @@ Volumes below are measured from SEC's own quarterly filing index (2025 Q2+Q3,
       returns a 3 KB shell, so the duty is a documented parameter instead of a
       guess.
 
-- [ ] **Phase 6 — Dashboard and operations**
-      Streamlit on real data, data-quality tab (last fetch, row-count trend,
-      silent revision detection), failure alerting, scheduled runs.
+- [~] **Phase 6 — Dashboard and operations** *(dashboard + quality done;
+      scheduling deferred while this runs on a laptop)*
+      - [x] Streamlit wired to real data: 7 tabs, all 20 queries verified live.
+      - [x] **Data-quality tab** — freshness from the RAW archive (not parquet:
+            parsing can succeed against a stale file), row-count history per
+            vintage, and silent-revision detection comparing parquet vintages on
+            a declared key. Caught a real one immediately: `nse_participant_oi`
+            revised because NSE ships column names with trailing whitespace.
+      - [x] **Failure alerting** in `run_daily.py`, and it says so loudly when
+            NO channel is configured — unconfigured alerting looks exactly like
+            healthy alerting until the day it matters.
+      - [ ] Scheduled runs — deferred deliberately. Cron on a laptop that sleeps
+            collects a patchy archive, which is worse than an honest gap because
+            it looks complete. Do this when there is a machine that stays on.
 
 ---
 
