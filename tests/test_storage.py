@@ -172,3 +172,18 @@ def test_end_to_end_fetch_archive_parse_query(s, con):
     assert con.execute(
         "SELECT count(DISTINCT knowledge_date) FROM nse_bhavcopy"
     ).fetchone()[0] == 1
+
+
+def test_register_views_skips_empty_dataset_dirs(s, con):
+    """
+    A failed or interrupted write leaves an empty dataset folder. read_parquet
+    raises on a pattern matching nothing, which would break registration for
+    EVERY dataset -- one partial failure poisoning the whole warehouse.
+    """
+    s.write_table(pd.DataFrame({"a": [1]}), "nse", "good")
+    (s.PARQUET / "nse" / "half_written").mkdir(parents=True, exist_ok=True)
+
+    views = s.register_views(con)
+    assert "nse_good" in views
+    assert "nse_half_written" not in views
+    assert con.execute("SELECT count(*) FROM nse_good").fetchone()[0] == 1

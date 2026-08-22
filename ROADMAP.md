@@ -87,11 +87,18 @@ Volumes below are measured from SEC's own quarterly filing index (2025 Q2+Q3,
       `issuerCIK`, which is case-sensitive and silently zeroed the whole signal
       until caught.
 
-- [ ] **5. DEF 14A — proxy statements**  ← next
-      304/quarter for the S&P 500 (~37 s). Compensation structure, board
-      composition, related-party transactions, say-on-pay results.
+- [x] **5. DEF 14A — proxy statements**
+      Pay-versus-performance comes FREE from the companyfacts archive: SEC tags
+      it under the `ecd` taxonomy, so CEO pay actually paid, disclosed pay,
+      company TSR and peer TSR need no per-filing fetch at all. 5,494 facts,
+      164 companies, FY2021–2026, plus 812 company-years of derived pay-vs-TSR.
+      Corpus index: 11,502 proxy filings across 489 companies, 2007–2026.
+      Coverage is 34% because many filers tag the pay table *dimensionally* and
+      companyfacts keeps only non-dimensional facts — a large free sample, not a
+      census. Board composition and related-party transactions are untagged
+      anywhere and still need HTML parsing.
 
-- [ ] **6. S-1 / S-3 / S-4 + 424B — dilution and deal terms**
+- [ ] **6. S-1 / S-3 / S-4 + 424B — dilution and deal terms**  ← next
       16 S-filings/quarter for the S&P 500. Shelf registrations predict issuance;
       S-4 carries merger terms. 424B* is high volume (15,264/qtr) so filter by
       universe first.

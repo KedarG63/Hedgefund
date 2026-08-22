@@ -140,6 +140,19 @@ def _sec_fundamentals():
     return fundamentals_panel(latest_completed_quarter())
 
 
+@job("sec_proxy", schedule="monthly",
+     desc="Proxy corpus + pay-versus-performance (CEO pay actually paid vs TSR)")
+def _sec_proxy():
+    # Monthly: proxies are annual, and the pay data comes free from the
+    # companyfacts archive rather than from any per-filing fetch.
+    from connectors.sec_proxy import pay_versus_performance, pay_vs_tsr, proxy_filings
+    from connectors.sec_8k import sp500_ciks
+    ciks = sorted(sp500_ciks())
+    pvp = pay_versus_performance(ciks)
+    pay_vs_tsr(pvp)
+    return proxy_filings(ciks)
+
+
 @job("sec_13g", schedule="weekly_thursday",
      desc="Schedule 13G passive 5% holders -- the baseline that makes 13D meaningful")
 def _sec_13g():

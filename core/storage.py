@@ -183,6 +183,12 @@ def register_views(con):
         for ds_dir in source_dir.iterdir():
             if not ds_dir.is_dir():
                 continue
+            # Skip empty dataset directories. A failed or interrupted write
+            # leaves the folder behind, and read_parquet raises on a pattern
+            # that matches nothing -- which would take down registration for
+            # EVERY dataset, not just the broken one.
+            if not any(ds_dir.glob("*.parquet")):
+                continue
             view = f"{source_dir.name}_{ds_dir.name}".replace("-", "_")
             con.execute(
                 f"CREATE OR REPLACE VIEW {view} AS "

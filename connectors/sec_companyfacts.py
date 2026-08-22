@@ -137,7 +137,15 @@ def facts_to_frame(facts: dict) -> pd.DataFrame:
                         "accn": p.get("accn"),
                         "frame": p.get("frame"),
                     })
-    return pd.DataFrame(rows)
+    df = pd.DataFrame(rows)
+    if not df.empty:
+        # companyfacts returns `cik` as an int for most companies and a
+        # zero-padded string for some ("0001858681"). Mixed types make the
+        # column object dtype, which fails the parquet write with a type error
+        # only once enough companies are concatenated -- so it passes on a small
+        # sample and breaks on the full universe.
+        df["cik"] = pd.to_numeric(df["cik"], errors="coerce").astype("Int64")
+    return df
 
 
 # Every taxonomy prefix present in the bulk archive, confirmed by sampling 400
