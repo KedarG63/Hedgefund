@@ -61,13 +61,15 @@ Volumes below are measured from SEC's own quarterly filing index (2025 Q2+Q3,
       (unchanged items are incorporated by reference) — a null there means
       "unknown", never "passive".
 
-- [ ] **2. 8-K — material events**  ← next
-      1,638/quarter for the S&P 500 (~3 min). Item-coded, so the classification
-      is free once the item numbers are extracted. Priorities: 4.02
-      (non-reliance/restatement), 5.02 (officer departure), 1.03 (bankruptcy),
-      1.05 (cybersecurity), 2.02 (earnings).
+- [x] **2. 8-K — material events**
+      122,144 (filing, item) rows over 57,927 filings and 492 companies,
+      spanning 2006–2026, from 492 requests in under 6 minutes. Item codes come
+      from the submissions API, so it is ONE REQUEST PER COMPANY rather than per
+      filing — the same lesson as the insider bulk file. 425 critical-tier
+      events. Amendment lag is separated from filing lag: an 8-K/A carries the
+      original event's reportDate, and one showed a 947-day "delay".
 
-- [ ] **3. `companyfacts.zip` — all XBRL, one download**
+- [ ] **3. `companyfacts.zip` — all XBRL, one download**  ← next
       1.4 GB replacing ~10,000 per-company calls. Unlocks custom tags
       (`nvda:DataCenterRevenue`) and full restatement history. Also lets the
       fundamentals panel widen beyond five fields at no request cost.

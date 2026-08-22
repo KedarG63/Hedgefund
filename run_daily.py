@@ -140,6 +140,13 @@ def _sec_fundamentals():
     return fundamentals_panel(latest_completed_quarter())
 
 
+@job("sec_8k", schedule="weekly_wednesday",
+     desc="8-K material events, item-coded -- 1 request per company, not per filing")
+def _sec_8k():
+    from connectors.sec_8k import eight_k_filings
+    return eight_k_filings()
+
+
 @job("sec_13d", schedule="weekly_tuesday",
      desc="Schedule 13D activist stakes -- whole market, Item 4 intent classified")
 def _sec_13d():
