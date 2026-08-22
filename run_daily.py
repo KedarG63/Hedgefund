@@ -119,10 +119,23 @@ def _ibja():
     return ibja_rates()
 
 
-@job("cme_settlements", desc="CME/COMEX settlements -- global benchmark leg")
+@job("cme_settlements", schedule="weekdays",
+     desc="CME/COMEX settlements -- global benchmark leg of the gold premium")
 def _cme():
     from connectors.commodities import cme_settlements, CME_PRODUCTS
-    return {p: cme_settlements(p) for p in CME_PRODUCTS}
+    # tradeDate is REQUIRED by the service; a non-trading day returns an empty
+    # settlement list rather than an error, so empty means "no session".
+    return {p: cme_settlements(p, date.today()) for p in CME_PRODUCTS}
+
+
+@job("india_gold_premium", schedule="weekdays",
+     desc="DERIVED: IBJA 999 minus landed COMEX cost -- registered AFTER its three legs")
+def _gold_premium():
+    # Must run after ibja_rates, cme_settlements and rbi_key_indicators, which
+    # is why it is registered last among the commodity jobs: run_daily executes
+    # in registration order.
+    from connectors.commodities import india_gold_premium
+    return india_gold_premium()
 
 
 # ---------------------------------------------------------------- US

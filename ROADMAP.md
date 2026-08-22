@@ -114,9 +114,16 @@ Volumes below are measured from SEC's own quarterly filing index (2025 Q2+Q3,
 
 ## Then
 
-- [ ] **Phase 5 — Commodities**
-      CME settlements, MCX bhavcopy, IBJA physical rates, then the derived
-      India gold premium: IBJA 999 − (COMEX × USDINR + import duty).
+- [x] **Phase 5 — Commodities**
+      CME settlements, MCX bhavcopy, IBJA physical rates, and the derived
+      **India gold premium**: IBJA 999 − (COMEX × USDINR, converted to ₹/10g and
+      grossed up by duty and GST). Computes at **AM 2.63% / PM 3.35%** on
+      2026-08-21 from four legs we own end to end.
+      Two scaffolded endpoints had drifted and were fixed by reading the sites'
+      own JavaScript: CME now *requires* `tradeDate`, and MCX's old path returns
+      HTTP 200 with a 404 page body. CBIC is deliberately not wired — its index
+      returns a 3 KB shell, so the duty is a documented parameter instead of a
+      guess.
 
 - [ ] **Phase 6 — Dashboard and operations**
       Streamlit on real data, data-quality tab (last fetch, row-count trend,
