@@ -140,6 +140,22 @@ def _sec_fundamentals():
     return fundamentals_panel(latest_completed_quarter())
 
 
+@job("sec_13g", schedule="weekly_thursday",
+     desc="Schedule 13G passive 5% holders -- the baseline that makes 13D meaningful")
+def _sec_13g():
+    from connectors.sec_13g import ingest, latest_quarter
+    year, quarter = latest_quarter()
+    return ingest(year, quarter)
+
+
+@job("sec_13g_to_13d", schedule="weekly_thursday",
+     desc="Investors who filed 13G then switched to 13D on the same issuer")
+def _sec_transitions():
+    # Runs after sec_13g in registration order, and needs sec_13d too.
+    from connectors.sec_13g import transitions
+    return transitions()
+
+
 @job("sec_companyfacts_restatements", schedule="monthly",
      desc="Refresh the 1.4GB XBRL bulk archive and audit which reported figures were later revised")
 def _sec_restatements():

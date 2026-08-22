@@ -78,11 +78,16 @@ Volumes below are measured from SEC's own quarterly filing index (2025 Q2+Q3,
       across 400 companies), and the largest "restatements" are mostly *tagging
       corrections* plus scale rescalings, which are flagged separately.
 
-- [ ] **4. SCHEDULE 13G — passive 5% holders**  ← next
-      1,523/quarter for the S&P 500 (~3 min). Lower signal alone, but required
-      to detect the 13G → 13D transition, which is high signal.
+- [x] **4. SCHEDULE 13G — passive 5% holders**
+      5,853 filings for 2025Q3, 13,536 reporting persons, zero parse failures.
+      Filing rule captured: 4,049 institutional (13d-1(b)), 1,328 passive
+      (13d-1(c)), 419 exempt. Yields **14 confirmed 13G → 13D transitions**.
+      Different schema from 13D despite the family resemblance — lowercase
+      namespace, `classPercent` not `percentOfClass`, and `issuerCik` not
+      `issuerCIK`, which is case-sensitive and silently zeroed the whole signal
+      until caught.
 
-- [ ] **5. DEF 14A — proxy statements**
+- [ ] **5. DEF 14A — proxy statements**  ← next
       304/quarter for the S&P 500 (~37 s). Compensation structure, board
       composition, related-party transactions, say-on-pay results.
 
