@@ -44,7 +44,7 @@ def is_due(schedule: str, on: date) -> bool:
 
 
 # ---------------------------------------------------------------- India EOD
-@job("nse_bhavcopy", desc="NSE EOD prices + delivery percentage")
+@job("nse_bhavcopy", desc="NSE EOD prices, all instrument types (CM + F&O)")
 def _nse_bhavcopy():
     from connectors.nse_bse import nse_bhavcopy
     return nse_bhavcopy(date.today())
@@ -68,10 +68,42 @@ def _results():
     return nse_financial_results("Quarterly")
 
 
+@job("nse_bhavcopy_delivery", desc="NSE delivery % -- speculative vs genuine volume")
+def _nse_bhavcopy_delivery():
+    from connectors.nse_bse import nse_bhavcopy_delivery
+    return nse_bhavcopy_delivery(date.today())
+
+
+@job("nse_bulk_block_deals", desc="NSE bulk (>0.5% equity) and block (>=Rs25Cr) deals")
+def _nse_bulk_block():
+    from connectors.nse_bse import nse_bulk_deals, nse_block_deals
+    yday, today = date.today() - timedelta(days=1), date.today()
+    return {"bulk": nse_bulk_deals(yday, today), "block": nse_block_deals(yday, today)}
+
+
+@job("nse_insider_trading", desc="SEBI PIT insider disclosures, T+2")
+def _nse_insider():
+    from connectors.nse_bse import nse_insider_trading
+    return nse_insider_trading()
+
+
+@job("nse_shareholding_pattern", schedule="weekly_monday",
+     desc="Promoter/public shareholding split, SEBI LODR Reg. 31")
+def _nse_shareholding():
+    from connectors.nse_bse import nse_shareholding_pattern
+    return nse_shareholding_pattern()
+
+
 @job("bse_announcements", desc="BSE corporate announcements (~5k companies)")
 def _bse_ann():
     from connectors.nse_bse import bse_announcements
     return bse_announcements(date.today() - timedelta(days=1), date.today())
+
+
+@job("bse_scrip_master", schedule="weekly_monday", desc="BSE scrip code <-> ISIN <-> name master")
+def _bse_scrip_master():
+    from connectors.nse_bse import bse_scrip_master
+    return bse_scrip_master()
 
 
 # ---------------------------------------------------------------- Commodities

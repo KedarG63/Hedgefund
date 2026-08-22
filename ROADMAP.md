@@ -41,14 +41,15 @@ Volumes below are measured from SEC's own quarterly filing index (2025 Q2+Q3,
 
 ## Next: finish SEC
 
-- [ ] **1. SCHEDULE 13D — activist stakes**  ← in progress
-      67 filings/quarter for the S&P 500 (~8 seconds), 2,711 market-wide.
-      Highest signal-to-cost on EDGAR. Item 4 (Purpose of Transaction) carries
-      the intent: board seats, strategic alternatives, sale of the company.
-      A 13G → 13D switch is itself the signal.
-      *Not XBRL — needs document parsing.*
+- [x] **1. SCHEDULE 13D — activist stakes**
+      1,393 filings for 2025Q3 (278 new, 1,115 amendments), 5,650 reporting
+      persons, zero parse failures. Structured XML since the 2024 rules, so no
+      HTML scraping. Item 4 intent classified into six flags, full text retained.
+      Item 4 is present on 100% of originals but absent from 34% of amendments
+      (unchanged items are incorporated by reference) — a null there means
+      "unknown", never "passive".
 
-- [ ] **2. 8-K — material events**
+- [ ] **2. 8-K — material events**  ← next
       1,638/quarter for the S&P 500 (~3 min). Item-coded, so the classification
       is free once the item numbers are extracted. Priorities: 4.02
       (non-reliance/restatement), 5.02 (officer departure), 1.03 (bankruptcy),
@@ -116,3 +117,19 @@ Volumes below are measured from SEC's own quarterly filing index (2025 Q2+Q3,
 3. Never invent an endpoint. No verified URL means ask.
 4. Prefer a bulk file to N requests wherever one exists.
 5. Filter by universe *before* spending requests — the filing index is free.
+6. **Deduplicate the filing index by accession before fetching.** `master.idx`
+   lists a filing once per ASSOCIATED CIK, so ownership forms appear twice: once
+   under the reporting person, once under the subject issuer.
+
+   | form | raw index rows/qtr | distinct | duplicated |
+   |---|---|---|---|
+   | Forms 3/4/5 | 88,708 | 42,484 | 52% |
+   | SCHEDULE 13D | 2,711 | 1,355 | 50% |
+   | SCHEDULE 13G | 12,037 | 6,018 | 50% |
+   | DEF 14A | 1,790 | 1,659 | 7% |
+   | 8-K | 17,423 | 17,040 | 2% |
+   | 13F, N-PORT | — | — | 0% |
+
+   Company-filed forms are barely affected; ownership forms halve.
+7. Reuse one HTTP session across a loop. Building a client per request discards
+   the connection pool and cost 2.4x throughput.
