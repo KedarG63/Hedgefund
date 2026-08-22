@@ -108,6 +108,17 @@ def _sec_fundamentals():
     return fundamentals_panel(latest_completed_quarter())
 
 
+@job("sec_insider", schedule="weekly_monday",
+     desc="Insider Forms 3/4/5 via SEC bulk file -- 1 request replaces ~90,000")
+def _sec_insider():
+    from connectors.sec_insider import (
+        cluster_buys, insider_transactions, latest_available_quarter)
+    year, quarter = latest_available_quarter()
+    tx = insider_transactions(year, quarter)
+    cluster_buys(tx)
+    return tx
+
+
 @job("sec_13f", schedule="weekly_friday",
      desc="13F institutional positioning -- polls the filing index, ingests what is new")
 def _sec_13f():
