@@ -94,6 +94,20 @@ def _cme():
 
 
 # ---------------------------------------------------------------- US
+@job("sec_sp500_constituents", schedule="weekly_monday",
+     desc="S&P 500 membership + weights from the SPDR ETF's N-PORT filing")
+def _sec_sp500():
+    from connectors.sec_edgar import sp500_constituents
+    return sp500_constituents()
+
+
+@job("sec_us_fundamentals", schedule="monthly",
+     desc="Point-in-time S&P 500 fundamentals panel (revenue, NI, assets, equity, shares)")
+def _sec_fundamentals():
+    from connectors.sec_edgar import fundamentals_panel, latest_completed_quarter
+    return fundamentals_panel(latest_completed_quarter())
+
+
 @job("sec_daily_index", desc="Every SEC filing made market-wide today")
 def _sec_idx():
     from connectors.sec_edgar import daily_index
