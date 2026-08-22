@@ -324,6 +324,7 @@ def bse_announcements(frm: date, to: date, scrip: str = "",
         payload = r.json()
         if isinstance(payload, dict) and payload.get("Table"):
             frames.append(pd.DataFrame(payload["Table"]))
+    frames = [df for df in frames if not df.empty]
     if not frames:
         return pd.DataFrame()
     df = pd.concat(frames, ignore_index=True)

@@ -37,6 +37,18 @@ Volumes below are measured from SEC's own quarterly filing index (2025 Q2+Q3,
       Only 6,443 are genuine open-market buys. Cluster detection with the
       10b5-1 flag.
 
+- [x] **Phase 4 — NSE / BSE**
+      13 connector functions, all verified live 2026-08-22. Bhavcopy (all
+      instrument types) + a separate delivery-% file (the UDiFF bhavcopy
+      dropped DELIV_QTY/DELIV_PER years ago), participant-wise OI, FII/DII
+      cash flows, corporate announcements + quarterly results XBRL, bulk/block
+      deals, insider trading (PIT), shareholding pattern, BSE announcements +
+      scrip master. Schema-drift guard (`_check_schema`) catches column
+      renames/drops before they reach a backtest silently. Two previously-
+      scaffolded endpoints turned out broken on live NSE (option-chain,
+      BSE announcements) and were fixed against fresh JS-bundle captures, not
+      guessed. Full trail in `PHASE4.md`.
+
 ---
 
 ## Next: finish SEC
@@ -83,12 +95,6 @@ Volumes below are measured from SEC's own quarterly filing index (2025 Q2+Q3,
 ---
 
 ## Then
-
-- [ ] **Phase 4 — NSE / BSE**
-      Bhavcopy with delivery %, participant-wise OI (FII/DII/pro/retail), FII/DII
-      cash flows, corporate announcements, quarterly results via XBRL (Indian
-      taxonomy, not US GAAP). Schema-drift detection.
-      *Undocumented endpoints — expect to need fresh cURL captures.*
 
 - [ ] **Phase 5 — Commodities**
       CME settlements, MCX bhavcopy, IBJA physical rates, then the derived

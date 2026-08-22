@@ -1,6 +1,6 @@
 # core
 httpx[http2]>=0.27
-brotli>=1.1                # rbi.org.in serves content-encoding: br
+brotli>=1.1                # rbi.org.in AND nseindia.com serve content-encoding: br
 pandas>=2.2
 pyarrow>=15
 duckdb>=1.0
