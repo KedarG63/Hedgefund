@@ -108,6 +108,16 @@ def _sec_fundamentals():
     return fundamentals_panel(latest_completed_quarter())
 
 
+@job("sec_13d", schedule="weekly_tuesday",
+     desc="Schedule 13D activist stakes -- whole market, Item 4 intent classified")
+def _sec_13d():
+    # Whole market on purpose: activists target small and mid caps, and the
+    # entire quarter is only ~2,700 filings.
+    from connectors.sec_13d import ingest, latest_quarter
+    year, quarter = latest_quarter()
+    return ingest(year, quarter)
+
+
 @job("sec_insider", schedule="weekly_monday",
      desc="Insider Forms 3/4/5 via SEC bulk file -- 1 request replaces ~90,000")
 def _sec_insider():

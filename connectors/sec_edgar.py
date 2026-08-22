@@ -7,7 +7,7 @@ Docs: https://www.sec.gov/search-filings/edgar-application-programming-interface
 import json
 import pandas as pd
 from core.config import require
-from core.http import sec_session
+from core.http import cached_sec_session
 from core.storage import find_raw, save_raw, write_table
 
 # SEC requires a User-Agent naming a real contact. Read it from the environment
@@ -18,7 +18,7 @@ def _email() -> str:
 
 
 def _s():
-    return sec_session(_email())
+    return cached_sec_session(_email())
 
 
 def ticker_map() -> pd.DataFrame:

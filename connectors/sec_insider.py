@@ -41,7 +41,7 @@ import zipfile
 import pandas as pd
 
 from core.config import require
-from core.http import sec_session
+from core.http import cached_sec_session
 from core.storage import find_raw, save_raw, write_table
 
 BULK_URL = ("https://www.sec.gov/files/structureddata/data/"
@@ -69,7 +69,7 @@ ROLE_RANK = {"officer": 0, "director": 1, "tenpercentowner": 2, "other": 3}
 
 
 def _s():
-    return sec_session(require("SEC_CONTACT_EMAIL"))
+    return cached_sec_session(require("SEC_CONTACT_EMAIL"))
 
 
 def fetch_bulk(year: int, quarter: int, refetch: bool = False) -> bytes:

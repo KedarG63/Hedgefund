@@ -65,7 +65,7 @@ from pathlib import Path
 import pandas as pd
 from lxml import etree
 
-from core.http import sec_session
+from core.http import cached_sec_session
 from core.config import require
 from core.storage import db, register_views, save_raw, write_table
 from connectors.sec_edgar import filing_index
@@ -75,7 +75,7 @@ ARCHIVES = "https://www.sec.gov/Archives/edgar/data"
 
 
 def _s():
-    return sec_session(require("SEC_CONTACT_EMAIL"))
+    return cached_sec_session(require("SEC_CONTACT_EMAIL"))
 
 
 def watchlist() -> pd.DataFrame:
