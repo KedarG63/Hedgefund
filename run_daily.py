@@ -140,6 +140,16 @@ def _sec_fundamentals():
     return fundamentals_panel(latest_completed_quarter())
 
 
+@job("sec_companyfacts_restatements", schedule="monthly",
+     desc="Refresh the 1.4GB XBRL bulk archive and audit which reported figures were later revised")
+def _sec_restatements():
+    # Monthly, not weekly: the archive is 1.4 GB and restatements move slowly.
+    from connectors.sec_companyfacts import fetch_bulk, universe_restatements
+    from connectors.sec_8k import sp500_ciks
+    fetch_bulk(refetch=True)
+    return universe_restatements(sorted(sp500_ciks()))
+
+
 @job("sec_8k", schedule="weekly_wednesday",
      desc="8-K material events, item-coded -- 1 request per company, not per filing")
 def _sec_8k():

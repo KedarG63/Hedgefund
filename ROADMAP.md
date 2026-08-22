@@ -69,12 +69,16 @@ Volumes below are measured from SEC's own quarterly filing index (2025 Q2+Q3,
       events. Amendment lag is separated from filing lag: an 8-K/A carries the
       original event's reportDate, and one showed a 947-day "delay".
 
-- [ ] **3. `companyfacts.zip` — all XBRL, one download**  ← next
-      1.4 GB replacing ~10,000 per-company calls. Unlocks custom tags
-      (`nvda:DataCenterRevenue`) and full restatement history. Also lets the
-      fundamentals panel widen beyond five fields at no request cost.
+- [x] **3. `companyfacts.zip` — all XBRL, one download**
+      1.41 GB in 6.3 min, 20,266 companies, replacing ~10,000 per-company calls.
+      Streamed to disk so it never sits in memory. Yields 237,995 genuine
+      revisions across 491 S&P 500 companies in 3.9 min.
+      Two corrections to the source report: companyfacts contains **no**
+      company-defined extension tags (ten SEC-standard prefixes only, sampled
+      across 400 companies), and the largest "restatements" are mostly *tagging
+      corrections* plus scale rescalings, which are flagged separately.
 
-- [ ] **4. SCHEDULE 13G — passive 5% holders**
+- [ ] **4. SCHEDULE 13G — passive 5% holders**  ← next
       1,523/quarter for the S&P 500 (~3 min). Lower signal alone, but required
       to detect the 13G → 13D transition, which is high signal.
 

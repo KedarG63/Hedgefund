@@ -77,6 +77,49 @@ def latest_raw(source: str, dataset: str) -> Path | None:
     return max(files, key=lambda p: p.stat().st_mtime) if files else None
 
 
+def save_raw_stream(source: str, dataset: str, chunks, ext: str = "bin",
+                    meta: dict | None = None) -> Path:
+    """
+    Streaming variant of save_raw for payloads too large to hold in memory.
+
+    `chunks` is any iterable of bytes (e.g. httpx's iter_bytes()). SEC's
+    companyfacts bulk file is 1.4 GB; buffering that just to hash it wastes a
+    gigabyte for nothing. The sha256 is computed incrementally as bytes land.
+
+    Same guarantees as save_raw: never overwrites, writes a provenance sidecar.
+    """
+    now = _utcnow()
+    folder = RAW / source / dataset / now.strftime("%Y-%m-%d")
+    folder.mkdir(parents=True, exist_ok=True)
+
+    digest = hashlib.sha256()
+    size = 0
+    # Write to a .part file first: a half-downloaded file that looks complete is
+    # worse than no file, because the archive is meant to be trustworthy.
+    tmp = folder / f".{now.strftime('%H%M%S')}.part"
+    with tmp.open("wb") as fh:
+        for chunk in chunks:
+            if not chunk:
+                continue
+            fh.write(chunk)
+            digest.update(chunk)
+            size += len(chunk)
+
+    path = _unique_path(folder, f"{now.strftime('%H%M%S')}_{digest.hexdigest()[:8]}", ext)
+    tmp.replace(path)
+
+    sidecar = {
+        "source": source,
+        "dataset": dataset,
+        "fetched_at_utc": now.isoformat(),
+        "sha256": digest.hexdigest(),
+        "bytes": size,
+        **(meta or {}),
+    }
+    path.with_suffix(path.suffix + ".meta.json").write_text(json.dumps(sidecar, indent=2))
+    return path
+
+
 def find_raw(source: str, dataset: str, **match) -> Path | None:
     """
     Most recent archived file whose sidecar matches every key=value in `match`.
