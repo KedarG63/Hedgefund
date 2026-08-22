@@ -1,0 +1,5422 @@
+[
+  {
+    "report_id": 574,
+    "report_name": "Foreign Exchange Reserves",
+    "frequency": "Weekly",
+    "from_date": "06-APR-2001",
+    "to_date": "14-AUG-2026",
+    "function": "Indicators",
+    "department": "External Sector Indicators",
+    "menu": "Foreign Exchange Reserves"
+  },
+  {
+    "report_id": 575,
+    "report_name": "Exchange Rate",
+    "frequency": "Daily",
+    "from_date": "25-Aug-1998",
+    "to_date": "21-AUG-2026",
+    "function": "Indicators",
+    "department": "External Sector Indicators",
+    "menu": "Exchange Rate"
+  },
+  {
+    "report_id": 531,
+    "report_name": "Key Rates",
+    "frequency": "As and When",
+    "from_date": "06-JUL-1935",
+    "to_date": "05-DEC-2025",
+    "function": "Indicators",
+    "department": "Financial Sector Indicators",
+    "menu": "Key Rates"
+  },
+  {
+    "report_id": 1217,
+    "report_name": "Daily LAF Operation",
+    "frequency": "Daily",
+    "from_date": "03-APR-2001",
+    "to_date": "23-JUN-2026",
+    "function": "Indicators",
+    "department": "Financial Sector Indicators",
+    "menu": "Daily LAF Operation"
+  },
+  {
+    "report_id": 689,
+    "report_name": "Business of Scheduled Banks",
+    "frequency": "Fortnightly",
+    "from_date": "06-JUN-1997",
+    "to_date": "31-JUL-2026",
+    "function": "Indicators",
+    "department": "Financial Sector Indicators",
+    "menu": "Business of Scheduled Banks"
+  },
+  {
+    "report_id": 576,
+    "report_name": "Central Govt Market Borrowings",
+    "frequency": "Weekly",
+    "from_date": "25-Apr-1995",
+    "to_date": "14-AUG-2026",
+    "function": "Indicators",
+    "department": "Financial Sector Indicators",
+    "menu": "Central Govt Market Borrowings"
+  },
+  {
+    "report_id": 614,
+    "report_name": "Reserve Money",
+    "frequency": "Weekly",
+    "from_date": "06-JUL-2001",
+    "to_date": "12-DEC-2025",
+    "function": "Indicators",
+    "department": "Financial Sector Indicators",
+    "menu": "Reserve Money"
+  },
+  {
+    "report_id": 613,
+    "report_name": "RBI Balance Sheet",
+    "frequency": "Weekly",
+    "from_date": "02-JUL-2004",
+    "to_date": "14-AUG-2026",
+    "function": "Indicators",
+    "department": "Financial Sector Indicators",
+    "menu": "RBI Balance Sheet"
+  },
+  {
+    "report_id": 612,
+    "report_name": "Payment System Indicators",
+    "frequency": "Monthly",
+    "from_date": "30-APR-2004",
+    "to_date": "31-MAY-2026",
+    "function": "Indicators",
+    "department": "Financial Sector Indicators",
+    "menu": "Payment System Indicators"
+  },
+  {
+    "report_id": 530,
+    "report_name": "G-Sec Turnover",
+    "frequency": "Weekly",
+    "from_date": "03-Apr-1998",
+    "to_date": "24-JUL-2026",
+    "function": "Indicators",
+    "department": "G-Sec Market Indicators",
+    "menu": "G-Sec Turnover"
+  },
+  {
+    "report_id": 611,
+    "report_name": "Money Market",
+    "frequency": "Daily",
+    "from_date": "03-APR-2001",
+    "to_date": "16-AUG-2026",
+    "function": "Indicators",
+    "department": "Money Market Indicators",
+    "menu": "Money Market"
+  },
+  {
+    "report_id": 529,
+    "report_name": "Gross Value Added (GVA) at Basic Prices",
+    "frequency": "Quarterly",
+    "from_date": "30-JUN-1996",
+    "to_date": "31-MAR-2026",
+    "function": "Indicators",
+    "department": "Real Sector Indicators",
+    "menu": "GDP"
+  },
+  {
+    "report_id": 610,
+    "report_name": "Consumer Price Index (CPI) – Rural, Urban, Combined",
+    "frequency": "Monthly",
+    "from_date": "31-JAN-2011",
+    "to_date": "31-JUL-2026",
+    "function": "Indicators",
+    "department": "Real Sector Indicators",
+    "menu": "CPI - Rural, Urban, Combined"
+  },
+  {
+    "report_id": 638,
+    "report_name": "Index of Industrial Production (IIP)",
+    "frequency": "Monthly",
+    "from_date": "30-APR-1981",
+    "to_date": "30-JUN-2026",
+    "function": "Indicators",
+    "department": "Real Sector Indicators",
+    "menu": "IIP - Monthly"
+  },
+  {
+    "report_id": 731,
+    "report_name": "Statement 1: Growth Rates of the Select Items of the Select Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2014",
+    "to_date": "31-MAR-2019",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Banking Financial and Investment Companies"
+  },
+  {
+    "report_id": 732,
+    "report_name": "Statement 2: Select Financial Ratios of the Select Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2014",
+    "to_date": "31-MAR-2019",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Banking Financial and Investment Companies"
+  },
+  {
+    "report_id": 738,
+    "report_name": "Statement 3: Combined Income, Expenditure and Appropriation Accounts of Select Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2014",
+    "to_date": "31-MAR-2019",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Banking Financial and Investment Companies"
+  },
+  {
+    "report_id": 739,
+    "report_name": "Statement 4A: Combined Balance Sheet of the Select Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise - Liabilities",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2014",
+    "to_date": "31-MAR-2019",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Banking Financial and Investment Companies"
+  },
+  {
+    "report_id": 742,
+    "report_name": "Statement 4B: Combined Balance Sheet of the Select Non-Government Non-Banking Financial and Investment (NGNBF&I) Companies - Activity wise - Assets",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2014",
+    "to_date": "31-MAR-2019",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Banking Financial and Investment Companies"
+  },
+  {
+    "report_id": 753,
+    "report_name": "Statement 5A: Sources and Uses of Funds of the Select Non-Government Non-Banking Financial and Investments (NGNBF&I) Companies - Activity wise - Sources",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2014",
+    "to_date": "31-MAR-2019",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Banking Financial and Investment Companies"
+  },
+  {
+    "report_id": 754,
+    "report_name": "Statement 5B: Sources and Uses of Funds of the Select Non-Government Non-Banking Financial and Investments (NGNBF&I) Companies - Activity wise - Uses",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2014",
+    "to_date": "31-MAR-2019",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Banking Financial and Investment Companies"
+  },
+  {
+    "report_id": 1409,
+    "report_name": "Explanatory Notes",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2012",
+    "to_date": "31-MAR-2019",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Banking Financial and Investment Companies"
+  },
+  {
+    "report_id": 1179,
+    "report_name": "Statement 01: Growth Rates of the Select Items of the Select Private Limited Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2011",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Private Limited Companies"
+  },
+  {
+    "report_id": 1187,
+    "report_name": "Statement 02: Select Financial Ratios of the Select Private Limited Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Private Limited Companies"
+  },
+  {
+    "report_id": 1175,
+    "report_name": "Statement 03: Combined Income, Value of Production, Expenditure and Appropriation Accounts of the Select Private Limited Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Private Limited Companies"
+  },
+  {
+    "report_id": 1176,
+    "report_name": "Statement 04A: Combined Balance Sheet (Capital and Liabilities) of the Select Private Limited Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Private Limited Companies"
+  },
+  {
+    "report_id": 1188,
+    "report_name": "Statement 04B: Combined Balance Sheet (Assets) of the Select Private Limited Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Private Limited Companies"
+  },
+  {
+    "report_id": 1184,
+    "report_name": "Statement 05A: Sources of Funds of the Select Private Limited Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2011",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Private Limited Companies"
+  },
+  {
+    "report_id": 1203,
+    "report_name": "Statement 05B: Uses of Funds of the Select Private Limited Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2011",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Private Limited Companies"
+  },
+  {
+    "report_id": 1181,
+    "report_name": "Statement 06: Earnings / Expenditure in Foreign Currencies of Select Private Limited Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2019",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Private Limited Companies"
+  },
+  {
+    "report_id": 1204,
+    "report_name": "Statement 07: Growth Rates of the Select Items of the Select Private Limited Companies - Industry-wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2011",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Private Limited Companies"
+  },
+  {
+    "report_id": 1202,
+    "report_name": "Statement 08: Select Financial Ratios of the Select Items of the Select Private Limited Companies - Industry-wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Private Limited Companies"
+  },
+  {
+    "report_id": 1410,
+    "report_name": "Explanatory Notes",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2020",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Private Limited Companies"
+  },
+  {
+    "report_id": 1173,
+    "report_name": "Statement 01: Growth Rates of the Select Items of the Select Public Limited Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2011",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Public Limited Companies"
+  },
+  {
+    "report_id": 1182,
+    "report_name": "Statement 02: Select Financial Ratios of the Select Public Limited Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Public Limited Companies"
+  },
+  {
+    "report_id": 1178,
+    "report_name": "Statement 03: Combined Income, Value of Production, Expenditure and Appropriation Accounts of the Select Public Limited Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Public Limited Companies"
+  },
+  {
+    "report_id": 1189,
+    "report_name": "Statement 04A: Combined Balance Sheet (Equity and Liabilities) of the Select Public Limited Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Public Limited Companies"
+  },
+  {
+    "report_id": 1195,
+    "report_name": "Statement 04B: Combined Balance Sheet (Assets) of the Select Public Limited Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Public Limited Companies"
+  },
+  {
+    "report_id": 1172,
+    "report_name": "Statement 05A: Sources of Funds of the Select Public Limited Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2011",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Public Limited Companies"
+  },
+  {
+    "report_id": 1197,
+    "report_name": "Statement 05B: Uses of Funds of the Select Public Limited Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2011",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Public Limited Companies"
+  },
+  {
+    "report_id": 1186,
+    "report_name": "Statement 06: Earnings / Expenditure in Foreign Currencies of Select Public Limited Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2019",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Public Limited Companies"
+  },
+  {
+    "report_id": 1201,
+    "report_name": "Statement 07: Growth Rates of the Select Items of the Select Public Limited Companies - Sales-wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2011",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Public Limited Companies"
+  },
+  {
+    "report_id": 1194,
+    "report_name": "Statement 08: Select Financial Ratios of the Select Items of the Select Public Limited Companies - Sales-wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Public Limited Companies"
+  },
+  {
+    "report_id": 1177,
+    "report_name": "Statement 09: Growth Rates of the Select Items of the Select Public Limited Companies - PUC-wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2011",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Public Limited Companies"
+  },
+  {
+    "report_id": 1206,
+    "report_name": "Statement 10: Select Financial Ratios of the Select Items of the Select Public Limited Companies - PUC-wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Public Limited Companies"
+  },
+  {
+    "report_id": 1183,
+    "report_name": "Statement 11: Growth Rates of the Select Items of the Select Public Limited Companies - Industry-wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2011",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Public Limited Companies"
+  },
+  {
+    "report_id": 1208,
+    "report_name": "Statement 12: Select Financial Ratios of the Select Items of the Select Public Limited Companies - Industry-wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Public Limited Companies"
+  },
+  {
+    "report_id": 1411,
+    "report_name": "Explanatory Notes",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2020",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Non-Government Non-Financial Public Limited Companies"
+  },
+  {
+    "report_id": 1190,
+    "report_name": "Statement 01: Industry and Country of Origin-Wise Distribution of the Select Foreign Direct Investment Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2013",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Finances of FDI Companies"
+  },
+  {
+    "report_id": 1170,
+    "report_name": "Statement 02: Growth Rates of the Select Items of the Select Foreign Direct Investment Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2012",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Finances of FDI Companies"
+  },
+  {
+    "report_id": 1166,
+    "report_name": "Statement 03: Select Financial Ratios of the Select Foreign Direct Investment Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2011",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Finances of FDI Companies"
+  },
+  {
+    "report_id": 1191,
+    "report_name": "Statement 04: Combined Income, Value of Production, Expenditure and Appropriation Accounts of the Select Foreign Direct Investment Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2011",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Finances of FDI Companies"
+  },
+  {
+    "report_id": 1148,
+    "report_name": "Statement 05A : Combined Balance Sheet of the Select Foreign Direct Investment Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2013",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Finances of FDI Companies"
+  },
+  {
+    "report_id": 1146,
+    "report_name": "Statement 05B : Combined Balance Sheet of the Select Foreign Direct Investment Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2011",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Finances of FDI Companies"
+  },
+  {
+    "report_id": 1171,
+    "report_name": "Statement 06A : Sources and Uses of Funds of the Select Foreign Direct Investment Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2012",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Finances of FDI Companies"
+  },
+  {
+    "report_id": 1147,
+    "report_name": "Statement 06B : Sources and Uses of Funds of the Select Foreign Direct Investment Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2012",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Finances of FDI Companies"
+  },
+  {
+    "report_id": 1192,
+    "report_name": "Statement 07: Earnings / Expenditure in Foreign Currencies of the Select Foreign Direct Investment Companies - Discontinued",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2011",
+    "to_date": "31-MAR-2019",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Finances of FDI Companies"
+  },
+  {
+    "report_id": 1167,
+    "report_name": "Statement 08: Growth Rates of the Select Items of the Select Foreign Direct Investment Companies, Industry Group Wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2012",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Finances of FDI Companies"
+  },
+  {
+    "report_id": 1185,
+    "report_name": "Statement 09: Growth Rates of the Select Items of the Select Foreign Direct Investment Companies, Country-Wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2012",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Finances of FDI Companies"
+  },
+  {
+    "report_id": 1180,
+    "report_name": "Statement 10: Growth Rates of the Select Items of the Select Foreign Direct Investment Companies, Type-Wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2012",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Finances of FDI Companies"
+  },
+  {
+    "report_id": 1193,
+    "report_name": "Statement 11: Select Financial Ratios of the Select Foreign Direct Investment Companies - Industry Group-Wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2011",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Finances of FDI Companies"
+  },
+  {
+    "report_id": 1196,
+    "report_name": "Statement 12: Select Financial Ratios of the Select Foreign Direct Investment Companies - Country-Wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2011",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Finances of FDI Companies"
+  },
+  {
+    "report_id": 1406,
+    "report_name": "Explanatory Notes",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2020",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Finances of FDI Companies"
+  },
+  {
+    "report_id": 1067,
+    "report_name": "1. Performance of Listed Non-Government Non-Financial Companies",
+    "frequency": "Quarterly",
+    "from_date": "30-JUN-2014",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Listed Non-Government Non-Financial Companies"
+  },
+  {
+    "report_id": 1117,
+    "report_name": "2. Performance of Listed Non-Government Non-Financial Companies - Sector - wise",
+    "frequency": "Quarterly",
+    "from_date": "30-JUN-2014",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Listed Non-Government Non-Financial Companies"
+  },
+  {
+    "report_id": 1069,
+    "report_name": "3. Performance of Listed Non-Government Non-Financial Companies according to Size of Paid-up-Capital",
+    "frequency": "Quarterly",
+    "from_date": "30-JUN-2014",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Listed Non-Government Non-Financial Companies"
+  },
+  {
+    "report_id": 1071,
+    "report_name": "4. Performance of Listed Non-Government Non-Financial Companies according to Size of Sales",
+    "frequency": "Quarterly",
+    "from_date": "30-JUN-2014",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Listed Non-Government Non-Financial Companies"
+  },
+  {
+    "report_id": 1072,
+    "report_name": "5. Performance of Listed Non-Government Non-Financial Companies according to Industry",
+    "frequency": "Quarterly",
+    "from_date": "30-JUN-2014",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Listed Non-Government Non-Financial Companies"
+  },
+  {
+    "report_id": 1407,
+    "report_name": "6. Explanatory Notes & Glossary",
+    "frequency": "Quarterly",
+    "from_date": "31-MAR-2017",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Listed Non-Government Non-Financial Companies"
+  },
+  {
+    "report_id": 1075,
+    "report_name": "1.Sources and Uses of Funds for Listed Private Manufacturing Companies (half-yearly) - Discontinued",
+    "frequency": "Half-Yearly",
+    "from_date": "30-SEP-2018",
+    "to_date": "30-SEP-2019",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Listed Non-Government Non-Financial Companies"
+  },
+  {
+    "report_id": 1074,
+    "report_name": "1. Performance of Listed Non-Government Non-Financial Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2016",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Listed Non-Government Non-Financial Companies"
+  },
+  {
+    "report_id": 1118,
+    "report_name": "2. Performance of Listed Non-Government Non-Financial Companies - Sector - wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2016",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Listed Non-Government Non-Financial Companies"
+  },
+  {
+    "report_id": 1068,
+    "report_name": "3. Performance of Listed Non-Government Non-Financial Companies according to Size of Paid-up-Capital",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2016",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Listed Non-Government Non-Financial Companies"
+  },
+  {
+    "report_id": 1070,
+    "report_name": "4. Performance of Listed Non-Government Non-Financial Companies according to Size of Sales",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2016",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Listed Non-Government Non-Financial Companies"
+  },
+  {
+    "report_id": 1073,
+    "report_name": "5. Performance of Listed Non-Government Non-Financial Companies according to Industry",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2016",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Listed Non-Government Non-Financial Companies"
+  },
+  {
+    "report_id": 1408,
+    "report_name": "6. Explanatory Notes & Glossary",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2017",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Corporate Sector",
+    "menu": "Listed Non-Government Non-Financial Companies"
+  },
+  {
+    "report_id": 605,
+    "report_name": "Index numbers of Exports - Quantum and Unit Value (Base: 1999-2000 = 100)",
+    "frequency": "Annual",
+    "from_date": "1999-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "External Sector Indices"
+  },
+  {
+    "report_id": 379,
+    "report_name": "Index Numbers and Terms of Foreign Trade",
+    "frequency": "Annual",
+    "from_date": "1999-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "External Sector Indices"
+  },
+  {
+    "report_id": 380,
+    "report_name": "Indices of Real Effective Exchange Rate (REER) and Nominal Effective Exchange Rate (NEER) of the Indian Rupee (40-Currency Bilateral Weights) (Calender Year - Annual Average)",
+    "frequency": "Annual",
+    "from_date": "2005-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "External Sector Indices"
+  },
+  {
+    "report_id": 381,
+    "report_name": "Indices of Real Effective Exchange Rate (REER) and Nominal Effective Exchange Rate (NEER) of the Indian Rupee (40-Currency Bilateral Weights) (Financial Year - Annual Average)",
+    "frequency": "Annual",
+    "from_date": "2004-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "External Sector Indices"
+  },
+  {
+    "report_id": 584,
+    "report_name": "Indices of Real Effective Exchange Rate (REER) and Nominal Effective Exchange Rate (NEER) of the Indian Rupee",
+    "frequency": "Monthly",
+    "from_date": "31-JAN-1975",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "External Sector Indices"
+  },
+  {
+    "report_id": 900,
+    "report_name": "Index Numbers of Imports - Quantum and Unit Value (Base: 1999-2000 = 100)",
+    "frequency": "Annual",
+    "from_date": "1999-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "External Sector Indices"
+  },
+  {
+    "report_id": 414,
+    "report_name": "Foreign Exchange Reserves - Monthly",
+    "frequency": "Monthly",
+    "from_date": "1990-Mar-31",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "Forex Reserve"
+  },
+  {
+    "report_id": 415,
+    "report_name": "Foreign Exchange Reserves - Annual",
+    "frequency": "Annual",
+    "from_date": "1950-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "Forex Reserve"
+  },
+  {
+    "report_id": 687,
+    "report_name": "Foreign Exchange Reserves - Weekly",
+    "frequency": "Weekly",
+    "from_date": "2001-Apr-06",
+    "to_date": "14-AUG-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "Forex Reserve"
+  },
+  {
+    "report_id": 982,
+    "report_name": "International Investment Position of India",
+    "frequency": "Quarterly",
+    "from_date": "31-MAR-2006",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Finance"
+  },
+  {
+    "report_id": 417,
+    "report_name": "NRI Deposits",
+    "frequency": "Monthly",
+    "from_date": "1997-Apr-01",
+    "to_date": "31-MAY-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Finance"
+  },
+  {
+    "report_id": 418,
+    "report_name": "External Assistance",
+    "frequency": "Annual",
+    "from_date": "1997-Apr-01",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Finance"
+  },
+  {
+    "report_id": 419,
+    "report_name": "Inflows(+)/Outflows(-) Under Various NRI Deposit Schemes - Rupees",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1991",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Finance"
+  },
+  {
+    "report_id": 420,
+    "report_name": "Inflows(+)/Outflows(-) Under Various NRI Deposit Schemes - US Dollars",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1991",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Finance"
+  },
+  {
+    "report_id": 421,
+    "report_name": "NRI Deposits Outstanding - Rupees",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1991",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Finance"
+  },
+  {
+    "report_id": 628,
+    "report_name": "NRI Deposits Outstanding - US Dollars",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1991",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Finance"
+  },
+  {
+    "report_id": 695,
+    "report_name": "Foreign Liabilities and Assets of Mutual Fund and Assets Management Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2009",
+    "to_date": "31-MAR-2024",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Finance"
+  },
+  {
+    "report_id": 696,
+    "report_name": "Foreign Liabilities and Assets of Mutual Fund and Assets Management Companies : Country-wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2009",
+    "to_date": "31-MAR-2024",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Finance"
+  },
+  {
+    "report_id": 752,
+    "report_name": "Outright Remittances under the Liberalised Remittances Scheme for Resident Individuals - Yearly",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2009",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Finance"
+  },
+  {
+    "report_id": 793,
+    "report_name": "Outward Remittances under the Liberalised Remittance Scheme for Resident Individuals",
+    "frequency": "Monthly",
+    "from_date": "30-APR-2008",
+    "to_date": "31-MAY-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Finance"
+  },
+  {
+    "report_id": 997,
+    "report_name": "Foreign Investment Inflows",
+    "frequency": "Monthly",
+    "from_date": "30-APR-1995",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Finance"
+  },
+  {
+    "report_id": 1064,
+    "report_name": "Foreign Investment Inflows - Yearly",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1991",
+    "to_date": "31-MAR-2024",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Finance"
+  },
+  {
+    "report_id": 607,
+    "report_name": "Direction of Foreign Trade - Rupees",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 635,
+    "report_name": "Exports of Select Commodities to Principal Countries - Rupees",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2014",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 1076,
+    "report_name": "Invisibles by Category of Transactions (in US Dollar)",
+    "frequency": "Quarterly",
+    "from_date": "30-JUN-2010",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 885,
+    "report_name": "India's Overall Balance of Payments - Quarterly - US Dollars",
+    "frequency": "Quarterly",
+    "from_date": "30-JUN-1949",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 884,
+    "report_name": "India's Overall Balance of Payments - US Dollars",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1949",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 883,
+    "report_name": "India's Overall Balance of Payments - Rupees",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1949",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 878,
+    "report_name": "Key Components of India's Balance of Payments - Rupees",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1949",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 875,
+    "report_name": "Key Components of India's Balance of Payments - US Dollars",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1949",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 807,
+    "report_name": "Invisibles by Category of Transactions - US Dollars",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1949",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 791,
+    "report_name": "India’s Overall Balance of Payments - Quarterly – Rupees",
+    "frequency": "Quarterly",
+    "from_date": "30-JUN-1949",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 676,
+    "report_name": "Direction of Foreign Trade - US Dollars",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 649,
+    "report_name": "India's Foreign Trade - US Dollars",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 648,
+    "report_name": "India's Foreign Trade – Rupees",
+    "frequency": "Monthly",
+    "from_date": "01-APR-1990",
+    "to_date": "01-MAY-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 424,
+    "report_name": "Invisibles by Category of Transactions - Rupees",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1949",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 439,
+    "report_name": "Exports of Principal Commodities - US Dollars",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 433,
+    "report_name": "India's Foreign Trade - US Dollars",
+    "frequency": "Monthly",
+    "from_date": "01-APR-1990",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 432,
+    "report_name": "India's Foreign Trade - Rupees",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 431,
+    "report_name": "Imports of Principal Commodities - US Dollars",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 430,
+    "report_name": "Imports of Principal Commodities - Rupees",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 429,
+    "report_name": "Exports of Select Commodities to Principal Countries - US Dollars",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2014",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 428,
+    "report_name": "Exports of Principal Commodities - Rupees",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 427,
+    "report_name": "Balance of Payments - Indicators",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 426,
+    "report_name": "Broad Commodity Composition of Indias Merchandise Trade - US Dollar",
+    "frequency": "Monthly",
+    "from_date": "01-APR-1990",
+    "to_date": "01-MAY-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 425,
+    "report_name": "Broad Commodity Composition of India's Merchandise Trade - Oil and Non-Oil Exports and Imports - Rupees",
+    "frequency": "Monthly",
+    "from_date": "01-APR-1990",
+    "to_date": "01-MAY-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "International Trade"
+  },
+  {
+    "report_id": 563,
+    "report_name": "India's External Debt - US Dollars (End-March)",
+    "frequency": "Annual",
+    "from_date": "1991-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "External Debt"
+  },
+  {
+    "report_id": 570,
+    "report_name": "India's External Debt - Rupees (End-March)",
+    "frequency": "Annual",
+    "from_date": "1991-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "External Debt"
+  },
+  {
+    "report_id": 660,
+    "report_name": "External Debt of India - Quarterly",
+    "frequency": "Quarterly",
+    "from_date": "31-MAR-2020",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "External Sector",
+    "menu": "External Debt"
+  },
+  {
+    "report_id": 1358,
+    "report_name": "Annual Averages of Share Price Indices and Market Capitalisation",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1980",
+    "to_date": "31-MAR-2027",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 1353,
+    "report_name": "Monthly and Annual Averages of BSE Sensitive Index",
+    "frequency": "Monthly",
+    "from_date": "30-Apr-1990",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 1352,
+    "report_name": "Monthly Turnover at NSE",
+    "frequency": "Monthly",
+    "from_date": "30-APR-1994",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 1351,
+    "report_name": "Market Capitalisation - NSE",
+    "frequency": "Monthly",
+    "from_date": "01-APR-1994",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 1350,
+    "report_name": "Market Capitalisation - BSE and All-India",
+    "frequency": "Monthly",
+    "from_date": "01-APR-1993",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 1354,
+    "report_name": "Net Investments by FIIs in the Indian Capital Market",
+    "frequency": "Monthly",
+    "from_date": "30-APR-1992",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 1355,
+    "report_name": "New Capital Issues by Non-Government Public Limited Companies",
+    "frequency": "Monthly",
+    "from_date": "30-APR-2022",
+    "to_date": "31-MAY-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 1356,
+    "report_name": "Number and Quantum of Euro Issues",
+    "frequency": "Monthly",
+    "from_date": "30-APR-1992",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 1357,
+    "report_name": "Turnover in the Equity Derivatives Market",
+    "frequency": "Annual",
+    "from_date": "01-JAN-2016",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 1359,
+    "report_name": "Net Resources Mobilised by Bank-Sponsored and FI- Sponsored Mutual Funds",
+    "frequency": "Annual",
+    "from_date": "01-APR-1970",
+    "to_date": "31-MAR-2024",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 728,
+    "report_name": "NSE Indices",
+    "frequency": "Daily",
+    "from_date": "03-Mar-2003",
+    "to_date": "22-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 1360,
+    "report_name": "Net Resources Mobilised by Mutual Funds",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2024",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 693,
+    "report_name": "BSE Indices",
+    "frequency": "Daily",
+    "from_date": "01-Jan-1990",
+    "to_date": "22-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 680,
+    "report_name": "Daily Turnover,Market Capitalisation and Traded Volume at NSE",
+    "frequency": "Daily",
+    "from_date": "03-MAR-2003",
+    "to_date": "22-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 658,
+    "report_name": "Daily Turnover, Market Capitalisation and Traded Volume at BSE",
+    "frequency": "Daily",
+    "from_date": "03-MAR-2003",
+    "to_date": "22-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 1361,
+    "report_name": "Net Resources Mobilised by Private Sector Mutual Funds",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1997",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 990,
+    "report_name": "Monthly Turnover at BSE",
+    "frequency": "Monthly",
+    "from_date": "01-APR-1990",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 477,
+    "report_name": "Average Price / Earning Ratio of BSE Sensitive Index",
+    "frequency": "Monthly",
+    "from_date": "01-APR-1990",
+    "to_date": "31-MAR-2027",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 899,
+    "report_name": "New Capital Issues by Non-Government Public Limited Companies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2011",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 898,
+    "report_name": "Monthly and Annual Averages of BSE 100",
+    "frequency": "Monthly",
+    "from_date": "01-JAN-1991",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 804,
+    "report_name": "Yearly Traded Volume in Corporate Debt at NSE (Discontinued)",
+    "frequency": "Annual",
+    "from_date": "30-Apr-1997",
+    "to_date": "21-DEC-2012",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 802,
+    "report_name": "Monthly and Annual Averages of Nifty 50 (Base November 3,1995=1000)",
+    "frequency": "Monthly",
+    "from_date": "31-Jul-1990",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 750,
+    "report_name": "Monthly Traded Volume in Corporate Debt at NSE  (Discontinued)",
+    "frequency": "Monthly",
+    "from_date": "30-Apr-1997",
+    "to_date": "21-DEC-2012",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 478,
+    "report_name": "AVERAGE PRICE/BOOK VALUE RATIO OF BSE SENSEX",
+    "frequency": "Monthly",
+    "from_date": "01-APR-1990",
+    "to_date": "31-MAR-2027",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 726,
+    "report_name": "Foreign Equity Market Indices",
+    "frequency": "Daily",
+    "from_date": "03-Mar-2003",
+    "to_date": "22-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Equity and Corporate Debt Market"
+  },
+  {
+    "report_id": 659,
+    "report_name": "Daily Money Market Operations",
+    "frequency": "Daily",
+    "from_date": "01-JUL-2020",
+    "to_date": "16-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Money Market"
+  },
+  {
+    "report_id": 690,
+    "report_name": "Weighted Average Call/Notice Money Rates",
+    "frequency": "Daily",
+    "from_date": "01-Apr-2005",
+    "to_date": "14-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Money Market"
+  },
+  {
+    "report_id": 1375,
+    "report_name": "Weighted Average Call/Notice Money Rates",
+    "frequency": "Monthly",
+    "from_date": "30-APR-1991",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Money Market"
+  },
+  {
+    "report_id": 566,
+    "report_name": "Certificates of Deposit",
+    "frequency": "Fortnightly",
+    "from_date": "12-JUL-1991",
+    "to_date": "15-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Money Market"
+  },
+  {
+    "report_id": 627,
+    "report_name": "Average Daily Turnover in Select Financial Markets",
+    "frequency": "Weekly",
+    "from_date": "06-MAY-2005",
+    "to_date": "29-MAY-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Money Market"
+  },
+  {
+    "report_id": 702,
+    "report_name": "Liquidity Operations by RBI",
+    "frequency": "Daily",
+    "from_date": "01-NOV-2012",
+    "to_date": "16-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Money Market"
+  },
+  {
+    "report_id": 992,
+    "report_name": "London Inter-bank Overnight Offer Rate",
+    "frequency": "Daily",
+    "from_date": "02-JAN-2001",
+    "to_date": "30-MAR-2022",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Money Market"
+  },
+  {
+    "report_id": 993,
+    "report_name": "Mumbai Inter-Bank Offer Rate (MIBOR) & Mumbai Inter-Bank Bid Rate (MIBID)",
+    "frequency": "Daily",
+    "from_date": "15-JUN-1998",
+    "to_date": "20-MAY-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Money Market"
+  },
+  {
+    "report_id": 1211,
+    "report_name": "Repo/ Reverse Repo Auction Under Liquidity Adjustment Facility",
+    "frequency": "Daily",
+    "from_date": "03-APR-2001",
+    "to_date": "23-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Money Market"
+  },
+  {
+    "report_id": 1395,
+    "report_name": "Commercial Paper",
+    "frequency": "Bi-Monthly",
+    "from_date": "15-JUN-2011",
+    "to_date": "15-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Money Market"
+  },
+  {
+    "report_id": 1396,
+    "report_name": "Average Daily Turnover in Call Money Market - Weekly",
+    "frequency": "Weekly",
+    "from_date": "05-AUG-2011",
+    "to_date": "02-DEC-2016",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Money Market"
+  },
+  {
+    "report_id": 1397,
+    "report_name": "Weighted Average Call/Notice Money Rates",
+    "frequency": "Weekly",
+    "from_date": "08-JAN-2010",
+    "to_date": "19-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Money Market"
+  },
+  {
+    "report_id": 663,
+    "report_name": "Auctions of 91-Day Government of India Treasury Bills",
+    "frequency": "Weekly",
+    "from_date": "08-Jan-1993",
+    "to_date": "12-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 1371,
+    "report_name": "Ownership of Central and State Government Securities",
+    "frequency": "Annual",
+    "from_date": "20-Aug-1991",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 1370,
+    "report_name": "Interest Rates on Central and State Government Dated Securities",
+    "frequency": "Annual",
+    "from_date": "01-Aug-1980",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 1369,
+    "report_name": "Ownership Pattern of Government of India Dated Securities",
+    "frequency": "Quarterly",
+    "from_date": "31-MAR-2007",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 1368,
+    "report_name": "Yield of SGL Transactions in Government Dated Securiites for Various Maturities",
+    "frequency": "Monthly",
+    "from_date": "20-AUG-2021",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 1367,
+    "report_name": "Monthly Open Market Operations of Reserve Bank of India",
+    "frequency": "Monthly",
+    "from_date": "30-APR-2016",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 1366,
+    "report_name": "Auctions of 364-Day Government of India Treasury Bills",
+    "frequency": "Weekly",
+    "from_date": "7-Apr- 1998",
+    "to_date": "12-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 1365,
+    "report_name": "Auctions of 182-Day Government of India Treasury Bills",
+    "frequency": "Weekly",
+    "from_date": "06-Apr-2005",
+    "to_date": "12-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 1364,
+    "report_name": "Turnover in Government Securities Market (Face Value)",
+    "frequency": "Weekly",
+    "from_date": "03-Apr-1998",
+    "to_date": "24-JUL-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 1363,
+    "report_name": "Secondary Market Outright Transactions in Government Securities (Face Value)",
+    "frequency": "Weekly",
+    "from_date": "03-Apr-1998",
+    "to_date": "07-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 1362,
+    "report_name": "Maturity Pattern of Government of India Rupee loans",
+    "frequency": "Annual",
+    "from_date": "31-Mar-1975",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 769,
+    "report_name": "Secondary Market Repo Transactions In Government Securities (Face Value)",
+    "frequency": "Weekly",
+    "from_date": "03-Apr-1998",
+    "to_date": "14-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 1213,
+    "report_name": "Details of State Governments Market Borrowings",
+    "frequency": "Weekly",
+    "from_date": "19-Jan-2006",
+    "to_date": "11-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 1207,
+    "report_name": "Outstanding List of all SLR eligible securities",
+    "frequency": "Daily",
+    "from_date": "20-JAN-2006",
+    "to_date": "24-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 809,
+    "report_name": "Yield of SGL Transactions in Treasury Bills for Residual Maturities",
+    "frequency": "Monthly",
+    "from_date": "30-APR-1996",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 808,
+    "report_name": "Auctions of 14-Day Government of India Treasury Bills  (Discontinued)",
+    "frequency": "Weekly",
+    "from_date": "18-Jun-1999",
+    "to_date": "07-JUN-2023",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 681,
+    "report_name": "Government of India : Treasury Bills Outstanding",
+    "frequency": "Weekly",
+    "from_date": "12-MAY-2006",
+    "to_date": "14-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 559,
+    "report_name": "Details of Central Government Market Borrowings",
+    "frequency": "Weekly",
+    "from_date": "25-Apr-1995",
+    "to_date": "14-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 727,
+    "report_name": "Market Borrowings by the Government of India and State Governments- Dated Securities",
+    "frequency": "Weekly",
+    "from_date": "06-Jan-2012",
+    "to_date": "14-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 1398,
+    "report_name": "Secondary Market Transactions in Government Securities",
+    "frequency": "Monthly",
+    "from_date": "30-SEP-1994",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Government Securities Market"
+  },
+  {
+    "report_id": 691,
+    "report_name": "Daily Interbank Forex Rates (USD vis-a-vis INR)",
+    "frequency": "Daily",
+    "from_date": "08-AUG-2000",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Forex Market"
+  },
+  {
+    "report_id": 694,
+    "report_name": "Turnover in Foreign Exchange Market - Daily",
+    "frequency": "Daily",
+    "from_date": "03-AUG-1998",
+    "to_date": "31-JUL-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Forex Market"
+  },
+  {
+    "report_id": 730,
+    "report_name": "Sale/ Purchase of U.S. Dollar by the RBI",
+    "frequency": "Monthly",
+    "from_date": "30-JUN-1995",
+    "to_date": "31-MAY-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Forex Market"
+  },
+  {
+    "report_id": 768,
+    "report_name": "Forex Rates - Month-High / Month-Low",
+    "frequency": "Monthly",
+    "from_date": "31-AUG-1998",
+    "to_date": "21-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Forex Market"
+  },
+  {
+    "report_id": 1347,
+    "report_name": "Turnover in Foreign Exchange Market",
+    "frequency": "Monthly",
+    "from_date": "31-AUG-1996",
+    "to_date": "31-JUL-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Forex Market"
+  },
+  {
+    "report_id": 1348,
+    "report_name": "Exchange Rate of the Indian Rupee Vis-A-Vis the SDR, US Dollar, Pound Sterling, D.M./Euro and Japanese Yen (Financial Year - Annual Average and End-Year Rates)",
+    "frequency": "Annual",
+    "from_date": "31-JUL-1971",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Forex Market"
+  },
+  {
+    "report_id": 1349,
+    "report_name": "Exchange Rate of the Indian Rupee Vis-a-Vis the SDR, US Dollar, Pound Sterling, D.M./Euro and Japanese Yen (Calender Year - Annual Average)",
+    "frequency": "Annual",
+    "from_date": "31-DEC-1970",
+    "to_date": "31-DEC-2025",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Forex Market"
+  },
+  {
+    "report_id": 1374,
+    "report_name": "Exchange Rate of the Indian Rupee vis-a-vis the SDR, US Dollar, Pound Sterling (Monthly Average and End-Month Rates)",
+    "frequency": "Monthly",
+    "from_date": "31-Mar-1992",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Forex Market"
+  },
+  {
+    "report_id": 558,
+    "report_name": "Forward Premia (Inter-Bank) (Monthly Average)",
+    "frequency": "Monthly",
+    "from_date": "31-MAR-1993",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Forex Market"
+  },
+  {
+    "report_id": 583,
+    "report_name": "Exchange Rate of the Indian Rupee vis-a-vis the SDR, US Dollar, Pound Sterling (High and Low During the Month)",
+    "frequency": "Monthly",
+    "from_date": "30-Apr-2008",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Forex Market"
+  },
+  {
+    "report_id": 675,
+    "report_name": "Daily Exchange Rate of the Indian Rupee",
+    "frequency": "Daily",
+    "from_date": "25-AUG-1998",
+    "to_date": "21-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Forex Market"
+  },
+  {
+    "report_id": 698,
+    "report_name": "Daily Forward Premia (Inter-Bank)",
+    "frequency": "Daily",
+    "from_date": "04-NOV-2003",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Forex Market"
+  },
+  {
+    "report_id": 767,
+    "report_name": "Daily Forward Premia (USD vis-a-vis INR) (in Paise)",
+    "frequency": "Daily",
+    "from_date": "08-AUG-2000",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Forex Market"
+  },
+  {
+    "report_id": 719,
+    "report_name": "Monthly Average Exchange Rates (EURO,GBP,JPY,USD)",
+    "frequency": "Monthly",
+    "from_date": "31-MAY-1966",
+    "to_date": "31-JUL-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Forex Market"
+  },
+  {
+    "report_id": 720,
+    "report_name": "Monthly Average Exchange Rate (155 Currencies)",
+    "frequency": "Monthly",
+    "from_date": "31-MAY-1966",
+    "to_date": "31-JUL-2026",
+    "function": "Statistics",
+    "department": "Financial Market",
+    "menu": "Forex Market"
+  },
+  {
+    "report_id": 440,
+    "report_name": "Major Monetary Policy Measures - Bank Rate, CRR & SLR",
+    "frequency": "Quarterly",
+    "from_date": "04-JUL-1935",
+    "to_date": "05-DEC-2025",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Key Rates"
+  },
+  {
+    "report_id": 441,
+    "report_name": "Structure of Interest Rates",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2027",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Key Rates"
+  },
+  {
+    "report_id": 755,
+    "report_name": "Weighted Average Lending Rate (Discontinued)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1992",
+    "to_date": "31-MAR-2014",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Key Rates"
+  },
+  {
+    "report_id": 1205,
+    "report_name": "Bank Group-wise and Occupation-wise Weighted Average Lending Rate and Deposit Rate  (Discontinued)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2005",
+    "to_date": "31-MAR-2014",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Key Rates"
+  },
+  {
+    "report_id": 1491,
+    "report_name": "MPC voting pattern-Policy rate",
+    "frequency": "As and When",
+    "from_date": "04-OCT-2016",
+    "to_date": "05-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Key Rates"
+  },
+  {
+    "report_id": 1372,
+    "report_name": "Operations of HDFC",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1979",
+    "to_date": "31-MAR-2024",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 391,
+    "report_name": "Liabilities and Assets of IFCI",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 801,
+    "report_name": "Industrial Refinance by Reserve Bank of India",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2022",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 398,
+    "report_name": "Resource Mobilisation in the Private Placement Market",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1996",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 396,
+    "report_name": "National Bank for Agriculture and Rural Development - Financial Assistance",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 395,
+    "report_name": "Liabilities and Assets of SIDBI",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1991",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 394,
+    "report_name": "Liabilities and Assets of SFCs",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 393,
+    "report_name": "Liabilities and Assets of NHB",
+    "frequency": "Annual",
+    "from_date": "30-JUN-1989",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 392,
+    "report_name": "Liabilities and Assets of NABARD",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1990",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 382,
+    "report_name": "Assets Under Management of Mutual Funds",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1997",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 390,
+    "report_name": "Investments by LIC",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1979",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 389,
+    "report_name": "Financial Assistance Sanctioned and Disbursed by All Financial Institutions",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 388,
+    "report_name": "Disbursements by National Housing Bank Under its Refinance Schemes",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1989",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 387,
+    "report_name": "Deposit Insurance and Credit Guarantee Corporation - Liabilities and Assets (General Fund)",
+    "frequency": "Annual",
+    "from_date": "31-DEC-1982",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 386,
+    "report_name": "Deposit Insurance and Credit Guarantee Corporation - Liabilities and Assets (Deposit Insurance Fund)",
+    "frequency": "Annual",
+    "from_date": "31-DEC-1982",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 385,
+    "report_name": "Deposit Insurance and Credit Guarantee Corporation - Liabilities and Assets (Credit Guarantee Fund)",
+    "frequency": "Annual",
+    "from_date": "31-DEC-1981",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 384,
+    "report_name": "Deposit Insurance and Credit Guarantee Corporation - Insured Deposits",
+    "frequency": "Annual",
+    "from_date": "31-DEC-1962",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 383,
+    "report_name": "Bonds Issued by Public Sector Undertakings",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1979",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 873,
+    "report_name": "Liabilities and Assets of EXIM Bank",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1982",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Financial Institutions"
+  },
+  {
+    "report_id": 1373,
+    "report_name": "Components of Money Stock",
+    "frequency": "Monthly",
+    "from_date": "01-APR-1991",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 781,
+    "report_name": "Reserve Money: Components and Sources - Monthly",
+    "frequency": "Monthly",
+    "from_date": "29-JUN-2001",
+    "to_date": "12-DEC-2025",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 770,
+    "report_name": "Money Stock: Components and Sources",
+    "frequency": "Fortnightly",
+    "from_date": "12-JAN-2001",
+    "to_date": "31-JUL-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 568,
+    "report_name": "Select Monetary Aggregates - Growth Rates",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1970",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 1004,
+    "report_name": "Reserve Bank of India - Liabilities & Assets",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "14-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 903,
+    "report_name": "Commercial Bank Survey",
+    "frequency": "Monthly",
+    "from_date": "26-MAR-1999",
+    "to_date": "31-MAY-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 761,
+    "report_name": "RBI - Liabilities & Assets",
+    "frequency": "Monthly",
+    "from_date": "02-JUL-2004",
+    "to_date": "29-MAY-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 751,
+    "report_name": "Reserve Money: Components and Sources",
+    "frequency": "Weekly",
+    "from_date": "2001-JUL-06",
+    "to_date": "12-DEC-2025",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 729,
+    "report_name": "Reserve Money: Components and Sources - Yearly",
+    "frequency": "Annual",
+    "from_date": "2001-Apr-01",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 586,
+    "report_name": "Components of Money Stock",
+    "frequency": "Annual",
+    "from_date": "1951-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 443,
+    "report_name": "Commercial Bank Survey",
+    "frequency": "Fortnightly",
+    "from_date": "26-MAR-1999",
+    "to_date": "31-MAY-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 556,
+    "report_name": "Monetary Survey",
+    "frequency": "Fortnightly",
+    "from_date": "23-APR-1999",
+    "to_date": "31-JUL-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 547,
+    "report_name": "Sources of Money Stock",
+    "frequency": "Annual",
+    "from_date": "1951-Mar-30",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 546,
+    "report_name": "RESERVE BANK OF INDIA SURVEY",
+    "frequency": "Monthly",
+    "from_date": "29-FEB-1952",
+    "to_date": "31-JUL-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 545,
+    "report_name": "RBI's Standing Facilities",
+    "frequency": "Monthly",
+    "from_date": "22-APR-1911",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 544,
+    "report_name": "Monetary Survey",
+    "frequency": "Monthly",
+    "from_date": "31-MAR-1999",
+    "to_date": "31-JUL-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 447,
+    "report_name": "Reserve Bank of India - Liabilities & Assets",
+    "frequency": "Weekly",
+    "from_date": "02-JUL-2004",
+    "to_date": "14-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 446,
+    "report_name": "Notes and Coins in Circulation",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 445,
+    "report_name": "Average Monetary Aggregates",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1952",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 444,
+    "report_name": "Sources of Money Stock",
+    "frequency": "Monthly",
+    "from_date": "01-APR-1991",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 764,
+    "report_name": "Select Monetary Ratios",
+    "frequency": "Annual",
+    "from_date": "30-MAR-1952",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Monetary Statistics"
+  },
+  {
+    "report_id": 450,
+    "report_name": "Aggregate Deposits of the NBFC Sector",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1998",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Non Banking Financial Companies"
+  },
+  {
+    "report_id": 760,
+    "report_name": "Financial Statistics of NBFC Sector",
+    "frequency": "Quarterly",
+    "from_date": "31-MAR-2012",
+    "to_date": "31-MAR-2015",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Non Banking Financial Companies"
+  },
+  {
+    "report_id": 1198,
+    "report_name": "Credit to Various Sectors by NBFCs",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2016",
+    "to_date": "31-MAR-2018",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Non Banking Financial Companies"
+  },
+  {
+    "report_id": 737,
+    "report_name": "Ownership of Deposits with Scheduled Commercial Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 473,
+    "report_name": "Direct Institutional Credit for Agriculture and Allied Activities - Short-Term  (Discontinued)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 1130,
+    "report_name": "Food & Non-Food Credit of Scheduled Commercial Banks",
+    "frequency": "Fortnightly",
+    "from_date": "06-Jun-1997",
+    "to_date": "15-JUL-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 337,
+    "report_name": "Institutional Credit for Agriculture and Allied Activities",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 756,
+    "report_name": "Scheduled Commercial Banks' Direct Finance to Farmers According to Size of Land Holdings (Disbursements) - Short-Term & Long-Term Loans  (Discontinued)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1981",
+    "to_date": "31-MAR-2012",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 1223,
+    "report_name": "Bank Deposits of SCBs - Region, State, District, Bank Group, Population Group-Wise - Annual",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2018",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 1222,
+    "report_name": "Bank Credit of SCBs - Bank Group, Population Group, Occupation (Sector), District Wise - Annual",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2010",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 999,
+    "report_name": "Sectoral Deployment of Non-Food Gross Bank Credit - Outstanding",
+    "frequency": "Annual",
+    "from_date": "18-JAN-2019",
+    "to_date": "31-MAY-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 906,
+    "report_name": "Outstanding Advances of Scheduled Commercial Banks to Exporters  (Discontinued)",
+    "frequency": "Quarterly",
+    "from_date": "31-MAR-2005",
+    "to_date": "30-JUN-2018",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 905,
+    "report_name": "Outstanding Advances of Scheduled Commercial Banks for Public Food Procurement Operations",
+    "frequency": "Monthly",
+    "from_date": "31-JAN-2005",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 790,
+    "report_name": "Direct Institutional Credit for Agriculture and Allied Activities - Long-Term  (Discontinued)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 762,
+    "report_name": "Position of Sick SSI Units and Sick/Weak Non-SSI Units Financed by Scheduled Commercial Banks  (Discontinued)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1987",
+    "to_date": "31-MAR-2017",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 758,
+    "report_name": "Scheduled Commercial Banks' Advances to Small Scale Industries and Allied Services - Outstanding  (Discontinued)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2020",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 757,
+    "report_name": "Scheduled Commercial Banks' Direct Finance to Farmers According to Size of Land Holdings (Outstanding) - Short-Term & Long-Term Loans (Discontinued)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1981",
+    "to_date": "31-MAR-2012",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 749,
+    "report_name": "Indirect Institutional Credit for Agriculture and Allied Activities (Discontinued)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1972",
+    "to_date": "31-MAR-2022",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 541,
+    "report_name": "Industry-Wise Deployment of Gross Bank Credit",
+    "frequency": "Annual",
+    "from_date": "18-JAN-2019",
+    "to_date": "31-MAY-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 338,
+    "report_name": "Self-Help Group - Bank Linkage Programme",
+    "frequency": "Annual",
+    "from_date": "01-APR-1992",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 474,
+    "report_name": "Scheduled Commercial Banks' Advances to Agriculture - Outstanding  (Discontinued)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2020",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 557,
+    "report_name": "Bank Group-Wise Distribution of Employees of Scheduled Commercial Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1992",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 539,
+    "report_name": "DEPLOYMENT OF BANK CREDIT BY MAJOR SECTORS",
+    "frequency": "Monthly",
+    "from_date": "18-JAN-2019",
+    "to_date": "31-MAY-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 540,
+    "report_name": "INDUSTRY-WISE DEPLOYMENT OF BANK CREDIT",
+    "frequency": "Monthly",
+    "from_date": "18-JAN-2019",
+    "to_date": "31-MAY-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Sectoral Statistics"
+  },
+  {
+    "report_id": 665,
+    "report_name": "Bank Group-wise Classification of Loan Assets of Scheduled Commercial Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2005",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Performance Indicators"
+  },
+  {
+    "report_id": 910,
+    "report_name": "Composition of NPAs of Public Sector Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2003",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Performance Indicators"
+  },
+  {
+    "report_id": 1221,
+    "report_name": "Variables to be published Bank and Bank Group wise (For Public Access)",
+    "frequency": "Quarterly",
+    "from_date": "31-MAR-2002",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Performance Indicators"
+  },
+  {
+    "report_id": 336,
+    "report_name": "Bank-wise and Bank Group-wise Gross Non-Performing Assets, Gross Advances, and Gross NPA Ratios of Scheduled Commercial Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2004",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Performance Indicators"
+  },
+  {
+    "report_id": 329,
+    "report_name": "Distribution of Scheduled Commercial Banks by CRAR",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1996",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Performance Indicators"
+  },
+  {
+    "report_id": 332,
+    "report_name": "Scheduled Commercial Banks - Ratios",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1951",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Performance Indicators"
+  },
+  {
+    "report_id": 330,
+    "report_name": "Gross and Net NPAs of Scheduled Commercial Banks - Bank Group-Wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1997",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Performance Indicators"
+  },
+  {
+    "report_id": 331,
+    "report_name": "Important Banking Indicators - Regional Rural Banks - Outstanding",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1980",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Performance Indicators"
+  },
+  {
+    "report_id": 678,
+    "report_name": "Cheque Clearances",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2005",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Payment Systems"
+  },
+  {
+    "report_id": 907,
+    "report_name": "Payment System Indicators",
+    "frequency": "Annual",
+    "from_date": "1970-Mar-31",
+    "to_date": "31-MAY-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Payment Systems"
+  },
+  {
+    "report_id": 936,
+    "report_name": "Number of Clearing Houses",
+    "frequency": "Annual",
+    "from_date": "2005-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Payment Systems"
+  },
+  {
+    "report_id": 778,
+    "report_name": "Payment System Indicators",
+    "frequency": "Monthly",
+    "from_date": "30-APR-2004",
+    "to_date": "31-MAY-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Payment Systems"
+  },
+  {
+    "report_id": 741,
+    "report_name": "Scheduled Commercial Bank's Investments",
+    "frequency": "Fortnightly",
+    "from_date": "06-JUN-1997",
+    "to_date": "31-JUL-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 803,
+    "report_name": "Scheduled Commercial Banks - Select Aggregates",
+    "frequency": "Monthly",
+    "from_date": "22-JAN-2016",
+    "to_date": "31-MAY-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 987,
+    "report_name": "Bank Group-wise Business of Scheduled Banks in India",
+    "frequency": "Monthly",
+    "from_date": "2005-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 939,
+    "report_name": "State-wise Distribution of Liabilities and Assets of District Central Co-operative Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2005",
+    "to_date": "31-MAR-2024",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 938,
+    "report_name": "Bank Group-wise Insured Deposits",
+    "frequency": "Annual",
+    "from_date": "30-SEP-2005",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 937,
+    "report_name": "Business of Scheduled Banks in India",
+    "frequency": "Monthly",
+    "from_date": "01-MAR-2005",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 909,
+    "report_name": "State-wise Distribution of Scheduled Commercial Banks' Investments in State Government Securities and Shares/Debentures/Bonds of State Level Bodies  (Discontinued)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2005",
+    "to_date": "31-MAR-2012",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 904,
+    "report_name": "Liabilities and Assets of Indian Scheduled Commercial Banks in Foreign Countries",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2004",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 901,
+    "report_name": "Scheduled Commercial Banks - Select Aggregates",
+    "frequency": "Fortnightly",
+    "from_date": "30-MAY-1997",
+    "to_date": "31-MAY-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 879,
+    "report_name": "Scheduled Commercial Banks - Select Aggregates - Annual",
+    "frequency": "Annual",
+    "from_date": "30-MAR-1951",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 988,
+    "report_name": "State-wise Distribution of Liabilities and Assets of State Co-operative Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2005",
+    "to_date": "31-MAR-2024",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 747,
+    "report_name": "Investments of Scheduled Commercial Banks (Discontinued)",
+    "frequency": "Annual",
+    "from_date": "2005-Mar-31",
+    "to_date": "31-MAR-2012",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 998,
+    "report_name": "Business in India - All Scheduled Banks and All Scheduled Commercial Banks",
+    "frequency": "Monthly",
+    "from_date": "1997-May-30",
+    "to_date": "31-MAY-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 1005,
+    "report_name": "Unclaimed Deposits with Scheduled Commercial Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2005",
+    "to_date": "31-DEC-2025",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 326,
+    "report_name": "Cash Balances of Scheduled Commercial Banks (excluding Regional Rural Banks) with Reserve Bank of India",
+    "frequency": "Daily",
+    "from_date": "22-JUL-2006",
+    "to_date": "15-AUG-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 1209,
+    "report_name": "Abridged Balance Sheet - Bank Group wise - Quarterly (Discontinued)",
+    "frequency": "Quarterly",
+    "from_date": "31-MAR-1997",
+    "to_date": "30-SEP-2013",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 1214,
+    "report_name": "RTP: Growth Rate of Select Balance Sheet Indicators of Sch. UCBs",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1997",
+    "to_date": "31-MAR-2011",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 1215,
+    "report_name": "RTP: Select Balance Sheet Indicators of Primary Agricultural Credit Societies (PACS)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1997",
+    "to_date": "31-MAR-2011",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 1248,
+    "report_name": "Flow of Financial Resources from Scheduled Commercial Banks to the Commercial Sector",
+    "frequency": "Fortnightly",
+    "from_date": "2017-Apr-14",
+    "to_date": "21-FEB-2025",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 679,
+    "report_name": "Bank Group-wise and Instrument-wise Derivatives of Scheduled Commercial Banks in India",
+    "frequency": "Annual",
+    "from_date": "2012-Mar-31",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 322,
+    "report_name": "State Co-operative Banks Maintaining Accounts with the RBI",
+    "frequency": "Monthly",
+    "from_date": "28-NOV-1997",
+    "to_date": "30-APR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 579,
+    "report_name": "State Co-operative Banks Maintaining Accounts with the Reserve Bank of India",
+    "frequency": "Annual",
+    "from_date": "1971-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 324,
+    "report_name": "Loans and Advances of PACS, SCARDBs and PCARDBs",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1978",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 325,
+    "report_name": "Non-Performing Assets of Co-operative Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1995",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 323,
+    "report_name": "Consolidated Balance Sheet of Scheduled Commercial Banks (Excluding Regional Rural Banks)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1991",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 872,
+    "report_name": "Select Aggregates of Scheduled Commercial Banks - Growth Rates",
+    "frequency": "Annual",
+    "from_date": "28-MAR-1952",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 1216,
+    "report_name": "List of Amalgamated Regional Rural Banks",
+    "frequency": "Annual",
+    "from_date": "31-AUG-2006",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Financial Sector",
+    "menu": "Banking - Assets & Liabilities"
+  },
+  {
+    "report_id": 673,
+    "report_name": "Direct and Indirect Tax Revenues of Central and State Governments",
+    "frequency": "Annual",
+    "from_date": "1981-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central & State Govt. Finance (Combined)"
+  },
+  {
+    "report_id": 339,
+    "report_name": "Combined Liabilities of Central and State Governments",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1981",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central & State Govt. Finance (Combined)"
+  },
+  {
+    "report_id": 340,
+    "report_name": "Developmental and Non-Developmental Expenditure of Central and State Governments",
+    "frequency": "Annual",
+    "from_date": "1981-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central & State Govt. Finance (Combined)"
+  },
+  {
+    "report_id": 341,
+    "report_name": "Market Borrowings of Central and State Governments",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1981",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central & State Govt. Finance (Combined)"
+  },
+  {
+    "report_id": 342,
+    "report_name": "Select Debt Indicators of the Central and State Governments (As Percentage to GDP)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1981",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central & State Govt. Finance (Combined)"
+  },
+  {
+    "report_id": 346,
+    "report_name": "Combined Deficit of Central and State Governments",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1981",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central & State Govt. Finance (Combined)"
+  },
+  {
+    "report_id": 347,
+    "report_name": "Combined Deficits of the Central and State Governments (As Percentage to GDP)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1981",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central & State Govt. Finance (Combined)"
+  },
+  {
+    "report_id": 721,
+    "report_name": "Receipts and Disbursements of Central and State Governments",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1981",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central & State Govt. Finance (Combined)"
+  },
+  {
+    "report_id": 608,
+    "report_name": "Financing of Public Sector Plan (Discontinued)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1986",
+    "to_date": "31-MAR-2017",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central Govt. Finance"
+  },
+  {
+    "report_id": 655,
+    "report_name": "Central Government Receipts - Major Components",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2027",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central Govt. Finance"
+  },
+  {
+    "report_id": 656,
+    "report_name": "Centre's Gross Fiscal Deficit and its Financing",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2027",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central Govt. Finance"
+  },
+  {
+    "report_id": 713,
+    "report_name": "Key Deficit Indicators of the Central Government",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2027",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central Govt. Finance"
+  },
+  {
+    "report_id": 349,
+    "report_name": "Month-Wise Gross Fiscal Deficit of the Central Government",
+    "frequency": "Monthly",
+    "from_date": "30-APR-1994",
+    "to_date": "31-MAY-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central Govt. Finance"
+  },
+  {
+    "report_id": 350,
+    "report_name": "Gross Capital Formation from Budgetary Resources of the Central Government",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2018",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central Govt. Finance"
+  },
+  {
+    "report_id": 351,
+    "report_name": "Major Heads of Capital Receipts of the Central Government",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2027",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central Govt. Finance"
+  },
+  {
+    "report_id": 352,
+    "report_name": "Major Heads of Developmental and Non-Developmental Expenditure of the Central Government",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1981",
+    "to_date": "31-MAR-2027",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central Govt. Finance"
+  },
+  {
+    "report_id": 353,
+    "report_name": "Major Heads of Expenditure of the Central Government",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2027",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central Govt. Finance"
+  },
+  {
+    "report_id": 355,
+    "report_name": "Select Fiscal Indicators of the Central Government (As Percentage to GDP)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2027",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central Govt. Finance"
+  },
+  {
+    "report_id": 356,
+    "report_name": "Small Savings Schemes",
+    "frequency": "Annual",
+    "from_date": "01-APR-1992",
+    "to_date": "01-JUL-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central Govt. Finance"
+  },
+  {
+    "report_id": 581,
+    "report_name": "Small Savings",
+    "frequency": "Monthly",
+    "from_date": "30-APR-1992",
+    "to_date": "31-JAN-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central Govt. Finance"
+  },
+  {
+    "report_id": 600,
+    "report_name": "Small Savings",
+    "frequency": "Annual",
+    "from_date": "1982-Mar-31",
+    "to_date": "31-JAN-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central Govt. Finance"
+  },
+  {
+    "report_id": 748,
+    "report_name": "Public Sector Plan Outlay (At Current Prices)  (Discontinued)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1986",
+    "to_date": "31-MAR-2017",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central Govt. Finance"
+  },
+  {
+    "report_id": 1399,
+    "report_name": "Outstanding Liabilities of Central Government",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1981",
+    "to_date": "31-MAR-2027",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "Central Govt. Finance"
+  },
+  {
+    "report_id": 677,
+    "report_name": "Expenditure Pattern of the State Governments",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "State Govt. Finance"
+  },
+  {
+    "report_id": 709,
+    "report_name": "Pattern of Receipts of the State Governments",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "State Govt. Finance"
+  },
+  {
+    "report_id": 451,
+    "report_name": "Key Deficit Indicators of the State Governments",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "State Govt. Finance"
+  },
+  {
+    "report_id": 452,
+    "report_name": "Outstanding Liabilities of the State Governments",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1981",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "State Govt. Finance"
+  },
+  {
+    "report_id": 453,
+    "report_name": "Pattern of Major Capital Receipts of the State Governments",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "State Govt. Finance"
+  },
+  {
+    "report_id": 454,
+    "report_name": "Select Fiscal Indicators of the State Governments (As Percentage to GDP)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1974",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "State Govt. Finance"
+  },
+  {
+    "report_id": 692,
+    "report_name": "States' Gross Fiscal Deficit and its Financing",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1981",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Public Finance",
+    "menu": "State Govt. Finance"
+  },
+  {
+    "report_id": 458,
+    "report_name": "Area Under Cultivation - Major Commercial Crops",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1951",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Agriculture"
+  },
+  {
+    "report_id": 459,
+    "report_name": "Index Numbers of Agricultural Production - Major Crops",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1981",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Agriculture"
+  },
+  {
+    "report_id": 460,
+    "report_name": "Index Numbers of Area, Production and Yield of Foodgrains, Non-Foodgrains and All Crops in India",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1950",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Agriculture"
+  },
+  {
+    "report_id": 461,
+    "report_name": "Minimum Support Price for Foodgrains According to Crop Year",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1976",
+    "to_date": "31-MAR-2027",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Agriculture"
+  },
+  {
+    "report_id": 462,
+    "report_name": "Minimum Support Price for Non-Foodgrains According to Crop Year",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1976",
+    "to_date": "31-MAR-2027",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Agriculture"
+  },
+  {
+    "report_id": 463,
+    "report_name": "Pattern of Land Use and Select Inputs for Agricultural Production",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1951",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Agriculture"
+  },
+  {
+    "report_id": 464,
+    "report_name": "Public Distribution System - Procurement Off-Take and Stocks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1951",
+    "to_date": "31-MAR-2027",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Agriculture"
+  },
+  {
+    "report_id": 465,
+    "report_name": "State-Wise Production of Foodgrains and Major Non-Foodgrain Crops",
+    "frequency": "Annual",
+    "from_date": "1980-Mar-31",
+    "to_date": "31-MAR-2023",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Agriculture"
+  },
+  {
+    "report_id": 623,
+    "report_name": "Agricultural Production - Foodgrains",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1951",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Agriculture"
+  },
+  {
+    "report_id": 624,
+    "report_name": "Agricultural Production - Major Commercial Crops",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1951",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Agriculture"
+  },
+  {
+    "report_id": 625,
+    "report_name": "Area Under Cultivation - Foodgrains",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1951",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Agriculture"
+  },
+  {
+    "report_id": 886,
+    "report_name": "Yield Per Hectare - Foodgrains",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1951",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Agriculture"
+  },
+  {
+    "report_id": 887,
+    "report_name": "Yield Per Hectare - Major Commercial Crops",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1951",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Agriculture"
+  },
+  {
+    "report_id": 712,
+    "report_name": "Consumer Price Index for Rural Labourer - By Group (Year-End)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1996",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 1458,
+    "report_name": "Diffusion Indices based on CPI data",
+    "frequency": "Monthly",
+    "from_date": "01-FEB-2014",
+    "to_date": "01-JUL-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 711,
+    "report_name": "Consumer Price Index for Industrial Workers - By Group (Year-End)",
+    "frequency": "Annual",
+    "from_date": "31-Mar-1969",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 708,
+    "report_name": "Consumer Price Index for Agricultural Labourer - By Group (Year-End)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1996",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 688,
+    "report_name": "House Price Index",
+    "frequency": "Quarterly",
+    "from_date": "31-MAR-2009",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 626,
+    "report_name": "Consumer Price Index - Rural, Urban, Combined (All India)",
+    "frequency": "Monthly",
+    "from_date": "31-JAN-2011",
+    "to_date": "31-JUL-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 876,
+    "report_name": "Consumer Price Index - Annual Average",
+    "frequency": "Annual",
+    "from_date": "1970-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 520,
+    "report_name": "Wholesale Price Index - Annual Average",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1953",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 1210,
+    "report_name": "Wholesale Price Index Data - Weekly (Discontinued)",
+    "frequency": "Weekly",
+    "from_date": "04-FEB-1994",
+    "to_date": "21-DEC-2012",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 1174,
+    "report_name": "Consumer Price Index for Agricultural Labourer - By Group (Annual Average)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1967",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 1168,
+    "report_name": "Consumer Price Index Numbers for Industrial Workers - All-India and Selected Centres",
+    "frequency": "Monthly",
+    "from_date": "31-AUG-1968",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 1062,
+    "report_name": "Wholesale Price Index - Monthly Data",
+    "frequency": "Monthly",
+    "from_date": "30-Apr-1982",
+    "to_date": "31-JUL-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 1060,
+    "report_name": "Consumer Price Index Numbers for Agricultural/Rural Labourers (State-Wise)",
+    "frequency": "Monthly",
+    "from_date": "30-SEP-1964",
+    "to_date": "31-JUL-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 994,
+    "report_name": "Consumer Price Index - Rural, Urban, Combined (State-Wise)",
+    "frequency": "Monthly",
+    "from_date": "2011-Jan-31",
+    "to_date": "31-JUL-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 902,
+    "report_name": "Consumer Price Index (Average of Months) - Annual Variation",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1967",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 889,
+    "report_name": "Consumer Price Index - Annual Variation",
+    "frequency": "Monthly",
+    "from_date": "30-Apr-1967",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 674,
+    "report_name": "Gold and Silver - Yearly Average Price in Domestic and Foreign Markets",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 759,
+    "report_name": "Consumer Price Index for Rural Labourer - By Group (Annual Average)",
+    "frequency": "Annual",
+    "from_date": "31-Mar-1996",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 519,
+    "report_name": "Monthly Average Price of Gold and Silver in Domestic and Foreign Markets",
+    "frequency": "Monthly",
+    "from_date": "01-APR-1990",
+    "to_date": "01-MAY-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 521,
+    "report_name": "Wholesale Price Index - Annual Variation",
+    "frequency": "Annual",
+    "from_date": "31-Mar-1971",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 707,
+    "report_name": "Consumer Price Index for Rural Labourer - Monthly",
+    "frequency": "Monthly",
+    "from_date": "30-Nov-1995",
+    "to_date": "31-JUL-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 664,
+    "report_name": "Average Daily Wage Rates (in Rs.) in Rural India for Men",
+    "frequency": "Monthly",
+    "from_date": "30-Apr-1998",
+    "to_date": "23-APR-2025",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 763,
+    "report_name": "Consumer Price Index for Industrial Workers - By Group ( Annual Average )",
+    "frequency": "Annual",
+    "from_date": "31-Mar-1969",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 700,
+    "report_name": "Consumer Price Index for Agricultural Labourer - Monthly",
+    "frequency": "Monthly",
+    "from_date": "30-APR-1966",
+    "to_date": "31-JUL-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 699,
+    "report_name": "Consumer Price Index for Industrial Workers - Monthly",
+    "frequency": "Monthly",
+    "from_date": "31-Aug-1968",
+    "to_date": "31-JUL-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Prices & Wages"
+  },
+  {
+    "report_id": 871,
+    "report_name": "Net State Value Added by Economic Activity (At Current Prices) (Base: 2011-12)",
+    "frequency": "Annual",
+    "from_date": "2000-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 550,
+    "report_name": "Select Macro-Economic Aggregates - Growth Saving and Investment Rates (at Current Prices)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1951",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 981,
+    "report_name": "Net State Value Added by Economic Activity (At Constant Prices) (Base: 2011-12)",
+    "frequency": "Annual",
+    "from_date": "31-Mar-2000",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 897,
+    "report_name": "Components of Gross Domestic Product (at Market Prices)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1951",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 888,
+    "report_name": "Macro Economic Aggregates (at Constant Prices)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1951",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 882,
+    "report_name": "Macro Economic Aggregates (at Current Prices)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1951",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 806,
+    "report_name": "Gross State Domestic Product (SDP) - Annual",
+    "frequency": "Annual",
+    "from_date": "2000-Mar-31",
+    "to_date": "31-MAR-2022",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 794,
+    "report_name": "Components of Gross Domestic Product at Factor Cost/ Gross Value Added at Basic Price",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1951",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 595,
+    "report_name": "Employment in Public and Organised Private Sector",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2024",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 594,
+    "report_name": "Net State Domestic Product at Factor Cost - State-Wise (at Current Prices)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1981",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 564,
+    "report_name": "Select Macro-Economic Aggregates - Growth Saving and Investment Rates (at Constant Prices)",
+    "frequency": "Annual",
+    "from_date": "1961-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 504,
+    "report_name": "Quarterly Estimates of Gross Domestic Product at Factor Cost/ Gross Value Added at Basic Price (at Constant Prices)",
+    "frequency": "Quarterly",
+    "from_date": "30-JUN-1996",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 514,
+    "report_name": "Sector-Wise Gross Capital Formation",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1951",
+    "to_date": "31-MAR-2024",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 513,
+    "report_name": "Sector-Wise Domestic Savings (at Current Prices)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1951",
+    "to_date": "31-MAR-2025",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 512,
+    "report_name": "Per Capita Net State Domestic Product at Factor Cost - State-Wise (at Current Prices)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1981",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 511,
+    "report_name": "Per Capita Net State Domestic Product at Factor Cost - State-Wise (at Constant Prices)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1981",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 510,
+    "report_name": "Net State Domestic Product at Factor Cost - State-Wise (at Constant Prices)",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1981",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 509,
+    "report_name": "Gross/Net Capital Formation",
+    "frequency": "Annual",
+    "from_date": "1950-Mar-31",
+    "to_date": "31-MAR-2018",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 508,
+    "report_name": "Changes in Financial Assets/Liabilities of the Household Sector",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1971",
+    "to_date": "31-MAR-2024",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 507,
+    "report_name": "Quarterly Estimates of Gross Domestic Product at Market Prices (at Current Prices)",
+    "frequency": "Quarterly",
+    "from_date": "30-JUN-1996",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 506,
+    "report_name": "Quarterly Estimates of Gross Domestic Product at Market Prices (at Constant Prices)",
+    "frequency": "Quarterly",
+    "from_date": "30-JUN-1996",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 505,
+    "report_name": "Quarterly Estimates of Gross Domestic Product at Factor Cost/ Gross Value Added at Basic Price (at Current Prices)",
+    "frequency": "Quarterly",
+    "from_date": "30-JUN-1996",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "National Income"
+  },
+  {
+    "report_id": 497,
+    "report_name": "Annual Survey of Industries - Principal Characteristics",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1991",
+    "to_date": "31-MAR-2024",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Industrial Statistics"
+  },
+  {
+    "report_id": 498,
+    "report_name": "Implementation of Central Sector Projects - Status",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1995",
+    "to_date": "31-MAR-2024",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Industrial Statistics"
+  },
+  {
+    "report_id": 499,
+    "report_name": "Index Numbers of Core Industries",
+    "frequency": "Annual",
+    "from_date": "31-Mar-1995",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Industrial Statistics"
+  },
+  {
+    "report_id": 500,
+    "report_name": "Performance of SSI sector",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1974",
+    "to_date": "31-MAR-2017",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Industrial Statistics"
+  },
+  {
+    "report_id": 501,
+    "report_name": "Production and Imports of Crude Oil and Petroleum Products",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1973",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Industrial Statistics"
+  },
+  {
+    "report_id": 502,
+    "report_name": "Sector-Wise Cost Overrun of Delayed Central Sector Projects",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1995",
+    "to_date": "31-MAR-2024",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Industrial Statistics"
+  },
+  {
+    "report_id": 587,
+    "report_name": "Index Numbers of Major Industry Groups of Manufacturing Sector",
+    "frequency": "Annual",
+    "from_date": "31-Mar-1995",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Industrial Statistics"
+  },
+  {
+    "report_id": 657,
+    "report_name": "Index Numbers of Major Industry Groups of Manufacturing Sector",
+    "frequency": "Monthly",
+    "from_date": "1995-Mar-31",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Industrial Statistics"
+  },
+  {
+    "report_id": 701,
+    "report_name": "Index Numbers of Industrial Production - Use-Based Classification",
+    "frequency": "Annual",
+    "from_date": "31-MAR-1982",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Industrial Statistics"
+  },
+  {
+    "report_id": 874,
+    "report_name": "Production of Select Industries",
+    "frequency": "Annual",
+    "from_date": "1981-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Industrial Statistics"
+  },
+  {
+    "report_id": 989,
+    "report_name": "Index Numbers of Core Industries - Growth Rates",
+    "frequency": "Annual",
+    "from_date": "1994-Mar-31",
+    "to_date": "31-MAR-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Industrial Statistics"
+  },
+  {
+    "report_id": 1059,
+    "report_name": "Index of Industrial Production",
+    "frequency": "Monthly",
+    "from_date": "1994-Mar-31",
+    "to_date": "30-JUN-2026",
+    "function": "Statistics",
+    "department": "Real Sector",
+    "menu": "Industrial Statistics"
+  },
+  {
+    "report_id": 1376,
+    "report_name": "Number and Percentage of Population Below Poverty Line",
+    "frequency": "Annual",
+    "from_date": "01-Mar-1974",
+    "to_date": "01-MAR-2012",
+    "function": "Statistics",
+    "department": "Socio-Economic Indicators",
+    "menu": "Socio-Economic Indicators"
+  },
+  {
+    "report_id": 522,
+    "report_name": "Employment Situation in India - Per 1000 Distribution of Usually Employed by Broad Groups of Industry for Various Rounds",
+    "frequency": "Annual",
+    "from_date": "31-Dec-1983",
+    "to_date": "31-DEC-2025",
+    "function": "Statistics",
+    "department": "Socio-Economic Indicators",
+    "menu": "Socio-Economic Indicators"
+  },
+  {
+    "report_id": 1475,
+    "report_name": "Round-wise Aggregate Tables",
+    "frequency": "Bi-Monthly",
+    "from_date": "30-NOV-2019",
+    "to_date": "31-MAY-2026",
+    "function": "Statistics",
+    "department": "Surveys – Aggregated Data",
+    "menu": "Survey of Professional Forecasters"
+  },
+  {
+    "report_id": 1476,
+    "report_name": "Survey of Professional Forecasters: Aggregate-level Time Series Data",
+    "frequency": "Bi-Monthly",
+    "from_date": "30-NOV-2019",
+    "to_date": "31-MAY-2026",
+    "function": "Statistics",
+    "department": "Surveys – Aggregated Data",
+    "menu": "Survey of Professional Forecasters"
+  },
+  {
+    "report_id": 1477,
+    "report_name": "SPF-Survey of Professional Forecasters- Aggregate Level Metadata",
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Statistics",
+    "department": "Surveys – Aggregated Data",
+    "menu": "Survey of Professional Forecasters"
+  },
+  {
+    "report_id": 1384,
+    "report_name": "Statement I: International Liabilities/Claims of Banks Classified According to the Type of Instrument (Based on LBS)",
+    "frequency": "Quarterly",
+    "from_date": "31-DEC-2014",
+    "to_date": "31-MAR-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Data on International Banking Statistics of India"
+  },
+  {
+    "report_id": 1385,
+    "report_name": "Statement II: International Liabilities/Claims of Banks Classified According to the Currency and Sector (Based on LBS)",
+    "frequency": "Quarterly",
+    "from_date": "31-DEC-2014",
+    "to_date": "31-MAR-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Data on International Banking Statistics of India"
+  },
+  {
+    "report_id": 1386,
+    "report_name": "Statement III: International Liabilities/ Claims of Banks Classified According to the Counterparty Country (Based on LBS)",
+    "frequency": "Quarterly",
+    "from_date": "31-DEC-2014",
+    "to_date": "31-MAR-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Data on International Banking Statistics of India"
+  },
+  {
+    "report_id": 1387,
+    "report_name": "Statement IV: Major Components of International Liabilities of Banks Classified According to the Counterparty Country (Based on LBS)",
+    "frequency": "Quarterly",
+    "from_date": "31-DEC-2014",
+    "to_date": "31-MAR-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Data on International Banking Statistics of India"
+  },
+  {
+    "report_id": 1388,
+    "report_name": "Statement V: Major Components of International claims of Banks Classified According to the Counterparty Country (Based on LBS)",
+    "frequency": "Quarterly",
+    "from_date": "31-DEC-2014",
+    "to_date": "31-MAR-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Data on International Banking Statistics of India"
+  },
+  {
+    "report_id": 1389,
+    "report_name": "Statement VI: International Liabilities/ Claims of Banks Classified According to the Country of Incorporation of Banks (Based on LBS)",
+    "frequency": "Quarterly",
+    "from_date": "31-DEC-2014",
+    "to_date": "31-MAR-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Data on International Banking Statistics of India"
+  },
+  {
+    "report_id": 1390,
+    "report_name": "Statement VII: International Claims of Banks Classified According to the Residual Maturity and Sector (Based on CBS-Immediate Risk)",
+    "frequency": "Quarterly",
+    "from_date": "31-DEC-2014",
+    "to_date": "31-MAR-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Data on International Banking Statistics of India"
+  },
+  {
+    "report_id": 1391,
+    "report_name": "Statement VIII: International Claims of Banks towards Major Counterparty Countries (Based on CBS-Immediate Risk)",
+    "frequency": "Quarterly",
+    "from_date": "31-DEC-2014",
+    "to_date": "31-MAR-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Data on International Banking Statistics of India"
+  },
+  {
+    "report_id": 1392,
+    "report_name": "Statement IX: Foreign Claims of Domestic Banks Classified According to the Residual Maturity and Sector (Based on CBS-Immediate Risk)",
+    "frequency": "Quarterly",
+    "from_date": "31-DEC-2014",
+    "to_date": "31-MAR-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Data on International Banking Statistics of India"
+  },
+  {
+    "report_id": 1393,
+    "report_name": "Statement X: Foreign Claims and other Contingent Exposures of Domestic Banks (Based on CBS-Guarantor Basis)",
+    "frequency": "Quarterly",
+    "from_date": "31-DEC-2014",
+    "to_date": "31-MAR-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Data on International Banking Statistics of India"
+  },
+  {
+    "report_id": 1394,
+    "report_name": "Statement XI: Foreign Claims of Domestic Banks on Guarantor Basis (Based on CBS-Guarantor Basis)",
+    "frequency": "Quarterly",
+    "from_date": "31-DEC-2014",
+    "to_date": "31-MAR-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Data on International Banking Statistics of India"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Quarterly Basic Statistical Return (BSR)-2 on Deposits with Scheduled Commercial Banks - (Excluding Regional Rural Banks)"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Quarterly Spatial Distribution of Deposits and Credit"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Quarterly Spatial Distribution of Deposits and Credit"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Quarterly Spatial Distribution of Deposits and Credit"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Annual Spatial Distribution of Deposits and Credit - (Including Regional Rural Banks)"
+  },
+  {
+    "report_id": 1516,
+    "report_name": "Indian Banking Sector at a Glance",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1509,
+    "report_name": "International Liabilities of Banks in India – By Type of Instruments",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1510,
+    "report_name": "International Assets of Banks in India - By Type of Instruments",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1517,
+    "report_name": "Consolidated International Claims of Banks on Countries other than India",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1511,
+    "report_name": "Consolidated International Claims of Banks: Residual Maturity and Sector",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1512,
+    "report_name": "Off-Balance Sheet Exposure of Scheduled Commercial Banks in India",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1508,
+    "report_name": "Frauds in Various Banking Operations Based on Date of Reporting",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2005",
+    "to_date": "30-SEP-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1537,
+    "report_name": "Kisan Credit Card Scheme: State-wise Progress",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1513,
+    "report_name": "Bank Group-wise Lending to the Sensitive Sectors",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1515,
+    "report_name": "Shareholding Pattern of Domestic Scheduled Commercial Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1514,
+    "report_name": "Overseas Operations of Indian Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1518,
+    "report_name": "Branches and ATMs of Scheduled Commercial Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1519,
+    "report_name": "Progress of Microfinance Programmes",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1520,
+    "report_name": "Major Financial Indicators of Regional Rural Banks- State-wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1521,
+    "report_name": "RRBs - PSL Target and Achievement",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2021",
+    "to_date": "31-MAR-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1522,
+    "report_name": "Indicators of Financial Performance: Scheduled UCBs",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1523,
+    "report_name": "Select Financial Parameters: Scheduled UCBs",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1527,
+    "report_name": "Salient Indicators of Financial Health of State Co-operative Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1524,
+    "report_name": "Salient Indicators of Financial Health of District Central Co-operative Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1525,
+    "report_name": "Details of Members and Borrowers of Primary Agricultural Credit Societies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2024",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1526,
+    "report_name": "Primary Agricultural Credit Societies",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2024",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1528,
+    "report_name": "Select Indicators of Primary Agricultural Credit Societies-State-wise",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2024",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1529,
+    "report_name": "Liabilities and Assets of State Co-operative Agriculture and Rural Development Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2024",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1530,
+    "report_name": "Financial Performance of State Co-operative Agriculture and Rural Development Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2024",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1531,
+    "report_name": "Asset Quality of State Co-operative Agriculture and Rural Development Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2024",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1538,
+    "report_name": "Financial Indicators of State Co-operative Agriculture and Rural Development Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2024",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1536,
+    "report_name": "Liabilities and Assets of Primary Co-operative Agriculture and Rural Development Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2024",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1532,
+    "report_name": "Financial Performance of Primary Co-operative Agriculture and Rural Development Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2024",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1533,
+    "report_name": "Asset Quality of Primary Co-operative Agriculture and Rural Development Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2024",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1539,
+    "report_name": "Major Financial Indicators of Primary Co-operative Agriculture and Rural Developments Banks",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "31-MAR-2024",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1534,
+    "report_name": "Consolidated Balance Sheet of NBFCs",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "30-SEP-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1540,
+    "report_name": "Consolidated Balance Sheet of NBFC-UL",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2022",
+    "to_date": "30-SEP-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1541,
+    "report_name": "Consolidated Balance Sheet of NBFC-ML",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2022",
+    "to_date": "30-SEP-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1535,
+    "report_name": "Consolidated Balance Sheet of NBFCs-D",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "30-SEP-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1542,
+    "report_name": "Credit to Various Sectors by NBFCs",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "30-SEP-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1543,
+    "report_name": "Financial Performance of NBFC-UL",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2022",
+    "to_date": "30-SEP-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1544,
+    "report_name": "Financial Performance of NBFC-ML",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2022",
+    "to_date": "30-SEP-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1545,
+    "report_name": "Financial Assistance Sanctioned and Disbursed by Financial Institutions",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "30-SEP-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1546,
+    "report_name": "Financial Performance of Standalone Primary Dealers",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "30-SEP-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 1547,
+    "report_name": "Select Financial Indicators of Standalone Primary Dealers",
+    "frequency": "Annual",
+    "from_date": "31-MAR-2019",
+    "to_date": "30-SEP-2025",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Report on Trend and Progress of Banking in India"
+  },
+  {
+    "report_id": 39,
+    "report_name": "Reserve Bank of India - Liabilities and Assets",
+    "frequency": "Weekly",
+    "from_date": "02-JUL-2004",
+    "to_date": "14-AUG-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Weekly Statistical Supplement"
+  },
+  {
+    "report_id": 1,
+    "report_name": "Foreign Exchange Reserves - Weekly",
+    "frequency": "Weekly",
+    "from_date": "06-APR-2001",
+    "to_date": "14-AUG-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Weekly Statistical Supplement"
+  },
+  {
+    "report_id": 6,
+    "report_name": "Cash Balances of Scheduled Commercial Banks (excluding Regional Rural Banks) with Reserve Bank of India",
+    "frequency": "Fortnightly",
+    "from_date": "22-JUL-2006",
+    "to_date": "15-AUG-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Weekly Statistical Supplement"
+  },
+  {
+    "report_id": 10,
+    "report_name": "Ratios and Rates",
+    "frequency": "Weekly",
+    "from_date": "01-APR-2011",
+    "to_date": "14-AUG-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Weekly Statistical Supplement"
+  },
+  {
+    "report_id": 13,
+    "report_name": "Money Stock : Components and Sources",
+    "frequency": "Fortnightly",
+    "from_date": "12-Jan-01",
+    "to_date": "31-JUL-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Weekly Statistical Supplement"
+  },
+  {
+    "report_id": 7,
+    "report_name": "Reserve Money : Components and Sources",
+    "frequency": "Fortnightly",
+    "from_date": "29-Jun-01",
+    "to_date": "31-JUL-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Weekly Statistical Supplement"
+  },
+  {
+    "report_id": 8,
+    "report_name": "Liquidity Operations by RBI",
+    "frequency": "Daily",
+    "from_date": "01-NOV-2012",
+    "to_date": "16-AUG-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Weekly Statistical Supplement"
+  },
+  {
+    "report_id": 11,
+    "report_name": "Major Price Indices",
+    "frequency": "Monthly",
+    "from_date": "30-APR-2006",
+    "to_date": "31-JUL-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Weekly Statistical Supplement"
+  },
+  {
+    "report_id": 4,
+    "report_name": "Certificate of Deposit",
+    "frequency": "Fortnightly",
+    "from_date": "12-JUL-1991",
+    "to_date": "15-AUG-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Weekly Statistical Supplement"
+  },
+  {
+    "report_id": 5,
+    "report_name": "Commercial Paper",
+    "frequency": "Fortnightly",
+    "from_date": "15-Jun-11",
+    "to_date": "15-AUG-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Weekly Statistical Supplement"
+  },
+  {
+    "report_id": 12,
+    "report_name": "Average Daily Turnover in Select Money Markets",
+    "frequency": "Weekly",
+    "from_date": "04-APR-2008",
+    "to_date": "14-AUG-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Weekly Statistical Supplement"
+  },
+  {
+    "report_id": 2,
+    "report_name": "Government of India : Treasury Bills Outstanding",
+    "frequency": "Weekly",
+    "from_date": "12-MAY-2006",
+    "to_date": "14-AUG-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Weekly Statistical Supplement"
+  },
+  {
+    "report_id": 3,
+    "report_name": "Market Borrowings by the Government of India and State Governments",
+    "frequency": "Weekly",
+    "from_date": "06-JAN-2012",
+    "to_date": "14-AUG-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Weekly Statistical Supplement"
+  },
+  {
+    "report_id": 1412,
+    "report_name": "Notes on Tables",
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Weekly Statistical Supplement"
+  },
+  {
+    "report_id": 9,
+    "report_name": "Scheduled Commercial Banks - Business in India",
+    "frequency": "Fortnightly",
+    "from_date": "06-JUN-1997",
+    "to_date": "31-JUL-2026",
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Weekly Statistical Supplement"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Handbook of Statistics on Indian States"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Handbook of Statistics on Indian States"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Handbook of Statistics on Indian States"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Handbook of Statistics on Indian States"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Handbook of Statistics on Indian States"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Handbook of Statistics on Indian States"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Handbook of Statistics on Indian States"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Handbook of Statistics on Indian States"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Handbook of Statistics on Indian States"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Handbook of Statistics on Indian States"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Handbook of Statistics on Indian States"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Handbook of Statistics on Indian States"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Annual Basic Statistical Return (BSR)-1 on Credit by Scheduled Commercial Banks - (Including Regional Rural Banks)"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Annual Basic Statistical Return (BSR)-1 on Credit by Scheduled Commercial Banks - (Including Regional Rural Banks)"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Annual Basic Statistical Return (BSR)-1 on Credit by Scheduled Commercial Banks - (Including Regional Rural Banks)"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Quarterly Basic Statistical Return (BSR)-1 on Credit by Scheduled Commercial Banks - (Excluding Regional Rural Banks)"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Quarterly Basic Statistical Return (BSR)-1 on Credit by Scheduled Commercial Banks - (Excluding Regional Rural Banks)"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Quarterly Basic Statistical Return (BSR)-1 on Credit by Scheduled Commercial Banks - (Excluding Regional Rural Banks)"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Annual Basic Statistical Return (BSR)-2 on Deposits with Scheduled Commercial Banks - (Including Regional Rural Banks)"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Annual Basic Statistical Return (BSR)-2 on Deposits with Scheduled Commercial Banks - (Including Regional Rural Banks)"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Annual Basic Statistical Return (BSR)-2 on Deposits with Scheduled Commercial Banks - (Including Regional Rural Banks)"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Primary (Urban) Co-operative Banks' Outlook"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Primary (Urban) Co-operative Banks' Outlook"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Primary (Urban) Co-operative Banks' Outlook"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Bank Branch Statistics"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Bank Branch Statistics"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Bank Branch Statistics"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Statistical Tables Relating to Banks in India"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Statistical Tables Relating to Banks in India"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Statistical Tables Relating to Banks in India"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Public Debt Statistics"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Public Debt Statistics"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Handbook of Statistics on the Indian Economy"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Handbook of Statistics on the Indian Economy"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Handbook of Statistics on the Indian Economy"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Handbook of Statistics on the Indian Economy"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Handbook of Statistics on the Indian Economy"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Handbook of Statistics on the Indian Economy"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Monthly RBI Bulletin"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Monthly RBI Bulletin"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Monthly RBI Bulletin"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Monthly RBI Bulletin"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Monthly RBI Bulletin"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Monthly RBI Bulletin"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Monthly RBI Bulletin"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Monthly RBI Bulletin"
+  },
+  {
+    "report_id": null,
+    "report_name": null,
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Publication",
+    "department": "Time-Series Publications",
+    "menu": "Monthly RBI Bulletin"
+  },
+  {
+    "report_id": 272,
+    "report_name": "UCCS : Urban Consumer Confidence Survey : Unit Level Data",
+    "frequency": "Bi-Monthly",
+    "from_date": "31-MAR-2015",
+    "to_date": "31-MAY-2026",
+    "function": "Unit Level Data",
+    "department": "Unit Level Data Reports",
+    "menu": "Urban Consumer Confidence Survey (UCCS)"
+  },
+  {
+    "report_id": 273,
+    "report_name": "UCCS : Urban Consumer Confidence Survey : Unit Level Data",
+    "frequency": "Quarterly",
+    "from_date": "30-SEP-2012",
+    "to_date": "31-DEC-2014",
+    "function": "Unit Level Data",
+    "department": "Unit Level Data Reports",
+    "menu": "Urban Consumer Confidence Survey (UCCS)"
+  },
+  {
+    "report_id": 1459,
+    "report_name": "UCCS : Urban Consumer Confidence Survey : Metadata",
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Unit Level Data",
+    "department": "Unit Level Data Reports",
+    "menu": "Urban Consumer Confidence Survey (UCCS)"
+  },
+  {
+    "report_id": 1460,
+    "report_name": "UCCS : Urban Consumer Confidence Survey : Metadata (September 2012 to December 2014)",
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Unit Level Data",
+    "department": "Unit Level Data Reports",
+    "menu": "Urban Consumer Confidence Survey (UCCS)"
+  },
+  {
+    "report_id": 1473,
+    "report_name": "Survey of Professional Forecasters: Individual-Level Data",
+    "frequency": "Bi-Monthly",
+    "from_date": "30-NOV-2019",
+    "to_date": "31-JUL-2026",
+    "function": "Unit Level Data",
+    "department": "Unit Level Data Reports",
+    "menu": "Survey of Professional Forecasters (SPF)"
+  },
+  {
+    "report_id": 1474,
+    "report_name": "SPF- Survey of Professional Forecasters- Metadata",
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Unit Level Data",
+    "department": "Unit Level Data Reports",
+    "menu": "Survey of Professional Forecasters (SPF)"
+  },
+  {
+    "report_id": 271,
+    "report_name": "IESH : Inflation Expectations Survey of Households : Unit Level Data",
+    "frequency": "Bi-Monthly",
+    "from_date": "30-SEP-2008",
+    "to_date": "31-MAY-2026",
+    "function": "Unit Level Data",
+    "department": "Unit Level Data Reports",
+    "menu": "Inflation Expectations Survey of Household (IESH)"
+  },
+  {
+    "report_id": 1461,
+    "report_name": "IESH : Inflation Expectations Survey of Households : Metadata",
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Unit Level Data",
+    "department": "Unit Level Data Reports",
+    "menu": "Inflation Expectations Survey of Household (IESH)"
+  },
+  {
+    "report_id": 1749,
+    "report_name": "IESH: Inflation Expectations Survey of Houses: Estimation Methodology",
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Unit Level Data",
+    "department": "Unit Level Data Reports",
+    "menu": "Inflation Expectations Survey of Household (IESH)"
+  },
+  {
+    "report_id": 1478,
+    "report_name": "Rural Consumer Confidence Survey (RCCS) : Unit Level Data",
+    "frequency": "Bi-Monthly",
+    "from_date": "30-Sep-2023",
+    "to_date": "31-May-2026",
+    "function": "Unit Level Data",
+    "department": "Unit Level Data Reports",
+    "menu": "Rural Consumer Confidence Survey (RCCS)"
+  },
+  {
+    "report_id": 1479,
+    "report_name": "RCCS  Rural Consumer Confidence Survey  Metadata",
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Unit Level Data",
+    "department": "Unit Level Data Reports",
+    "menu": "Rural Consumer Confidence Survey (RCCS)"
+  },
+  {
+    "report_id": 1748,
+    "report_name": "RCCS: Rural Consumer Confidence Survey: Estimation Methodology",
+    "frequency": null,
+    "from_date": null,
+    "to_date": null,
+    "function": "Unit Level Data",
+    "department": "Unit Level Data Reports",
+    "menu": "Rural Consumer Confidence Survey (RCCS)"
+  }
+]

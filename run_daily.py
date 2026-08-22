@@ -127,6 +127,12 @@ def _rbi_rates():
     return policy_rates()
 
 
+@job("rbi_key_indicators", desc="Policy corridor snapshot: repo/SDF/CRR/SLR/WACR/CPI, each with its own as-of date")
+def _rbi_key_indicators():
+    from connectors.rbi_dbie import RBIClient
+    return RBIClient().key_indicators()
+
+
 @job("rbi_press_index", desc="RBI press release index -- LAF auctions, operational actions")
 def _rbi_press():
     from connectors.rbi_publications import press_release_index

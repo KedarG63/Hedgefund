@@ -60,6 +60,7 @@ from datetime import datetime, timedelta
 import pandas as pd
 
 from core.http import Fetcher
+from core.rbi_crypto import encrypt as dbie_encrypt
 from core.storage import save_raw, write_table
 
 BASE = "https://data.rbi.org.in"
@@ -191,6 +192,99 @@ class RBIClient:
             return pd.DataFrame(max(list_vals.values(), key=len))
 
         return pd.json_normalize(payload)
+
+    # ---------------------------------------------------------------- catalog
+
+    def sap_token(self) -> dict:
+        """
+        RBI's own key-material service. Returns {sapToken, sapLogonToken, token}.
+
+        Observed 2026-08-18: `token` is 32 bytes of base64 key material handed
+        out with no credential, while sapToken/sapLogonToken come back null for
+        an anonymous caller -- which is why report *rendering* (SAP
+        BusinessObjects) stays out of reach while the catalog does not.
+        """
+        payload = self.call("login_getSapToken",
+                            {"portalCode": "DBIE", "user": "", "code": ""},
+                            gateway=LOGIN_GATEWAY)
+        return (payload.get("body") or {}).get("status") or {}
+
+    def reports_for(self, function: str, department: str, menu: str) -> list[dict]:
+        """
+        Every report behind one DBIE screen, with its reportId, frequency and
+        the full date range RBI holds.
+
+        Parameters mirror the app's own getReportspub(token, menu, function,
+        departments) -- i.e. the three levels of the navigation tree:
+            function   "Indicators" | "Statistics" | "Publication"
+            department "Financial Sector Indicators"
+            menu       "Daily LAF Operation"
+        All four values go over the wire AES-encrypted; see core.rbi_crypto.
+        """
+        payload = self.call("dbie_getReportsDbie", {
+            "departments": [dbie_encrypt(department)],
+            "menu": dbie_encrypt(menu),
+            "portal": dbie_encrypt("DBIE"),
+            "function": dbie_encrypt(function),
+        })
+        out = []
+        for group in (payload.get("body") or {}).get("reports") or []:
+            for sub in group.get("subs") or []:
+                out.append({
+                    "report_id": sub.get("reportId"),
+                    "report_name": sub.get("reportName"),
+                    "frequency": sub.get("reportFreq"),
+                    "from_date": sub.get("fromdate"),
+                    "to_date": sub.get("todate"),
+                    "function": function,
+                    "department": department,
+                    "menu": menu,
+                })
+        return out
+
+    def economy_watch_sections(self) -> list[str]:
+        """Top-level Economy Watch categories (unencrypted call)."""
+        payload = self.call("dbie_getEcoHeader", {})
+        rows = (payload.get("body") or {}).get("listEconomyWatchVO") or []
+        return [r.get("economyWatchHeader") for r in rows if r.get("economyWatchHeader")]
+
+    def economy_watch_reports(self, section: str) -> list[dict]:
+        """Reports under one Economy Watch category. Takes an encrypted param."""
+        payload = self.call("dbie_getEcoSubHeader",
+                            {"defaultSelection": dbie_encrypt(section)})
+        rows = (payload.get("body") or {}).get("subSelection") or []
+        return [{"report_id": r.get("reportId"),
+                 "report_name": r.get("economyWatchSubheader"),
+                 "section": section} for r in rows]
+
+    def key_indicators(self, persist: bool = True) -> pd.DataFrame:
+        """
+        RBI's headline indicator ticker: policy repo rate, CRR, SLR, CPI
+        inflation and the reference exchange rate, each with its as-of date.
+
+        Why it matters: this is the only DBIE route to current policy settings
+        that needs no SAP BusinessObjects session, so it works today and gives a
+        daily point-in-time stamp of the policy corridor. It is a snapshot, not
+        history -- the long series (Key Rates runs from 1935) sits behind the
+        report renderer.
+
+        NOTE: dbie_getPublicationDataImpala accepts a reportId but IGNORES it --
+        verified by requesting five different ids and getting byte-identical
+        responses. Do not mistake it for a per-report data service.
+        """
+        payload = self.call("dbie_getPublicationDataImpala", {})
+        rows = (payload.get("body") or {}).get("result") or []
+        if not rows:
+            raise RBIGatewayError("key_indicators returned no rows")
+
+        df = pd.DataFrame(rows).rename(columns={"name": "indicator", "rate": "value"})
+        df["as_of"] = (pd.to_datetime(df["timeDate"], unit="ms", utc=True)
+                         .dt.tz_convert("Asia/Kolkata").dt.date.astype(str))
+        df = df[["as_of", "indicator", "value", "currencyDesc"]].sort_values(
+            "indicator", ignore_index=True)
+        if persist:
+            write_table(df, "rbi", "key_indicators")
+        return df
 
     # ---------------------------------------------------------------- services
 
