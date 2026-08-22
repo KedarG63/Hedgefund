@@ -16,6 +16,17 @@ The Data Quality tab is the one to look at first. Everything else shows what the
 pipeline collected; that tab shows whether to believe it.
 """
 import json
+import sys
+from pathlib import Path
+
+# Streamlit puts the SCRIPT's directory on sys.path, not the project root, so
+# `import core` fails with ModuleNotFoundError however you launch it -- and the
+# failure only appears once a browser session actually runs the script, not when
+# the server starts. Put the repo root on the path before importing anything
+# from it.
+_REPO_ROOT = str(Path(__file__).resolve().parent.parent)
+if _REPO_ROOT not in sys.path:
+    sys.path.insert(0, _REPO_ROOT)
 
 import pandas as pd
 import streamlit as st

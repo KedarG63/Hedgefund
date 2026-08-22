@@ -17,7 +17,28 @@ from pathlib import Path
 
 import duckdb
 
-ROOT = Path(os.environ.get("QUANTDATA_ROOT", Path(__file__).resolve().parent.parent / "data"))
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
+
+def _resolve_root() -> Path:
+    """
+    Where the warehouse lives.
+
+    A RELATIVE QUANTDATA_ROOT resolves against the repo, not the current working
+    directory. The default ".env" value is "./data", so a cwd-relative reading
+    silently pointed at a different (usually empty) warehouse whenever anything
+    ran from elsewhere -- the dashboard would open, register 0 views and look
+    exactly like a pipeline that had collected nothing. An absolute value is
+    always honoured as given.
+    """
+    configured = os.environ.get("QUANTDATA_ROOT")
+    if not configured:
+        return REPO_ROOT / "data"
+    path = Path(configured)
+    return path if path.is_absolute() else (REPO_ROOT / path).resolve()
+
+
+ROOT = _resolve_root()
 RAW = ROOT / "raw"
 PARQUET = ROOT / "parquet"
 DB_PATH = ROOT / "warehouse.duckdb"

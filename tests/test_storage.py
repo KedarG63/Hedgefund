@@ -187,3 +187,46 @@ def test_register_views_skips_empty_dataset_dirs(s, con):
     assert "nse_good" in views
     assert "nse_half_written" not in views
     assert con.execute("SELECT count(*) FROM nse_good").fetchone()[0] == 1
+
+
+# -------------------------------------------------- warehouse root resolution
+def test_relative_root_resolves_against_the_repo_not_cwd(tmp_path, monkeypatch):
+    """
+    .env ships QUANTDATA_ROOT=./data. Read relative to the CWD, anything launched
+    from elsewhere silently points at a different, usually empty warehouse --
+    the dashboard opens, registers 0 views, and looks exactly like a pipeline
+    that collected nothing. Nothing errors.
+    """
+    import importlib
+    monkeypatch.setenv("QUANTDATA_ROOT", "./data")
+    monkeypatch.chdir(tmp_path)
+    import core.storage as storage
+    importlib.reload(storage)
+    try:
+        assert storage.ROOT.is_absolute()
+        assert storage.ROOT == storage.REPO_ROOT / "data"
+        assert tmp_path not in storage.ROOT.parents
+    finally:
+        importlib.reload(storage)
+
+
+def test_absolute_root_is_honoured_as_given(tmp_path, monkeypatch):
+    import importlib
+    monkeypatch.setenv("QUANTDATA_ROOT", str(tmp_path / "warehouse"))
+    import core.storage as storage
+    importlib.reload(storage)
+    try:
+        assert storage.ROOT == tmp_path / "warehouse"
+    finally:
+        importlib.reload(storage)
+
+
+def test_unset_root_defaults_beside_the_repo(monkeypatch):
+    import importlib
+    monkeypatch.delenv("QUANTDATA_ROOT", raising=False)
+    import core.storage as storage
+    importlib.reload(storage)
+    try:
+        assert storage.ROOT == storage.REPO_ROOT / "data"
+    finally:
+        importlib.reload(storage)
