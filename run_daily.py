@@ -56,6 +56,14 @@ def _participant_oi():
     return nse_participant_oi(date.today())
 
 
+@job("upstox_fii", desc="FII positioning by segment via Upstox (broker-licensed)")
+def _upstox_fii():
+    # Cross-validates nse_participant_oi: both reported FII index futures at
+    # 26,060 long / 235,915 short for 2026-08-21, from entirely separate paths.
+    from connectors.upstox import fii_activity
+    return fii_activity(interval="1D")
+
+
 @job("nse_fii_dii", desc="FII/DII cash market flows")
 def _fii_dii():
     from connectors.nse_bse import nse_fii_dii

@@ -18,7 +18,9 @@ playwright>=1.44
 
 # real-time
 redis>=5.0
-kiteconnect>=5.0          # India broker feed (NSE/BSE/MCX)
+kiteconnect>=5.0
+upstox-python-sdk>=2.29     # bundles the official MarketDataFeedV3 protobuf schema
+websockets>=12.0          # India broker feed (NSE/BSE/MCX)
 
 # dashboard
 streamlit>=1.35
