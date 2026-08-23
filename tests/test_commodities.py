@@ -164,3 +164,19 @@ def test_mcx_futures_must_be_filtered_from_options():
     assert df["Close"].min() == 0.5
     assert df["Close"].mean() < 100_000
     assert df[df["InstrumentName"] != "FUTCOM"]["Close"].max() == 40850.5
+
+
+def test_mcx_expiry_must_be_ordered_as_a_date_not_a_string():
+    """
+    ExpiryDate is text like "05OCT2026". Sorted as a string, "04DEC2026" comes
+    before "05OCT2026", so the liquid FRONT month (12,458 lots) lands last and a
+    "first row" read picks an illiquid far contract.
+    """
+    expiries = ["05OCT2026", "04DEC2026", "05FEB2027", "05APR2027",
+                "04JUN2027", "05AUG2027"]
+    as_string = sorted(expiries)
+    as_date = sorted(expiries, key=lambda e: pd.to_datetime(e, format="%d%b%Y"))
+
+    assert as_string[0] == "04DEC2026", "string sort puts December first"
+    assert as_date[0] == "05OCT2026", "date sort gives the true front month"
+    assert as_string != as_date

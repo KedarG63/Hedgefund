@@ -89,7 +89,14 @@ def nse_fii_dii() -> pd.DataFrame:
     f = nse_session()
     r = f.get(f"{NSE_API}/fiidiiTradeReact")
     save_raw("nse", "fii_dii", r.content, "json")
-    return pd.DataFrame(r.json())
+    df = pd.DataFrame(r.json())
+    if df.empty:
+        raise RuntimeError("nse_fii_dii returned no rows")
+    # PERSIST IT. This endpoint serves only the LATEST session -- yesterday's
+    # figures cannot be re-fetched, so an unwritten day is gone permanently.
+    # It is two rows a day; the history is the whole point.
+    write_table(df, "nse", "fii_dii")
+    return df
 
 
 def _nifty_expiry_dates(symbol: str) -> list:

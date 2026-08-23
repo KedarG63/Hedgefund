@@ -186,11 +186,27 @@ def write_table(df, source: str, dataset: str, partition_col: str | None = None)
     return path
 
 
-def db():
-    """DuckDB connection. Query parquet directly -- no ETL into tables needed."""
+def db(read_only: bool = False):
+    """
+    DuckDB connection. Query parquet directly -- no ETL into tables needed.
+
+    read_only=True returns an IN-MEMORY connection, which is the point: the data
+    lives in the parquet files, and warehouse.duckdb only ever held view
+    definitions that register_views() recreates in milliseconds. So a reader
+    never needs the file at all.
+
+    Why that matters. DuckDB allows EITHER one read-write process OR several
+    read-only ones, so a dashboard on the default connection blocks
+    run_daily.py from writing for as long as the browser tab is open
+    ("Cannot open file ... being used by another process"). Attaching the file
+    read-only does not fix it either: register_views() issues CREATE OR REPLACE
+    VIEW, which a read-only attachment refuses outright. In-memory sidesteps
+    both -- no lock taken, and view creation still works.
+    """
     ROOT.mkdir(parents=True, exist_ok=True)
-    con = duckdb.connect(str(DB_PATH))
-    return con
+    if read_only:
+        return duckdb.connect(":memory:")
+    return duckdb.connect(str(DB_PATH))
 
 
 def register_views(con):

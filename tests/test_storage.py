@@ -230,3 +230,67 @@ def test_unset_root_defaults_beside_the_repo(monkeypatch):
         assert storage.ROOT == storage.REPO_ROOT / "data"
     finally:
         importlib.reload(storage)
+
+
+# ------------------------------------------------- concurrent reader / writer
+def test_read_only_reader_does_not_block_a_writer_in_ANOTHER_PROCESS(s):
+    """
+    DuckDB allows EITHER one read-write process OR several read-only ones. A
+    dashboard holding the default read-write connection blocks run_daily.py
+    entirely -- "Cannot open file ... being used by another process" -- for as
+    long as the browser tab is open.
+
+    Tested across PROCESSES, which is the real situation. (Within one process
+    DuckDB refuses two different configurations outright, so an in-process
+    version of this test would only prove that unrelated rule.)
+    """
+    import subprocess
+    import sys
+
+    s.write_table(pd.DataFrame({"a": [1]}), "nse", "seed")
+    reader = s.db(read_only=True)               # stand in for the dashboard
+    try:
+        s.register_views(reader)
+        writer = subprocess.run(
+            [sys.executable, "-c",
+             "import os,sys;"
+             f"os.environ['QUANTDATA_ROOT']=r'{s.ROOT}';"
+             f"sys.path.insert(0, r'{s.REPO_ROOT}');"
+             "import core.storage as st, importlib, pandas as pd;"
+             "importlib.reload(st);"
+             "c=st.db();"
+             "st.write_table(pd.DataFrame({'a':[2]}), 'nse', 'written_while_open');"
+             "c.close();print('WROTE')"],
+            capture_output=True, text=True, timeout=300,
+        )
+        assert "WROTE" in writer.stdout, (
+            "a read-only reader must not block another process from writing: "
+            + writer.stderr[-600:])
+    finally:
+        reader.close()
+
+
+def test_read_only_connection_can_still_register_views(s):
+    """
+    register_views() issues CREATE OR REPLACE VIEW. Attaching warehouse.duckdb
+    read-only refuses that outright ("Cannot execute statement of type CREATE
+    ... attached in read-only mode"), which would break the dashboard on load.
+    In-memory keeps view creation working.
+    """
+    s.write_table(pd.DataFrame({"a": [1]}), "nse", "bhavcopy")
+    con = s.db(read_only=True)
+    try:
+        assert "nse_bhavcopy" in s.register_views(con)
+        assert con.execute("SELECT count(*) FROM nse_bhavcopy").fetchone()[0] == 1
+    finally:
+        con.close()
+
+
+def test_read_only_takes_no_lock_on_the_warehouse_file(s):
+    """A reader must not create or lock warehouse.duckdb at all."""
+    con = s.db(read_only=True)
+    try:
+        assert s.register_views(con) == []
+        assert not s.DB_PATH.exists(), "read-only reader must not create the db file"
+    finally:
+        con.close()

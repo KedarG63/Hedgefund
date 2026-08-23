@@ -46,7 +46,10 @@ st.set_page_config(page_title="Research Terminal", layout="wide")
 
 @st.cache_resource
 def _con():
-    con = db()
+    # READ-ONLY: DuckDB allows either one read-write process or several
+    # read-only ones, so a read-write dashboard blocks run_daily.py from
+    # writing for as long as the browser tab is open.
+    con = db(read_only=True)
     return con, register_views(con)
 
 
@@ -194,10 +197,12 @@ with tab_gold:
                                  FROM cme_settlements
                                  WHERE product='gold' AND NOT is_total
                                  ORDER BY contract_order LIMIT 8"""),
+        # Order by the PARSED expiry, not the string: "04DEC2026" sorts before
+        # "05OCT2026" alphabetically, which puts the liquid front month last.
         ("MCX gold futures", """SELECT Symbol, ExpiryDate, Close, Volume, OpenInterest
                                 FROM mcx_bhavcopy
                                 WHERE Symbol='GOLD' AND InstrumentName='FUTCOM'
-                                ORDER BY ExpiryDate LIMIT 8"""),
+                                ORDER BY strptime(ExpiryDate, '%d%b%Y') LIMIT 8"""),
         ("IBJA physical", """SELECT rate_date, session, metal_purity, rate_inr_per_10g
                              FROM ibja_rates WHERE metal='gold'
                              ORDER BY rate_date DESC, session LIMIT 10"""),
