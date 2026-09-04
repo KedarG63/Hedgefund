@@ -57,12 +57,89 @@ DATASET_KEYS: dict[str, list[str]] = {
                                    "StrikePrice", "OptionType", "trade_date"],
     "sec_sp500_constituents":     ["cusip"],
     "rbi_policy_rates":           ["rate_name"],
+
+    # Phase 7 -- quant signal engine
+    "nse_optchain":                       ["symbol", "expiry_date", "strike_price", "option_type", "fetched_at_utc"],
+    "derived_capm_beta":                  ["symbol", "as_of_date"],
+    "derived_correlation":                ["symbol_a", "symbol_b", "as_of_date"],
+    "derived_pairs_candidates":           ["symbol_a", "symbol_b", "as_of_date"],
+    "derived_momentum_zscore":            ["symbol", "as_of_date"],
+    "derived_variance_ratio":             ["symbol", "as_of_date", "lag"],
+    "derived_option_greeks":              ["symbol", "strike_price", "option_type", "as_of_date"],
+    "derived_insider_filing_frequency":   ["symbol", "as_of_date"],
+    "derived_bulk_block_anomaly":         ["symbol", "as_of_date"],
+    "derived_fii_dii_divergence":         ["trade_date"],
+    "derived_promoter_holding_change":    ["symbol", "quarter_end"],
+    "derived_digest":                     ["instrument", "as_of_date"],
+    "derived_fii_source_divergence":      ["trade_date", "metric"],
+    "derived_multivariate_outliers":      ["symbol", "as_of_date"],
+
+    # Phase 8 -- announcements/events, watchlist tiering
+    "bse_announcements":                  ["NEWSID"],
+    "derived_corporate_events":           ["NEWSID"],
+
+    # Cross-asset correlation (equity vs commodity, equity vs macro)
+    "derived_equity_commodity_correlation": ["asset_a", "asset_b", "as_of_date"],
+    "derived_equity_macro_correlation":     ["equity_symbol", "macro_series", "as_of_date"],
+
+    # Phase 1 of the terminal migration -- core.asof reads this same registry to
+    # collapse vintages, so these were checked against a stronger property than
+    # revision detection needs: unique WITHIN a single parquet vintage, on every
+    # vintage on disk. A key that is merely "mostly unique" reports spurious
+    # revisions here but silently DROPS rows in core.asof.asof_sql().
+    "nse_bhavcopy":                ["TradDt", "TckrSymb", "SctySrs"],
+    "nse_index_constituents":      ["index", "Symbol"],
+    "nse_fii_dii":                 ["category", "date"],
+    "bse_scrip_master":            ["ISIN_NUMBER"],
+    "upstox_fii_activity":         ["trade_date", "segment"],
+    "derived_factor_model":        ["symbol", "as_of_date"],
+    "derived_low_vol_factor":      ["symbol", "as_of_date"],
+    "derived_size_factor":         ["symbol", "as_of_date"],
+
+    # Credit-rating feeds. Each agency publishes its own stable id per action;
+    # the natural key is that id, NOT (company, date) -- one company can have
+    # several actions on one day across different facilities.
+    "crisil_rating_actions":       ["pr_id"],
+    "icra_rating_actions":         ["rationale_id"],
+    "care_rating_actions":         ["file_url"],
+
+    # Phase 7 -- OSINT / geospatial
+    "portwatch_chokepoints":       ["portname", "date"],
+    "analytics_chokepoint_zscore": ["as_of", "portname", "metric"],
+    "analytics_reroute_balance":   ["corridor"],
+    "noaa_oni":                    ["season", "year"],
+    "analytics_enso_state":        ["as_of_season", "as_of_year"],
+    "analytics_monsoon_progress":  ["region"],
+    "analytics_imd_normals":       ["region"],
+    "analytics_monsoon_departure": ["region"],
+    # "current" means one row per route+metric; as_of is a property of the
+    # vintage, not of row identity. regime_breaks is the opposite -- it is a
+    # history, so break_date is part of the key.
+    "analytics_current_regime":    ["portname", "metric"],
+    "analytics_regime_breaks":     ["portname", "break_date", "metric"],
 }
 
 # Columns that are metadata about the fetch, not the observation itself. A
 # change in these is not a revision.
 NON_VALUE_COLUMNS = {"knowledge_date", "_vintage", "index_fetched_at",
                      "fetched", "source_url"}
+
+# Hand-set, documented -- not tuned per-dataset. detect_revisions() reads
+# every vintage of a dataset FULLY into memory and string-fingerprints every
+# value column, which is fine for the typical dataset (a few thousand rows)
+# but catastrophic for an O(n^2) one: derived_correlation is a full pairwise
+# matrix over ~2,400 symbols, ~3M rows PER VINTAGE, and measured at 40+
+# seconds to compare -- on its own, most of quality_report()'s entire runtime
+# across all 60+ datasets combined. Above this cap the comparison is skipped
+# rather than paid for; every dataset actually measured here besides
+# derived_correlation is comfortably under 500K total rows.
+MAX_ROWS_FOR_REVISION_CHECK = 500_000
+
+
+class RevisionCheckSkipped(Exception):
+    """Raised instead of paying for an expensive comparison. Caller must
+    surface this as its own state, not silently report "0 revisions" --
+    that would claim something was checked when it was not."""
 
 
 def _utcnow():
@@ -173,7 +250,8 @@ def row_count_trend(view: str, paths: dict[str, Path] | None = None) -> pd.DataF
 # ------------------------------------------------------------------ revisions
 def detect_revisions(view: str, keys: list[str] | None = None,
                      paths: dict[str, Path] | None = None,
-                     max_examples: int = 50) -> pd.DataFrame:
+                     max_examples: int = 50,
+                     max_total_rows: int = MAX_ROWS_FOR_REVISION_CHECK) -> pd.DataFrame:
     """
     Keys whose recorded values CHANGED between runs -- silent revision.
 
@@ -184,6 +262,12 @@ def detect_revisions(view: str, keys: list[str] | None = None,
     Returns an empty frame when there is only one vintage: a revision needs two
     observations, and reporting "no revisions" from a single file would be
     misleading rather than reassuring.
+
+    Raises RevisionCheckSkipped, rather than paying for it, when the combined
+    vintages exceed max_total_rows -- see MAX_ROWS_FOR_REVISION_CHECK. The row
+    count is read from parquet metadata (cheap) before any file is actually
+    read into memory (not cheap), so the cap avoids the cost entirely rather
+    than aborting partway through.
 
     WHAT A HIT ACTUALLY MEANS, and why it needs a human. This compares OUR
     successive writes, so a difference has two possible causes and the data
@@ -204,6 +288,14 @@ def detect_revisions(view: str, keys: list[str] | None = None,
     files = sorted(paths[view].glob("*.parquet"), key=lambda p: p.stat().st_mtime)
     if len(files) < 2:
         return pd.DataFrame()
+
+    import pyarrow.parquet as pq
+    total_rows = sum(pq.ParquetFile(f).metadata.num_rows for f in files)
+    if total_rows > max_total_rows:
+        raise RevisionCheckSkipped(
+            f"skipped: {total_rows:,} rows across {len(files)} vintages exceeds the "
+            f"{max_total_rows:,}-row revision-check cap"
+        )
 
     frames = []
     for f in files:
@@ -243,6 +335,24 @@ def detect_revisions(view: str, keys: list[str] | None = None,
         return pd.DataFrame()
 
     changed = allv.set_index(keys).loc[changed_keys.index].reset_index()
+
+    def render(value) -> str:
+        """Render one changed value as text.
+
+        example_before/after hold a value lifted from whatever column moved, so
+        `example_field` differs row to row and the pair mixes floats, strings and
+        UUIDs. Left as objects, pyarrow infers a type from the first rows and the
+        frame fails to serialise the moment a later row disagrees. Text is also
+        what the comparison below already uses, so this keeps the reported example
+        consistent with the test that decided the value changed at all.
+        """
+        try:
+            if pd.isna(value):
+                return "(missing)"
+        except (TypeError, ValueError):
+            pass                                    # arrays and lists are not NA
+        return str(value)
+
     out = []
     for key_vals, grp in changed.groupby(keys, dropna=False):
         grp = grp.sort_values("_vintage")
@@ -259,13 +369,17 @@ def detect_revisions(view: str, keys: list[str] | None = None,
             "first_vintage": first["_vintage"],
             "latest_vintage": last["_vintage"],
             "example_field": sorted(moved)[0],
-            "example_before": moved[sorted(moved)[0]][0],
-            "example_after": moved[sorted(moved)[0]][1],
+            "example_before": render(moved[sorted(moved)[0]][0]),
+            "example_after": render(moved[sorted(moved)[0]][1]),
         })
         if len(out) >= max_examples:
             break
 
-    return pd.DataFrame(out)
+    if not out:
+        return pd.DataFrame()
+    # Pin the example columns to string. Building from records lets pandas infer
+    # object, which is the dtype pyarrow cannot resolve when the values are mixed.
+    return pd.DataFrame(out).astype({"example_before": "string", "example_after": "string"})
 
 
 # ------------------------------------------------------------------ the report
@@ -310,6 +424,8 @@ def quality_report(stale_after_hours: float = 48.0) -> pd.DataFrame:
             revision_state = "n/a" if n_vintages < 2 else str(n_revised)
         except KeyError as e:                              # declared key missing
             n_revised, revision_state = 0, f"key error: {e}"
+        except RevisionCheckSkipped as e:                  # too large to check cheaply
+            n_revised, revision_state = 0, str(e)
 
         f = fresh_lookup.get(view)
         freshness_basis = "dataset"

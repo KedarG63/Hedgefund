@@ -98,6 +98,50 @@ def test_revision_detected_when_a_value_changes(s):
     assert float(row["example_after"]) == 25.0
 
 
+def test_revision_examples_survive_arrow_when_changed_fields_differ_in_type(s):
+    """
+    example_before/after carry a value lifted from whichever column moved, so
+    across rows they mix types: here row A moves a float and row B moves a UUID
+    string. Left as objects, pyarrow infers double from the first row and the
+    dashboard dies with ArrowInvalid ("tried to convert to double") the moment it
+    reaches the string -- the frame must be renderable, not just correct.
+    """
+    import pyarrow as pa
+
+    storage, quality = s
+    before = pd.DataFrame({
+        "sym": ["A", "B"],
+        "close": [10.0, 20.0],
+        "run_id": ["7f5adefc-a814-41ee-bb35-8cc2a476dc10", "1c0ffee5-dead-4bee-9f00-0d15ea5e0000"],
+    })
+    after = before.copy()
+    after.loc[0, "close"] = 11.5                                   # float revision
+    after.loc[1, "run_id"] = "9a11dead-beef-4cab-b055-facade000001"  # string revision
+    write(storage, before)
+    write(storage, after)
+
+    revs = quality.detect_revisions("nse_bhavcopy", keys=["sym"])
+    assert len(revs) == 2
+    assert set(revs["example_field"]) == {"close", "run_id"}
+
+    pa.Table.from_pandas(revs, preserve_index=False)   # the actual regression
+
+    a = revs.set_index("sym").loc["A"]
+    assert a["example_before"] == "10.0" and a["example_after"] == "11.5"
+
+
+def test_revision_example_marks_a_value_that_went_missing(s):
+    """"Went missing" is a revision too, so it must render as something a reader
+    can tell apart from the string "nan"."""
+    storage, quality = s
+    write(storage, pd.DataFrame({"sym": ["A"], "note": ["filed"]}))
+    write(storage, pd.DataFrame({"sym": ["A"], "note": [None]}))
+
+    revs = quality.detect_revisions("nse_bhavcopy", keys=["sym"])
+    assert len(revs) == 1
+    assert revs.iloc[0]["example_after"] == "(missing)"
+
+
 def test_no_revision_when_values_are_stable(s):
     storage, quality = s
     df = pd.DataFrame({"sym": ["A", "B"], "close": [10.0, 20.0]})
@@ -172,6 +216,68 @@ def test_dataset_without_declared_key_is_skipped_not_failed(s):
     write(storage, pd.DataFrame({"a": [1]}), source="zzz", dataset="unknown")
     assert "zzz_unknown" not in quality.DATASET_KEYS
     assert quality.detect_revisions("zzz_unknown").empty
+
+
+# ------------------------------------------------------------- revision cap
+def test_detect_revisions_skips_over_the_row_cap(s):
+    """
+    derived_correlation (an O(n^2) pairwise matrix, ~3M rows/vintage) measured
+    at 40+ seconds to fingerprint-compare -- most of quality_report()'s entire
+    runtime for one dataset out of 60+. Over the cap, this must raise instead
+    of paying for the comparison.
+    """
+    storage, quality = s
+    write(storage, pd.DataFrame({"sym": ["A", "B", "C"], "close": [1.0, 2.0, 3.0]}))
+    write(storage, pd.DataFrame({"sym": ["A", "B", "C"], "close": [1.0, 2.0, 4.0]}))
+    with pytest.raises(quality.RevisionCheckSkipped, match="exceeds"):
+        quality.detect_revisions("nse_bhavcopy", keys=["sym"], max_total_rows=2)
+
+
+def test_detect_revisions_row_cap_checked_from_metadata_before_any_read(s):
+    """
+    The point of the cap is to avoid PAYING for the read -- so the row count
+    must come from parquet metadata, not from loading the files and counting
+    afterwards (which would defeat it entirely).
+    """
+    storage, quality = s
+    write(storage, pd.DataFrame({"sym": ["A"] * 100, "close": range(100)}))
+    write(storage, pd.DataFrame({"sym": ["A"] * 100, "close": range(100)}))
+    with pytest.raises(quality.RevisionCheckSkipped):
+        quality.detect_revisions("nse_bhavcopy", keys=["sym"], max_total_rows=50)
+
+
+def test_detect_revisions_default_cap_does_not_affect_normal_sized_datasets(s):
+    """Every real dataset except derived_correlation is far under the default
+    cap -- this must keep working exactly as before for them."""
+    storage, quality = s
+    n = 1000
+    write(storage, pd.DataFrame({"sym": [f"S{i}" for i in range(n)], "close": range(n)}))
+    write(storage, pd.DataFrame({"sym": [f"S{i}" for i in range(n)], "close": range(n)}))
+    assert quality.detect_revisions("nse_bhavcopy", keys=["sym"]).empty
+
+
+def test_report_reports_skipped_revision_check_without_claiming_zero(s, monkeypatch):
+    """
+    A skipped comparison must not report revision_state as "0" -- that would
+    claim the dataset was checked and clean, when it was not checked at all.
+    Same "visible-but-partial beats silently-absent" reasoning as the
+    existing key-error branch this mirrors.
+    """
+    storage, quality = s
+    write(storage, pd.DataFrame({"sym": ["A"], "close": [1.0]}), dataset="huge")
+    write(storage, pd.DataFrame({"sym": ["A"], "close": [1.0]}), dataset="huge")
+
+    def fake_detect_revisions(view, paths=None):
+        if view == "nse_huge":
+            raise quality.RevisionCheckSkipped("skipped: 9,000,000 rows across 3 vintages "
+                                              "exceeds the 500,000-row revision-check cap")
+        return pd.DataFrame()
+
+    monkeypatch.setattr(quality, "detect_revisions", fake_detect_revisions)
+    rep = quality.quality_report()
+    row = rep[rep["view"] == "nse_huge"].iloc[0]
+    assert "skipped" in row["revisions"]
+    assert row["revisions"] != "0"
 
 
 # ------------------------------------------------------------------ the report
