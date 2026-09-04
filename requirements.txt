@@ -26,6 +26,14 @@ websockets>=12.0          # India broker feed (NSE/BSE/MCX)
 streamlit>=1.35
 plotly>=5.20
 
+# analytics (Phase 7 -- quant signal engine)
+scipy>=1.13          # scipy.stats.norm (Black-Scholes), scipy.optimize.brentq (IV solve),
+                     # scipy.io.netcdf_file (IMD gridded rainfall -- NetCDF-3 classic,
+                     # so no netCDF4/xarray dependency is needed)
+statsmodels>=0.14     # Engle-Granger cointegration (pairs screening)
+anthropic>=0.40.0     # DeepSeek via its Anthropic-compatible endpoint (analytics/digest.py only)
+scikit-learn>=1.5     # IsolationForest (analytics/outliers.py multivariate anomaly detection)
+
 # test
 pytest>=8.0
 

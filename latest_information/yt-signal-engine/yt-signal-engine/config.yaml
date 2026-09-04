@@ -1,0 +1,119 @@
+# ---------------------------------------------------------------------------
+# yt-signal-engine configuration
+# ---------------------------------------------------------------------------
+
+channels:
+  - handle: "@HamishHodder"
+    channel_id: "UCODr9HUJ90xtWD-0Xoz4vPw"
+    name: "Hamish Hodder"
+    # Free-text hint injected into the extraction prompt. Tells the model what
+    # this channel is FOR, so it stops flagging the sponsor read as a signal.
+    lens: >
+      Long-form narrative deep dives on financial blow-ups, market structure
+      failures, frauds and regulatory action. Signal here is usually a
+      *mechanism* (how a trade/structure worked, how it broke, who was exposed)
+      and historical base rates, not a live ticker call. Ignore sponsor reads
+      for TIKR / InvestingPro / Stockopedia / Sharesight entirely.
+
+  - handle: "@Limitless-FM"
+    channel_id: "UCCRxYlYOmLE2l5wxs3ckJtg"
+    name: "Limitless Podcast"
+    lens: >
+      Near-daily AI and technology market show. Signal here is live: named
+      companies and tickers, capex and financing structures, model releases,
+      13F positioning, supply/demand constraints in compute, memory and power.
+      Hosts flag their own bull bias -- capture their stated bear cases too.
+      SemiAnalysis, also tracked here, covers this same beat with more
+      technical depth -- only take a compute/capex item from here if it adds a
+      position, a number, or a name that SemiAnalysis-style analysis wouldn't
+      surface (e.g. a fund's stated trade, not just "AI is spending a lot").
+      Ignore the Ledger sponsor read.
+
+  - handle: "@allin"
+    channel_id: "UCESLZhusAkFfsNsApnjF_Cg"
+    name: "All-In Podcast"
+    lens: >
+      Weekly roundup with four VC/operator hosts (Chamath, Sacks, Friedberg,
+      Calacanis) covering startup funding, regulation, politics, elections and
+      their own fund positioning. AI-compute, datacenter capex and chip-supply
+      topics are covered in far more technical depth by SemiAnalysis and
+      Limitless, also tracked here -- only extract those from this channel if
+      a host stakes out an explicit, new investable position (a stated
+      buy/sell/short/fund move), not just reacting to the week's headline.
+      Ignore ad reads and "friends of the pod" banter.
+
+  - handle: "@SemiAnalysis"
+    channel_id: "UCf_KhBXw5TIV0A7butjgFhg"
+    name: "SemiAnalysis"
+    lens: >
+      The most technical, numbers-heavy source tracked here on AI
+      infrastructure: chip architecture, datacenter power and capex
+      modelling, memory/packaging supply chain, financing structures behind
+      compute buildouts. Treat this as the primary source for that beat --
+      when the same story also runs on Limitless or All-In, prefer it here;
+      only flag it from this channel if the number or mechanism is new.
+      Ignore generic "AI bubble or not" opinion with no mechanism attached.
+
+  - handle: "@AswathDamodaranonValuation"
+    channel_id: "UCLvnJL8htRR1T9cbSccaoVw"
+    name: "Aswath Damodaran"
+    lens: >
+      NYU valuation professor working through company and market valuations
+      with an explicit model: DCF assumptions, cost of capital, equity risk
+      premium, country risk. Signal here is the valuation mechanism and the
+      number it produces, not sentiment -- capture his stated fair-value
+      estimates, where he says the market's price disagrees with the model,
+      and market-wide framework commentary (ERP shifts, indexing debates).
+      Ignore classroom administrivia and reminders about his blog or book.
+
+  - handle: "@Asianometry"
+    channel_id: "UC1LpsuAUaKoMzzJSEt5WImw"
+    name: "Asianometry"
+    lens: >
+      Historical/technical documentaries on semiconductor and Asian
+      tech-industry history: how a technology, company or industrial policy
+      actually developed, and what happened as a result. This is the
+      historical_precedent beat for hardware and industrial strategy, the
+      same way Hamish Hodder is for trading blow-ups -- extract the mechanism
+      and the outcome, not just "X happened in Y." Where a video touches a
+      chip topic SemiAnalysis also covers, stay on the history of how we got
+      here; leave live capex/pricing claims to SemiAnalysis.
+
+ingest:
+  # Skip anything shorter than this -- filters out Shorts and clips.
+  min_duration_seconds: 180
+  # Only look at videos published in the last N days on incremental runs.
+  lookback_days: 30
+  # Hard cap per channel per run, so a backfill can't run away with your spend.
+  max_videos_per_run: 25
+  transcript_languages: ["en", "en-US", "en-GB"]
+  # Seconds to wait between transcript fetches. Raise it if a run starts
+  # returning IpBlocked; that means YouTube is throttling this IP.
+  request_delay_seconds: 1.5
+
+analyze:
+  # Routed through DeepSeek's Anthropic-API-compatible endpoint (same SDK,
+  # same tool-calling schema, see engine/analyze.py PROVIDERS). Needs
+  # DEEPSEEK_API_KEY in .env instead of ANTHROPIC_API_KEY.
+  provider: "deepseek"
+  model: "deepseek-v4-flash"
+  # Characters per map-stage chunk. ~12k chars is roughly 8-10 minutes of
+  # speech and comfortably inside a single high-quality extraction pass.
+  chunk_chars: 12000
+  chunk_overlap_chars: 800
+  max_output_tokens: 8000
+  # Drop extracted items below this confidence before they reach the dashboard.
+  min_confidence: 0.45
+  # Signal families to extract. Comment one out and it stops being produced.
+  signal_types:
+    - investable_idea
+    - macro_structure
+    - research_thread
+    - historical_precedent
+
+dashboard:
+  title: "Signal Desk"
+  subtitle: "Extracted from tracked YouTube channels"
+  output_path: "data/dashboard.html"
+  # Videos shown on the dashboard, newest first.
+  max_videos: 40

@@ -11,6 +11,8 @@ import argparse
 import traceback
 from datetime import date, timedelta
 
+import pandas as pd
+
 import core  # noqa: F401  -- loads .env before any connector reads os.environ
 from core.config import describe
 
@@ -44,13 +46,14 @@ def is_due(schedule: str, on: date) -> bool:
 
 
 # ---------------------------------------------------------------- India EOD
-@job("nse_bhavcopy", desc="NSE EOD prices, all instrument types (CM + F&O)")
+@job("nse_bhavcopy", schedule="weekdays", desc="NSE EOD prices, all instrument types (CM + F&O)")
 def _nse_bhavcopy():
     from connectors.nse_bse import nse_bhavcopy
     return nse_bhavcopy(date.today())
 
 
-@job("nse_participant_oi", desc="FII/DII/pro/retail open interest -- institutional positioning")
+@job("nse_participant_oi", schedule="weekdays",
+     desc="FII/DII/pro/retail open interest -- institutional positioning")
 def _participant_oi():
     from connectors.nse_bse import nse_participant_oi
     return nse_participant_oi(date.today())
@@ -74,6 +77,35 @@ def _fii_dii():
 def _results():
     from connectors.nse_bse import nse_financial_results
     return nse_financial_results("Quarterly")
+
+
+@job("nse_fundamentals", desc="Structured income statement/balance sheet/cash flow -- "
+     "re-scans NSE's unfiltered results index and parses whatever XBRL isn't already "
+     "archived; registered AFTER nse_results since it re-derives the same call rather "
+     "than depending on that job's output")
+def _nse_fundamentals():
+    """
+    Deliberately NOT a from_date/to_date trailing window: verified live
+    2026-08-30 that nse_financial_results()'s date filter collapses to
+    near-zero rows for any range reaching into the current year (see that
+    function's docstring) -- a 2-day window returned 0 rows outright, a
+    silent no-op that would have looked like a healthy daily run forever.
+    The unfiltered call is the only signal proven to carry genuinely recent
+    filings, so this re-scans it every day and lets new_filings() do the
+    actual "what's new" filtering via the raw archive (already-seen XBRL
+    URLs are find_raw() hits, not re-fetched) -- more requests than a true
+    incremental window would need, but correct instead of silently empty.
+    """
+    from connectors.nse_bse import nse_financial_results
+    from connectors.nse_fundamentals import financial_facts, new_filings
+    filings = pd.concat([
+        nse_financial_results("Quarterly"),
+        nse_financial_results("Annual"),
+    ], ignore_index=True)
+    filings = new_filings(filings)
+    if filings.empty:
+        return None  # nothing new since the last run -- not a failure
+    return financial_facts(filings)
 
 
 @job("nse_bhavcopy_delivery", desc="NSE delivery % -- speculative vs genuine volume")
@@ -112,6 +144,135 @@ def _bse_ann():
 def _bse_scrip_master():
     from connectors.nse_bse import bse_scrip_master
     return bse_scrip_master()
+
+
+@job("nse_corporate_announcements", desc="NSE corporate announcements, trailing 24h window -- "
+     "NOT the 60s-poll real-time feed the connector's docstring describes; see "
+     "analytics/corporate_events.py for why that's out of scope for the daily batch")
+def _nse_corp_announcements():
+    from connectors.nse_bse import nse_corporate_announcements
+    yday, today = date.today() - timedelta(days=1), date.today()
+    return nse_corporate_announcements(frm=yday.strftime("%d-%m-%Y"), to=today.strftime("%d-%m-%Y"))
+
+
+# ---------------------------------------------------------------- India F&O (options)
+@job("nse_option_chain", schedule="weekdays",
+     desc="NIFTY/BANKNIFTY option chain snapshot, flattened and persisted "
+          "(nse_option_chain() already fetched this live -- was never parsed to parquet)")
+def _nse_optchain():
+    from analytics.options import capture_and_persist_option_chain
+    return capture_and_persist_option_chain(symbols=("NIFTY", "BANKNIFTY"))
+
+
+# ---------------------------------------------------------------- India credit ratings
+@job("crisil_rating_actions", desc="CRISIL rating-action feed (upgrades/downgrades/"
+     "assignments/issuer-not-cooperating) -- the free substitute for the CAPTCHA-gated "
+     "MCA charge register named in connectors/mca_charges.py")
+def _crisil_rating_actions():
+    from connectors.credit_ratings import crisil_rating_actions
+    return crisil_rating_actions(days_back=7)
+
+
+@job("icra_rating_actions", desc="ICRA rating-action feed, same shape as CRISIL's -- "
+     "ICRA additionally exposes lender-wise bank facilities as a structured table "
+     "(icra_bank_facilities(), not called from this daily job -- it's per-company, "
+     "not part of the market-wide feed)")
+def _icra_rating_actions():
+    from connectors.credit_ratings import icra_rating_actions
+    return icra_rating_actions(days_back=7)
+
+
+# ---------------------------------------------------------------- Quant Signal Engine
+# Every job below is DERIVED: it reads already-ingested views, computes, and
+# writes back under source="derived". Registered after the India EOD section
+# (nse_bhavcopy, nse_participant_oi, nse_bulk_block_deals, nse_insider_trading,
+# nse_shareholding_pattern, nse_option_chain all precede these by registration
+# order) so every input each job needs already exists.
+@job("analytics_capm_beta", schedule="weekdays",
+     desc="DERIVED: OLS beta/alpha vs NIFTYBEES, trailing window")
+def _analytics_capm_beta():
+    from analytics.capm import compute_betas
+    return compute_betas()
+
+
+@job("analytics_correlation", schedule="weekdays",
+     desc="DERIVED: rolling pairwise correlation + cointegration-screened pairs shortlist")
+def _analytics_correlation():
+    from analytics.correlation import pairs_screen, rolling_correlation
+    rolling_correlation()
+    return pairs_screen()
+
+
+@job("analytics_momentum", schedule="weekdays",
+     desc="DERIVED: cross-sectional momentum z-score + variance-ratio diagnostic")
+def _analytics_momentum():
+    from analytics.momentum import momentum_zscore, variance_ratio_test
+    momentum_zscore()
+    return variance_ratio_test()
+
+
+@job("analytics_risk_model", schedule="weekdays",
+     desc="DERIVED: momentum/size/low-vol cross-sectional factor model + composite score -- "
+          "registered AFTER analytics_momentum (reads its persisted output) and "
+          "bse_scrip_master (size factor's market-cap join)")
+def _analytics_risk_model():
+    from analytics.risk_model import build_factor_model
+    return build_factor_model()
+
+
+@job("analytics_option_greeks", schedule="weekdays",
+     desc="DERIVED: Black-Scholes IV/Greeks off the option-chain snapshot -- "
+          "registered AFTER nse_option_chain")
+def _analytics_option_greeks():
+    from analytics.options import compute_greeks_for_chain
+    return compute_greeks_for_chain()
+
+
+@job("analytics_events", schedule="weekdays",
+     desc="DERIVED: insider-filing frequency, bulk/block-deal anomaly, "
+          "FII-DII divergence, promoter-holding change")
+def _analytics_events():
+    from analytics.events import (
+        bulk_block_deal_anomaly, fii_dii_divergence,
+        insider_filing_frequency, promoter_holding_change,
+    )
+    bulk_block_deal_anomaly()
+    fii_dii_divergence()
+    promoter_holding_change()
+    return insider_filing_frequency()
+
+
+@job("analytics_corporate_events", schedule="weekdays",
+     desc="DERIVED: BSE material-event flags (mgmt change/resignation/credit "
+          "action/scheme of arrangement) -- registered AFTER bse_announcements "
+          "and bse_scrip_master")
+def _analytics_corporate_events():
+    from analytics.corporate_events import material_events
+    return material_events()
+
+
+@job("analytics_fii_cross_source", schedule="weekdays",
+     desc="DERIVED: NSE participant-OI vs Upstox FII activity reconciliation "
+          "-- flags a mismatch between two feeds that should read the same")
+def _analytics_fii_cross_source():
+    from analytics.fii_divergence import fii_source_divergence
+    return fii_source_divergence()
+
+
+@job("analytics_outliers", schedule="weekdays",
+     desc="DERIVED: IsolationForest multivariate outlier flag across beta/momentum/"
+          "bulk-deal/promoter-change -- registered AFTER analytics_events")
+def _analytics_outliers():
+    from analytics.outliers import multivariate_outliers
+    return multivariate_outliers()
+
+
+@job("analytics_digest", schedule="weekdays",
+     desc="DERIVED: DeepSeek terse synthesis -- registered LAST, after every "
+          "other analytics job it reads from")
+def _analytics_digest():
+    from analytics.digest import run_digest
+    return run_digest()
 
 
 # ---------------------------------------------------------------- Commodities
@@ -291,6 +452,150 @@ def _rbi_ratios():
     return nsdp_banking_ratios()
 
 
+# ---------------------------------------------------------------- Phase 7: OSINT / geospatial
+# Registered BEFORE the cross-asset block below, which must stay last (see its
+# docstring). These have no dependency on it and it has none on them.
+
+@job("portwatch_chokepoints",
+     desc="Daily vessel transits through 28 maritime chokepoints (IMF PortWatch) -- "
+          "the crude-supply and freight leg for India refiners/shippers")
+def _portwatch_chokepoints():
+    from connectors.chokepoints import portwatch_chokepoints
+    # Incremental: a 30-day trailing window re-fetches recently revised days
+    # cheaply. The layer publishes ~3-9 days behind, so a 7-day window would
+    # sometimes fetch nothing at all.
+    since = (date.today() - timedelta(days=30)).isoformat()
+    return portwatch_chokepoints(since=since)
+
+
+@job("noaa_oni", schedule="monthly",
+     desc="ENSO / El Nino index -- the leading prior on the India monsoon")
+def _noaa_oni():
+    from connectors.climate import noaa_oni
+    return noaa_oni()
+
+
+@job("cpc_rainfall",
+     desc="Daily gauge-analysed rainfall over India and four sub-regions (NOAA CPC) -- "
+          "stands in for IMD, which is pending API approval")
+def _cpc_rainfall():
+    from connectors.climate import cpc_india_rainfall
+    # CPC publishes 1-2 days behind; ask for 3 days back so a normal lag is
+    # never mistaken for a failure.
+    return cpc_india_rainfall((date.today() - timedelta(days=3)).isoformat())
+
+
+@job("gdelt_events",
+     desc="GDELT daily event stream filtered to the India/Gulf energy universe")
+def _gdelt_events():
+    from connectors.geopolitics import gdelt_daily_events
+    # ~2-day publication lag: yesterday's file 404s.
+    return gdelt_daily_events((date.today() - timedelta(days=3)).isoformat())
+
+
+@job("gdacs_alerts",
+     desc="GDACS cyclone/flood/quake alerts -- port and refinery disruption warnings")
+def _gdacs_alerts():
+    from connectors.geopolitics import gdacs_alerts
+    return gdacs_alerts()
+
+
+@job("opensky_states",
+     desc="ADS-B snapshot over Jamnagar/Mumbai/Delhi/Hormuz. SNAPSHOT ONLY -- "
+          "there is no history before what we collect, and no ownership mapping")
+def _opensky_states():
+    from connectors.flights import opensky_states
+    out = None
+    for box in ("jamnagar", "mumbai", "delhi_ncr", "hormuz"):
+        out = opensky_states(box)
+    return out
+
+
+@job("analytics_supply_chain",
+     desc="DERIVED: chokepoint z-scores + the reroute mass balance that separates "
+          "'traffic rerouted' (freight story) from 'traffic destroyed' (supply story)")
+def _analytics_supply_chain():
+    from analytics.supply_chain import (
+        chokepoint_zscore, current_regime, regime_breaks, reroute_balance,
+    )
+    chokepoint_zscore()
+    reroute_balance()
+    # Regime detection needs multi-year history to separate a step from the
+    # annual cycle, so on a thin archive it legitimately finds nothing. That
+    # is not a pipeline failure -- but it must be visible, not swallowed.
+    try:
+        regime_breaks()
+        return current_regime()
+    except RuntimeError as exc:
+        print(f"    regime detection skipped: {exc}")
+        return None
+
+
+@job("imd_rainfall", schedule="monthly",
+     desc="IMD's OWN 0.25-degree gridded daily rainfall -- the authoritative India "
+          "series, via the public NetCDF download form (no API approval needed)")
+def _imd_rainfall():
+    from connectors.imd import available_years, imd_gridded_rainfall, imd_session
+    from core.storage import db, register_views
+
+    # Incremental by year: IMD publishes annual files in arrears, so the only
+    # work each month is checking whether a new year appeared. Re-downloading
+    # 30 settled years monthly would be 750 MB of pointless traffic.
+    con = db(read_only=True)
+    try:
+        have = set()
+        if "imd_gridded_rainfall" in register_views(con):
+            have = {int(y) for (y,) in con.execute(
+                "SELECT DISTINCT year FROM imd_gridded_rainfall").fetchall()}
+    finally:
+        con.close()
+
+    f = imd_session()
+    wanted = [y for y in available_years(f) if y not in have]
+    if not wanted:
+        print("    IMD: no newly published year")
+        return None
+    out = None
+    for year in wanted:
+        print(f"    IMD: fetching {year}")
+        out = imd_gridded_rainfall(year, fetcher=f)
+    return out
+
+
+@job("analytics_monsoon",
+     desc="DERIVED: ENSO state, season-to-date rainfall, and departure from the "
+          "IMD 1991-2020 normal (CPC observations bias-corrected onto IMD's basis)")
+def _analytics_monsoon():
+    from analytics.monsoon import enso_state, monsoon_departure, monsoon_progress
+    enso_state()
+    out = None
+    for name, fn in (("monsoon_progress", monsoon_progress),
+                     ("monsoon_departure", monsoon_departure)):
+        try:
+            out = fn()
+        except RuntimeError as exc:
+            # Outside June-September there is no season to report, and before
+            # the IMD/CPC backfills there is no climatology. Neither is a
+            # pipeline failure, but both must be visible rather than swallowed.
+            print(f"    {name} skipped: {exc}")
+    return out
+
+
+# ---------------------------------------------------------------- Cross-asset analytics
+@job("analytics_cross_asset_correlation", schedule="weekdays",
+     desc="DERIVED: NIFTYBEES vs commodity (daily) and vs RBI macro (monthly) correlation -- "
+          "registered LAST, after analytics_correlation AND every commodity/RBI job above "
+          "it reads from (mcx_bhavcopy, cme_settlements, ibja_rates, india_gold_premium, "
+          "rbi_forex_reserves, rbi_policy_rates, rbi_key_indicators) -- run_daily executes "
+          "in registration order, so this must be the last thing defined in the file")
+def _analytics_cross_asset_correlation():
+    from analytics.cross_asset_correlation import (
+        equity_commodity_correlation, equity_macro_correlation,
+    )
+    equity_commodity_correlation()
+    return equity_macro_correlation()
+
+
 def _plan(targets, on, run_all):
     """Resolve the target list into (name, will_run, reason) rows."""
     rows = []
@@ -360,7 +665,31 @@ def cmd_run(targets, on, run_all):
             print("  NO ALERT CHANNEL CONFIGURED -- set ALERT_WEBHOOK_URL in .env")
         else:
             print("  alert channel configured but the send did not succeed")
-    return 1 if fails else 0
+
+    # A job that FAILS shows up above. A job that was never INVOKED this run
+    # (a narrow --job command, day after day) shows up nowhere in `results`
+    # -- Phase 8 found nine datasets stuck stale for four days with every
+    # run reporting clean, because none of those runs happened to include
+    # them. This checks the warehouse's actual freshness, independent of
+    # what this particular invocation touched.
+    from core.alerting import alert_staleness
+    from core.quality import quality_report
+    STALE_AFTER_HOURS = 48.0
+    report = quality_report(stale_after_hours=STALE_AFTER_HOURS)
+    stale = report[report["status"] == "STALE"]["view"].tolist() if not report.empty else []
+    if stale:
+        print(f"\n{len(stale)} dataset(s) STALE (no fresh bytes in "
+              f"{STALE_AFTER_HOURS:.0f}h+): {', '.join(stale)}")
+        stale_outcome = alert_staleness(stale, STALE_AFTER_HOURS)
+        if stale_outcome["sent"]:
+            print("  staleness alert sent")
+        elif not any(stale_outcome["channels"].values()):
+            print("  NO ALERT CHANNEL CONFIGURED -- set ALERT_WEBHOOK_URL in .env "
+                  "(also visible any time on the dashboard's top banner)")
+        else:
+            print("  alert channel configured but the send did not succeed")
+
+    return 1 if (fails or stale) else 0
 
 
 def main():

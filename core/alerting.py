@@ -91,3 +91,28 @@ def alert_failures(results: dict[str, str]) -> dict:
     if channels["webhook"]:
         out["sent"] = send_webhook(text)
     return out
+
+
+def alert_staleness(stale_views: list[str], stale_after_hours: float) -> dict:
+    """
+    Send an alert if any dataset has gone stale -- catches the failure mode
+    alert_failures() cannot: a job that was never INVOKED this run (e.g. a
+    narrow `--job X` command during debugging, day after day) never appears
+    in `results` at all, so nothing "fails". Phase 8 found exactly this: nine
+    NSE/BSE datasets sat stuck on one stale ingest for four days with every
+    invocation reporting a clean run, because none of them happened to
+    include those jobs. This checks the WAREHOUSE's actual freshness, not
+    just what this run touched.
+    """
+    channels = configured()
+    out = {"stale": len(stale_views), "channels": channels, "sent": False}
+    if not stale_views:
+        return out
+    text = (
+        f"quantdata staleness check: {len(stale_views)} dataset(s) have had no "
+        f"fresh bytes in {stale_after_hours:.0f}h+:\n"
+        + "\n".join(f"  {v}" for v in sorted(stale_views))
+    )
+    if channels["webhook"]:
+        out["sent"] = send_webhook(text)
+    return out

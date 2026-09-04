@@ -26,10 +26,11 @@ RETRYABLE_STATUS = {429, 500, 502, 503, 504}
 
 
 class Fetcher:
-    def __init__(self, base_headers: dict | None = None, timeout: float = 30.0,
-                 min_delay: float = 0.8, max_retries: int = 4):
+    def __init__(self, base_headers: dict | None = None, cookies: dict | None = None,
+                 timeout: float = 30.0, min_delay: float = 0.8, max_retries: int = 4):
         self.client = httpx.Client(
             headers={**BROWSER_HEADERS, **(base_headers or {})},
+            cookies=cookies,
             timeout=timeout,
             follow_redirects=True,
             http2=True,
@@ -111,6 +112,60 @@ def sec_session(contact_email: str) -> Fetcher:
     return Fetcher(
         base_headers={"User-Agent": f"HedgeFundResearch/1.0 ({contact_email})"},
         min_delay=0.12,
+    )
+
+
+def crisil_session() -> Fetcher:
+    """
+    CRISIL's rating-rationale JSON endpoint (ratingresultlisting.results.json)
+    needs no cookie priming -- verified stateless against a bare client, unlike
+    NSE. A Referer matching the real search page is sent anyway since that is
+    what a browser actually sends and costs nothing.
+    """
+    return Fetcher(base_headers={
+        "Referer": "https://www.crisilratings.com/en/home/our-business/ratings/rating-rationale.html",
+        "Accept": "application/json",
+    })
+
+
+def icra_session() -> Fetcher:
+    """
+    icra.in's listing endpoint is a session-based POST, not a stateless GET
+    like CRISIL's: it needs an ASP.NET anti-forgery token read off the search
+    page's own HTML (see connectors/credit_ratings.py's _icra_token()) and
+    sent back on every POST. The cookie jar (ASP.NET_SessionId etc.) is
+    handled automatically as long as this same Fetcher's client is reused
+    across the priming GET and the POSTs that follow.
+    """
+    return Fetcher(base_headers={"Referer": "https://www.icra.in/Rating/AllRatingRationales"})
+
+
+def care_session() -> Fetcher:
+    """CARE's rrcompany endpoint (careratings.com) needs no cookie priming -- verified
+    stateless against a bare client, same as CRISIL."""
+    return Fetcher(base_headers={
+        "Referer": "https://www.careratings.com/find-ratings",
+        "Accept": "application/json",
+    })
+
+
+def screener_session() -> Fetcher:
+    """
+    Logged-in screener.in session -- a deliberate, scoped exception to
+    CLAUDE.md's no-third-party-vendors rule (see connectors/screener.py's
+    module docstring for why). Needs SCREENER_CSRFTOKEN/SCREENER_SESSIONID
+    in .env, captured from a real logged-in browser session (DevTools >
+    Network > Copy as cURL on an "Export to Excel" click) -- these are
+    session cookies, not an API key, and expire; when they do, every request
+    302s to /login/ instead of erroring, so check for that specifically.
+    """
+    from core.config import require
+    return Fetcher(
+        base_headers={"Referer": "https://www.screener.in/"},
+        cookies={
+            "csrftoken": require("SCREENER_CSRFTOKEN"),
+            "sessionid": require("SCREENER_SESSIONID"),
+        },
     )
 
 
