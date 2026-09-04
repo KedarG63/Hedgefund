@@ -215,6 +215,59 @@ def latest_per(view: str, per: list[str] | str, as_of: date | str | None = None,
             f")")
 
 
+def latest_vintage(view: str, per: list[str] | str, as_of: date | str | None = None, *,
+                   columns: str = "*", where: str = "") -> str:
+    """
+    Every row from the newest vintage of each `per` group, as known on `as_of`.
+
+    The third primitive here, and the one for tables whose ROWS have no
+    identity of their own. asof_sql() collapses row-by-row on a natural key;
+    latest_per() picks one row per group. This picks one VINTAGE per group and
+    keeps all of its rows.
+
+    nse_xbrl_facts is the case that needs it. An Ind-AS filer can tag two facts
+    under one (source_url, context_id, concept) -- opening and closing cash in
+    the cash-flow statement arrive that way, identical in every descriptive
+    column including seqNumber, differing only in value. There is therefore no
+    column combination that identifies a fact independently of its value, so it
+    has no natural key and is deliberately absent from DATASET_KEYS. Adding
+    `value` to make the tuple "unique" would be worse than leaving it out: a
+    REVISED fact would then look like a new row and never collapse, which is
+    precisely the silent-revision failure core.quality exists to catch.
+
+    Selecting a whole vintage per document sidesteps the question. "The facts
+    as published by the most recent scrape of this filing at or before as_of"
+    is well defined even when the individual facts are not.
+
+    `per` should be whatever identifies the document -- source_url for XBRL.
+    Unlike the other two functions this does NOT consult the registry, because
+    it exists for views that legitimately have no entry there.
+    """
+    if isinstance(per, str):
+        per = [per]
+    paths = view_paths()
+    if view not in paths:
+        raise UnregisteredView(f"{view!r} has no parquet directory -- nothing written yet.")
+
+    stamp = _as_of_literal(as_of)
+    kd_bound = f"WHERE knowledge_date <= '{stamp}'" if stamp else ""
+    partition = ", ".join(f'"{c}"' for c in per)
+    src = f"read_parquet('{paths[view].as_posix()}/*.parquet', union_by_name=true)"
+
+    sql = f"""SELECT {columns} FROM (
+        SELECT * FROM (
+            SELECT *, dense_rank() OVER (
+                PARTITION BY {partition} ORDER BY knowledge_date DESC
+            ) AS _vintage_rank
+            FROM {src}
+            {kd_bound}
+        ) WHERE _vintage_rank = 1
+    ) AS {view}"""
+    if where:
+        sql += f"\nWHERE {where}"
+    return sql
+
+
 def registered_views() -> list[str]:
     """Views that can be read point-in-time: declared key AND data on disk."""
     paths = view_paths()

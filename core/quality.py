@@ -89,6 +89,27 @@ DATASET_KEYS: dict[str, list[str]] = {
     # revisions here but silently DROPS rows in core.asof.asof_sql().
     "nse_bhavcopy":                ["TradDt", "TckrSymb", "SctySrs"],
     "nse_index_constituents":      ["index", "Symbol"],
+    # (indicator, as_of) and not indicator alone: two rows for the same
+    # indicator with different as_of dates are different OBSERVATIONS, not two
+    # vintages of one, and collapsing them would throw away the corridor's
+    # history. Same shape as rbi_forex_reserves. A caller wanting today's
+    # corridor asks latest_per(view, ["indicator"]).
+    "rbi_key_indicators":          ["indicator", "as_of"],
+
+    # Event sources behind /api/instrument/{symbol}/events. Both exchanges
+    # issue a stable per-filing id, so that is the identity -- NOT
+    # (symbol, date, headline), which collides: one company can file two
+    # announcements with the same headline on one day (measured: 1,017 rows
+    # over 1,010 such triples in a single vintage).
+    "nse_announcements":           ["seq_id"],
+    "nse_insider_trading":         ["appId"],
+    # The deal feeds have no id. BD_DT_ORDER looked like one and is not -- it
+    # is a sort ordinal, constant within a fetch (70 rows, 1 distinct value),
+    # so keying on it would collapse an entire day's deals into one row.
+    "nse_bulk_deals":              ["BD_DT_DATE", "BD_SYMBOL", "BD_CLIENT_NAME",
+                                    "BD_BUY_SELL", "BD_QTY_TRD"],
+    "nse_block_deals":             ["BD_DT_DATE", "BD_SYMBOL", "BD_CLIENT_NAME",
+                                    "BD_BUY_SELL", "BD_QTY_TRD"],
     "nse_fii_dii":                 ["category", "date"],
     "bse_scrip_master":            ["ISIN_NUMBER"],
     "upstox_fii_activity":         ["trade_date", "segment"],

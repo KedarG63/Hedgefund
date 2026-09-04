@@ -35,6 +35,10 @@ SECRET_KEYS = {
     "DEEPSEEK_API_KEY",
     "SCREENER_CSRFTOKEN",
     "SCREENER_SESSIONID",
+    # Bearer token for the terminal API (api/main.py). It gates read access to
+    # the entire warehouse, so it is a credential even though nothing external
+    # issued it.
+    "TERMINAL_TOKEN",
 }
 
 

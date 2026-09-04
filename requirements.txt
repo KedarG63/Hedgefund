@@ -26,6 +26,14 @@ websockets>=12.0          # India broker feed (NSE/BSE/MCX)
 streamlit>=1.35
 plotly>=5.20
 
+# terminal API (Phase 2) -- reads the same DuckDB views the dashboard does and
+# serves them to the React terminal. uvicorn binds 127.0.0.1: this serves the
+# whole warehouse, and exchange terms restrict redistribution.
+fastapi>=0.115
+uvicorn[standard]>=0.30
+# Arrow IPC is the default wire format -- pyarrow is already a core dependency
+# above, so the API adds no serialisation dependency of its own.
+
 # analytics (Phase 7 -- quant signal engine)
 scipy>=1.13          # scipy.stats.norm (Black-Scholes), scipy.optimize.brentq (IV solve),
                      # scipy.io.netcdf_file (IMD gridded rainfall -- NetCDF-3 classic,
