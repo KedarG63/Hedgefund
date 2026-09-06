@@ -630,6 +630,37 @@ def cmd_dry_run(targets, on, run_all):
     return 0
 
 
+def _notify_api_reload() -> str:
+    """
+    Tell a running terminal API to re-register views. Best effort, never fatal.
+
+    api.deps.startup() calls register_views() once, so a dataset whose FIRST
+    vintage was written by this run is invisible to the API until something
+    re-registers it -- the parquet is on disk and the view simply does not
+    exist. Restarting the service would also do it; this avoids needing to.
+
+    Deliberately swallows every network error. The API is a local dev
+    convenience and the daily pipeline is the thing that matters: a collection
+    run must not report failure because a terminal happened to be closed.
+    """
+    from core.config import get
+
+    base = (get("TERMINAL_API_URL") or "http://127.0.0.1:8787").rstrip("/")
+    token = get("TERMINAL_TOKEN")
+    if not token or token.startswith("CHANGEME"):
+        return "skipped (TERMINAL_TOKEN not set)"
+    try:
+        import httpx
+
+        r = httpx.post(f"{base}/api/ops/reload-views",
+                       headers={"Authorization": f"Bearer {token}"}, timeout=5.0)
+        if r.status_code == 200:
+            return f"{r.json().get('registered')} views re-registered"
+        return f"HTTP {r.status_code}"
+    except Exception as exc:                                          # noqa: BLE001
+        return f"not reachable ({type(exc).__name__})"
+
+
 def cmd_run(targets, on, run_all):
     rows = _plan(targets, on, run_all)
     results = {}
@@ -650,6 +681,10 @@ def cmd_run(targets, on, run_all):
     fails = [k for k, v in results.items() if v.startswith("FAIL")]
     ran = [k for k, v in results.items() if v != "SKIP"]
     print(f"\n{len(ran) - len(fails)}/{len(ran)} succeeded")
+
+    # New parquet is on disk now, so any terminal API that was already running
+    # is looking at a stale view list until it re-registers.
+    print(f"  terminal API: {_notify_api_reload()}")
 
     # Silent breakage is the #1 killer of scraped pipelines -- a job that stops
     # running looks identical to a market with no news.

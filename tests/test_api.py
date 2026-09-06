@@ -62,6 +62,19 @@ def client(tmp_path, monkeypatch):
     import core.storage as storage
     monkeypatch.setattr(storage, "PARQUET", root)
     monkeypatch.setattr(quality, "PARQUET", root)
+    # RAW as well, and this one is not optional. quality_report() ->
+    # fetch_freshness() walks the RAW archive, and startup warms the quality
+    # snapshot -- so leaving RAW pointing at the real 4.7 GB / 32k-file archive
+    # makes every test in this file pay a ~16s filesystem walk.
+    raw = tmp_path / "raw"
+    raw.mkdir()
+    monkeypatch.setattr(storage, "RAW", raw)
+    monkeypatch.setattr(quality, "RAW", raw)
+
+    # The quality snapshot is a module-level singleton, so a previous test's
+    # instance would still be bound to that test's tmp_path.
+    import api.background as background
+    monkeypatch.setattr(background, "_quality", None)
 
     from fastapi.testclient import TestClient
 
@@ -200,6 +213,55 @@ def test_reload_views_picks_up_a_dataset_written_after_startup(client, tmp_path)
 
     before = len(rows(client.get("/api/ops/views?fmt=json", headers=H)))
     assert client.post("/api/ops/reload-views", headers=H).json()["registered"] == before + 1
+
+
+# ---------------------------------------------------------- quality snapshot
+
+def test_quality_answers_immediately_while_still_computing(client):
+    """
+    quality_report() walks the whole raw archive (~16s on the real warehouse).
+    The status dot polls this, so the route must read a snapshot rather than
+    recompute: a cold snapshot reports computing rather than blocking.
+    """
+    import time
+
+    t = time.time()
+    r = client.get("/api/ops/quality?fmt=json", headers=H)
+    assert r.status_code == 200
+    assert time.time() - t < 5, "the route recomputed instead of reading a snapshot"
+    assert r.headers["x-qd-computing"] in ("0", "1")
+    assert "x-qd-stale" in r.headers
+
+
+def test_quality_wait_forces_a_synchronous_recompute(client):
+    """The escape hatch for Data Ops and run_daily.py, which want a definitive
+    answer and can afford to wait."""
+    r = client.get("/api/ops/quality?fmt=json&wait=true", headers=H)
+    assert r.status_code == 200
+    assert r.headers["x-qd-computing"] == "0"
+    assert r.headers["x-qd-age-seconds"] != ""
+    assert r.json()["count"] >= 1
+
+
+def test_a_broken_refresh_surfaces_rather_than_going_quiet():
+    """
+    Monitoring that silently stops reporting when it breaks is the exact
+    failure core.quality exists to catch, so a failed refresh must appear in
+    the payload instead of leaving the last good value in place unlabelled.
+    """
+    import asyncio
+
+    from api.background import Snapshot
+
+    def boom():
+        raise RuntimeError("archive unreadable")
+
+    snap = Snapshot(boom, ttl_seconds=60, name="test")
+    asyncio.run(snap.refresh())
+    state = snap.read()
+    assert state["error"] and "archive unreadable" in state["error"]
+    assert state["computing"] is False
+    assert state["computed_at"] is not None
 
 
 def test_the_sql_console_refuses_writes(client):

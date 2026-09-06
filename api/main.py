@@ -37,6 +37,7 @@ from fastapi.responses import JSONResponse                            # noqa: E4
 from fastapi.staticfiles import StaticFiles                           # noqa: E402
 
 from api import deps                                                  # noqa: E402
+from api.background import quality_snapshot                           # noqa: E402
 from api.routers import instrument, market, ops                       # noqa: E402
 
 WEB_DIST = Path(_REPO_ROOT) / "web" / "dist"
@@ -52,8 +53,13 @@ async def lifespan(app: FastAPI):
             "and keep it out of git -- .env is already gitignored."
         )
     n = deps.startup()
-    print(f"[api] {n} datasets registered")
+    # Start warming the quality snapshot immediately rather than on first
+    # request -- it takes ~16s, and the shell asks for it while it paints.
+    snap = quality_snapshot()
+    snap.start()
+    print(f"[api] {n} datasets registered; quality snapshot warming")
     yield
+    await snap.stop()
     deps.shutdown()
 
 

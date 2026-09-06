@@ -16,17 +16,49 @@ router = APIRouter(prefix="/api/ops", tags=["ops"])
 
 
 @router.get("/quality")
-def quality(stale_after_hours: float = Query(48.0, gt=0), fmt: str = "arrow"):
+async def quality(wait: bool = Query(False, description="Force a synchronous "
+                                     "recompute instead of reading the snapshot."),
+                  fmt: str = "arrow"):
     """
-    Freshness, volume and revision status per dataset.
+    Freshness, volume and revision status per dataset -- from a snapshot.
 
-    Walks the raw archive, so it is the slowest call in this API by a wide
-    margin (~16s against a 32k-file archive). The shell should poll it on a
-    timer and cache, never block a panel on it.
+    This does NOT walk the archive per request. quality_report() takes ~16s
+    against a 32k-file, 4.7 GB archive, which would both make the status dot
+    useless and tie up a threadpool worker long enough for a few concurrent
+    polls to starve every other endpoint. api.background refreshes it on a
+    10-minute timer instead and this returns the last result immediately.
+
+    Freshness of the ANSWER travels with it, in x-qd-age-seconds and
+    x-qd-stale, because a health indicator that cannot say how old it is is
+    worse than no indicator. A cold snapshot reports computing=1 with an empty
+    table rather than blocking -- "not measured yet" is a real state and the
+    shell should render it as such.
+
+    ?wait=true forces a synchronous recompute. That is for the retained
+    Streamlit Data Ops page and for run_daily.py, which want a definitive
+    answer now and can afford to wait for it; the terminal should never use it.
     """
-    from core.quality import quality_report
+    import pandas as pd
 
-    return frame(quality_report(stale_after_hours=stale_after_hours), fmt)
+    from api.background import quality_snapshot
+
+    snap = quality_snapshot()
+    if wait:
+        await snap.refresh()
+    state = snap.read()
+
+    value = state["value"]
+    table = value if isinstance(value, pd.DataFrame) else pd.DataFrame()
+    meta = {
+        "age-seconds": state["age_seconds"] if state["age_seconds"] is not None else "",
+        "computing": int(state["computing"]),
+        "stale": int(state["stale"]),
+    }
+    if state["error"]:
+        # Surfaced, not swallowed: monitoring that goes quiet when it breaks is
+        # exactly the failure this table exists to catch.
+        meta["error"] = state["error"][:200].replace("\n", " ")
+    return frame(table, fmt, meta)
 
 
 @router.get("/views")
