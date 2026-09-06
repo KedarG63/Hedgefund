@@ -10,6 +10,7 @@ import { Fundamentals } from './Fundamentals'
 import { Macro } from './Macro'
 import { Monsoon } from './Monsoon'
 import { OptionChain } from './OptionChain'
+import { Provenance } from './Provenance'
 import { SignalStack } from './SignalStack'
 import { SupplyChain } from './SupplyChain'
 import { Watchlist } from './Watchlist'
@@ -88,6 +89,12 @@ export const PANELS: PanelDef[] = [
   {
     id: 'credit', title: 'Credit', render: () => <Credit />, scoped: false,
     reads: ['crisil_rating_actions', 'icra_rating_actions', 'care_rating_actions'],
+  },
+  {
+    id: 'provenance', title: 'Provenance', render: () => <Provenance />, scoped: false,
+    // Reads the archive itself rather than a view -- it is the panel that
+    // answers where the other twelve got their numbers.
+    reads: ['data/raw/**'],
   },
 ]
 

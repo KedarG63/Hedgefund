@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { CSSProperties } from 'react'
 
 import { PANELS } from '../panels/registry'
+import { useContextStore } from '../store/context'
 import { openPanel } from './Dock'
 
 /**
@@ -14,6 +15,7 @@ import { openPanel } from './Dock'
  */
 export function PanelLauncher() {
   const [open, setOpen] = useState(false)
+  const setProvenanceView = useContextStore((s) => s.setProvenanceView)
 
   return (
     <div style={{ position: 'relative' }}>
@@ -45,8 +47,25 @@ export function PanelLauncher() {
                     </span>
                   )}
                 </span>
-                <span className="mono" style={S.reads} title={p.reads.join('\n')}>
-                  {p.reads.length === 1 ? p.reads[0] : `${p.reads.length} views`}
+                {/*
+                  Clicking the views opens the PROVENANCE panel on the first
+                  one instead of launching the panel. That is the drill's
+                  entry point: from "what does this panel read" straight to
+                  the archived bytes those reads came from.
+                */}
+                <span
+                  className="mono"
+                  style={S.reads}
+                  title={`Trace provenance for:\n${p.reads.join('\n')}`}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    const first = p.reads[0]
+                    if (first && !first.includes('/')) setProvenanceView(first)
+                    openPanel('provenance', 'Provenance')
+                    setOpen(false)
+                  }}
+                >
+                  {p.reads.length === 1 ? p.reads[0] : `${p.reads.length} views`} ↗
                 </span>
               </button>
             ))}

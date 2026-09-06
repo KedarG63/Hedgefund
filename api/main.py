@@ -38,7 +38,9 @@ from fastapi.staticfiles import StaticFiles                           # noqa: E4
 
 from api import deps                                                  # noqa: E402
 from api.background import quality_snapshot                           # noqa: E402
-from api.routers import credit, flows, instrument, market, ops, world  # noqa: E402
+from api.routers import (                                              # noqa: E402
+    credit, flows, instrument, market, ops, provenance, world,
+)
 from api.ws import (                                                   # noqa: E402
     hub as tick_hub, router as ws_router, status_router as live_status_router,
 )
@@ -80,6 +82,7 @@ app.include_router(market.router, dependencies=[Depends(deps.auth)])
 app.include_router(flows.router, dependencies=[Depends(deps.auth)])
 app.include_router(world.router, dependencies=[Depends(deps.auth)])
 app.include_router(credit.router, dependencies=[Depends(deps.auth)])
+app.include_router(provenance.router, dependencies=[Depends(deps.auth)])
 app.include_router(ops.router, dependencies=[Depends(deps.auth)])
 app.include_router(live_status_router, dependencies=[Depends(deps.auth)])
 # The WebSocket alone carries no header dependency: the browser WebSocket API

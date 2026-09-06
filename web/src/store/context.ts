@@ -22,8 +22,12 @@ import { persist } from 'zustand/middleware'
 export interface TerminalContext {
   symbol: string
   asOf: string | null
+  /** Which view the provenance panel is tracing. Part of the shared context so
+   *  any panel can send a reader to the bytes behind ITS numbers. */
+  provenanceView: string
   setSymbol: (symbol: string) => void
   setAsOf: (asOf: string | null) => void
+  setProvenanceView: (view: string) => void
 }
 
 export const useContextStore = create<TerminalContext>()(
@@ -31,10 +35,14 @@ export const useContextStore = create<TerminalContext>()(
     (set) => ({
       symbol: 'RELIANCE',
       asOf: null,
+      provenanceView: 'derived_factor_model',
       setSymbol: (symbol) => set({ symbol: symbol.toUpperCase() }),
       setAsOf: (asOf) => set({ asOf: asOf || null }),
+      setProvenanceView: (provenanceView) => set({ provenanceView }),
     }),
-    { name: 'qd.context', version: 1 },
+    // v2: added provenanceView. A persisted v1 payload lacks it, and a
+    // half-applied context is worse than a fresh one.
+    { name: 'qd.context', version: 2 },
   ),
 )
 
