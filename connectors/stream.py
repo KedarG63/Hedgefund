@@ -24,10 +24,7 @@ import json
 import time
 from collections import deque
 
-try:
-    import redis
-except ImportError:
-    redis = None
+from core.redis_client import LTP_HASH, TICKS_CHANNEL, redis_client
 
 
 class TickBuffer:
@@ -64,7 +61,10 @@ def kite_stream(api_key: str, access_token: str, instrument_tokens: list[int]):
     """
     from kiteconnect import KiteTicker
 
-    r = redis.Redis(decode_responses=True) if redis else None
+    # core.redis_client, not redis.Redis(): the bare constructor hardcodes
+    # localhost db 0 and ignores REDIS_URL, which put this feed in the same
+    # database as an unrelated project's job queue.
+    r = redis_client()
     buf = TickBuffer()
 
     kws = KiteTicker(api_key, access_token)
@@ -82,8 +82,8 @@ def kite_stream(api_key: str, access_token: str, instrument_tokens: list[int]):
             }
             buf.add(rec)
             if r:
-                r.hset("ltp", rec["token"], json.dumps(rec))   # hot last-value
-                r.publish("ticks", json.dumps(rec))            # fan-out
+                r.hset(LTP_HASH, rec["token"], json.dumps(rec))   # hot last-value
+                r.publish(TICKS_CHANNEL, json.dumps(rec))         # fan-out
 
     def on_connect(ws, response):
         ws.subscribe(instrument_tokens)

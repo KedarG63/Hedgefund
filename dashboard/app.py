@@ -1066,16 +1066,19 @@ with tab_equities:
             st.caption(HISTORY_NOTE)
     with sub_live:
         st.subheader("Live ticks")
-        try:
-            import redis
-            r = redis.Redis(decode_responses=True)
-            ltp = {k: json.loads(v) for k, v in r.hgetall("ltp").items()}
+        from core.redis_client import LTP_HASH, redis_client, redis_url
+
+        r = redis_client()
+        if r is None:
+            st.warning(f"Redis unreachable at `{redis_url()}`. This tab needs Redis "
+                       f"plus a running tick feed.")
+        else:
+            ltp = {k: json.loads(v) for k, v in r.hgetall(LTP_HASH).items()}
             if ltp:
                 show(pd.DataFrame(ltp.values()))
             else:
-                st.info("No live ticks. Start connectors/stream.py with broker credentials.")
-        except Exception as e:
-            st.warning(f"Redis unavailable ({e}). This tab needs Redis + stream.py running.")
+                st.info("No live ticks cached. Start the Upstox feed "
+                        "(`connectors.upstox.stream(...)`) during market hours.")
 
 
 # -------------------------------------------------------------------- Macro & Commodities

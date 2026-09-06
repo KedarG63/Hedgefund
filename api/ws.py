@@ -32,6 +32,9 @@ from typing import Any
 from fastapi import APIRouter, Query, WebSocket, WebSocketDisconnect
 
 from core.config import get
+from core.redis_client import (
+    LTP_HASH, TICKS_CHANNEL, namespace_report, redis_client, redis_url,
+)
 
 # Two routers on purpose. The WebSocket authenticates from a query parameter
 # because the browser WebSocket API cannot set headers; everything else keeps
@@ -43,8 +46,12 @@ status_router = APIRouter(prefix="/api/live", tags=["live"])
 # 100ms: fast enough that a price looks live to a human, slow enough that a
 # busy instrument collapses fifty ticks into one message.
 COALESCE_MS = 100
-CHANNEL = "ticks"
-LTP_HASH = "ltp"
+
+# Keys and connection both come from core.redis_client, which is the single
+# place that honours REDIS_URL and applies the qd: prefix. Reconstructing a
+# client here is how the publishers and this reader drifted onto different
+# databases in the first place.
+CHANNEL = TICKS_CHANNEL
 
 
 def _redis():
@@ -52,20 +59,9 @@ def _redis():
     A Redis client, or None.
 
     Redis absence is NORMAL here -- the feed only runs during market hours and
-    the Upstox token expires 03:30 IST daily -- so this never raises. The
-    socket call is what actually proves reachability; constructing a client
-    does not connect.
+    the Upstox token expires 03:30 IST daily -- so this never raises.
     """
-    try:
-        import redis
-
-        url = get("REDIS_URL") or "redis://localhost:6379/0"
-        client = redis.Redis.from_url(url, decode_responses=True,
-                                      socket_connect_timeout=2)
-        client.ping()
-        return client
-    except Exception:                                                 # noqa: BLE001
-        return None
+    return redis_client()
 
 
 # --------------------------------------------------------------- symbol map
@@ -353,8 +349,16 @@ def live_status():
     """
     _ensure_map()
     age = None if hub.last_tick_at is None else round(time.time() - hub.last_tick_at, 1)
+    ns = namespace_report()
     return {
-        "redis_reachable": _redis() is not None,
+        "redis_reachable": ns["reachable"],
+        "redis_url": redis_url(),
+        "redis_db": ns.get("db"),
+        # Surfaced, not hidden. Our keys are qd:-prefixed so a shared database
+        # cannot corrupt us, but whoever else is in there can still FLUSHDB the
+        # live cache out from under a trading session -- worth knowing before
+        # that happens rather than after.
+        "foreign_keys_in_db": ns.get("foreign_keys", 0),
         "feed_connected": hub.connected,
         "ticks_seen": hub.ticks_seen,
         "last_tick_age_seconds": age,

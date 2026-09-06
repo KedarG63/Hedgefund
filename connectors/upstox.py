@@ -52,6 +52,7 @@ import httpx
 import pandas as pd
 
 from core.config import require
+from core.redis_client import LTP_HASH, TICKS_CHANNEL
 from core.storage import save_raw, write_table
 
 API = "https://api.upstox.com"
@@ -269,8 +270,8 @@ async def _stream(instrument_keys: list[str], mode: str, buffer, redis_client,
                 buffer.add(rec)
                 if redis_client:
                     payload = json.dumps(rec)
-                    redis_client.hset("ltp", rec["instrument_key"], payload)
-                    redis_client.publish("ticks", payload)
+                    redis_client.hset(LTP_HASH, rec["instrument_key"], payload)
+                    redis_client.publish(TICKS_CHANNEL, payload)
                 if on_record:
                     on_record(rec)
         buffer.flush()
@@ -297,19 +298,28 @@ def stream(instrument_keys: list[str], mode: str = "full",
 
     from connectors.stream import TickBuffer
 
-    redis_client = None
+    # core.redis_client honours REDIS_URL; the bare redis.Redis() this replaced
+    # hardcoded localhost db 0 regardless, which silently put the tick cache in
+    # the same database as an unrelated project's job queue.
+    client = None
     if use_redis:
-        try:
-            import redis
-            redis_client = redis.Redis(decode_responses=True)
-            redis_client.ping()
-        except Exception as e:                                # noqa
-            print(f"  Redis unavailable ({type(e).__name__}); ticks still go to parquet")
-            redis_client = None
+        from core.redis_client import namespace_report, redis_client as get_redis
+
+        client = get_redis()
+        if client is None:
+            print("  Redis unavailable; ticks still go to parquet")
+        else:
+            report = namespace_report(client)
+            if report.get("foreign_keys"):
+                # Sharing a database is not fatal -- our keys are qd:-prefixed
+                # -- but it is worth saying out loud, because a FLUSHDB by
+                # whoever else is in there takes the live cache with it.
+                print(f"  note: redis db {report.get('db')} also holds "
+                      f"{report['foreign_keys']} key(s) from another application")
 
     buffer = TickBuffer(flush_seconds=flush_seconds)
     try:
-        asyncio.run(_stream(instrument_keys, mode, buffer, redis_client,
+        asyncio.run(_stream(instrument_keys, mode, buffer, client,
                             max_messages, on_record))
     except KeyboardInterrupt:
         print("\n  stopped; flushing buffer")
