@@ -132,6 +132,8 @@ export function StatusStrip() {
           {chokepoints.length} chokepoint{chokepoints.length > 1 ? 's' : ''} stressed
         </span>
       )}
+      <Divider />
+      <FeedState />
       <span style={{ flex: 1 }} />
       <span style={S.item} className="mono"
             title={asOf ? 'Historical view' : 'Everything known now'}>
@@ -146,6 +148,56 @@ export function StatusStrip() {
 }
 
 const Divider = () => <span style={S.divider} />
+
+/**
+ * Tick-feed state.
+ *
+ * Three facts that fail independently and must not be collapsed into one dot:
+ * whether Redis is reachable, whether the broker stream is publishing, and how
+ * long since the last tick. A healthy Redis with no ticks looks exactly like a
+ * quiet market unless the age is shown -- and outside market hours "no ticks"
+ * is correct, not broken, so this says `closed` rather than raising an alarm.
+ */
+function FeedState() {
+  const { data } = useQuery({
+    queryKey: ['live-status'],
+    queryFn: async ({ signal }) => {
+      const r = await fetch('/api/live/status', { signal })
+      if (!r.ok) throw new Error(String(r.status))
+      return (await r.json()) as {
+        redis_reachable: boolean; feed_connected: boolean
+        ticks_seen: number; last_tick_age_seconds: number | null
+      }
+    },
+    // 5s, not the 15s the other strip items use. This endpoint touches no
+    // warehouse data, and a slower poll left the strip reading "feed idle"
+    // while prices were visibly flashing two panels away -- contradictory
+    // information on screen costs more trust than a poll costs anything.
+    refetchInterval: 5_000,
+  })
+
+  if (!data) return null
+
+  const age = data.last_tick_age_seconds
+  const flowing = age !== null && age < 60
+  const tone = !data.redis_reachable ? 'var(--bearish)'
+    : flowing ? 'var(--bullish)' : 'var(--ink-3)'
+  const label = !data.redis_reachable ? 'no redis'
+    : flowing ? `ticks ${data.ticks_seen}`
+    : age === null ? 'feed idle' : `quiet ${Math.round(age / 60)}m`
+
+  return (
+    <span style={S.item} title={
+      `Redis ${data.redis_reachable ? 'reachable' : 'unreachable'} · ` +
+      `stream ${data.feed_connected ? 'subscribed' : 'not subscribed'} · ` +
+      `${data.ticks_seen} ticks seen` +
+      (age === null ? ' · no tick yet this session' : ` · last ${age}s ago`)
+    }>
+      <span style={{ ...S.dot, background: tone }} />
+      <span className="mono">{label}</span>
+    </span>
+  )
+}
 
 const S: Record<string, CSSProperties> = {
   strip: {

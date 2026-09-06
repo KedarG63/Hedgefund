@@ -63,6 +63,22 @@ export default defineConfig({
           })
         },
       },
+      // The tick stream. The browser WebSocket API cannot set headers, so the
+      // token goes in the query string -- appended HERE, on the way through,
+      // so the page still holds no credential. The client opens a bare
+      // /ws/ticks?symbols=... and never learns the token exists.
+      '/ws': {
+        target: API,
+        ws: true,
+        changeOrigin: false,
+        rewrite: (path) => {
+          if (!TOKEN) return path
+          const [base, query = ''] = path.split('?')
+          const params = new URLSearchParams(query)
+          params.set('token', TOKEN)
+          return `${base}?${params.toString()}`
+        },
+      },
     },
   },
   build: { outDir: 'dist', sourcemap: true },

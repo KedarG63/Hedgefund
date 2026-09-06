@@ -39,6 +39,9 @@ from fastapi.staticfiles import StaticFiles                           # noqa: E4
 from api import deps                                                  # noqa: E402
 from api.background import quality_snapshot                           # noqa: E402
 from api.routers import credit, flows, instrument, market, ops, world  # noqa: E402
+from api.ws import (                                                   # noqa: E402
+    hub as tick_hub, router as ws_router, status_router as live_status_router,
+)
 
 WEB_DIST = Path(_REPO_ROOT) / "web" / "dist"
 
@@ -60,6 +63,7 @@ async def lifespan(app: FastAPI):
     print(f"[api] {n} datasets registered; quality snapshot warming")
     yield
     await snap.stop()
+    await tick_hub.stop()
     deps.shutdown()
 
 
@@ -77,6 +81,10 @@ app.include_router(flows.router, dependencies=[Depends(deps.auth)])
 app.include_router(world.router, dependencies=[Depends(deps.auth)])
 app.include_router(credit.router, dependencies=[Depends(deps.auth)])
 app.include_router(ops.router, dependencies=[Depends(deps.auth)])
+app.include_router(live_status_router, dependencies=[Depends(deps.auth)])
+# The WebSocket alone carries no header dependency: the browser WebSocket API
+# cannot set headers, so it checks the same token from a query parameter.
+app.include_router(ws_router)
 
 
 @app.get("/api/ops/health", tags=["ops"])
