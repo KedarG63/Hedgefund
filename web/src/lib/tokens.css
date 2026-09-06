@@ -1,0 +1,91 @@
+/*
+ * Palette: the project's own "Midnight Blueprint", ported from
+ * dashboard/theme.py and .streamlit/config.toml so the terminal and the
+ * retained Streamlit surface do not drift into two different products.
+ *
+ * The diverging pair is deliberately blue<->red, NOT red<->green: red-green is
+ * the most common form of colourblindness, and it would make the single most
+ * important signal on several panels unreadable. Every cell that uses these
+ * also carries an explicit sign or arrow in TEXT -- colour never carries a
+ * signal alone. That rule is inherited from dashboard/theme.py and holds here.
+ */
+:root {
+  --ground: #050d1a;
+  --panel: #0b1626;
+  --panel-2: #122139;
+  --line: #1e3050;
+  --line-soft: #152541;
+
+  --ink: #e6edf7;
+  --ink-2: #a8bbd6;
+  --ink-3: #74889f;
+
+  --accent: #4d9eff;
+  --accent-soft: rgba(77, 158, 255, 0.13);
+  --accent-line: rgba(77, 158, 255, 0.32);
+
+  --bullish: #2a78d6;
+  --bearish: #e34948;
+  --neutral: #f0efec;
+  --warn: #d9a02b;
+
+  --mono: 'JetBrains Mono', 'Consolas', ui-monospace, monospace;
+  --sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --row-h: 26px;
+  --strip-h: 30px;
+  --bar-h: 40px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 13px;
+  overflow: hidden;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.mono {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* dockview's theme variables, pointed at ours so panels sit in the same world */
+.dockview-theme-abyss {
+  --dv-background-color: var(--ground);
+  --dv-paneview-active-outline-color: var(--accent);
+  --dv-tabs-and-actions-container-background-color: var(--panel);
+  --dv-activegroup-visiblepanel-tab-background-color: var(--panel-2);
+  --dv-inactivegroup-visiblepanel-tab-background-color: var(--panel);
+  --dv-activegroup-visiblepanel-tab-color: var(--ink);
+  --dv-inactivegroup-visiblepanel-tab-color: var(--ink-3);
+  --dv-separator-border: var(--line);
+  --dv-tab-divider-color: var(--line);
+  --dv-group-view-background-color: var(--panel);
+}

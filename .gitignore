@@ -50,3 +50,10 @@ htmlcov/
 Thumbs.db
 *.log
 logs/
+
+# ---------------------------------------------------------------- web/
+# The React terminal's dependencies and build output. node_modules is
+# reinstallable from package-lock.json; dist is reproducible from source.
+web/node_modules/
+web/dist/
+web/*.tsbuildinfo

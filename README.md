@@ -63,6 +63,35 @@ returns 403 without a contact address in the User-Agent.
 Then open the dashboard and start on the **Data quality** tab — the other tabs
 show what was collected, that one shows whether to believe it.
 
+### The terminal (API + React shell)
+
+Two processes in development. The API serves the warehouse; Vite serves the
+shell and proxies `/api` to it.
+
+```powershell
+# 1. one-time: a bearer token, into .env (which is gitignored)
+.\.venv\Scripts\python.exe -c "import secrets; print('TERMINAL_TOKEN=' + secrets.token_urlsafe(32))"
+
+# 2. the API -- 127.0.0.1 only, see Legal below
+.\.venv\Scripts\python.exe -m uvicorn api.main:app --reload --port 8787 --host 127.0.0.1
+
+# 3. the shell, in a second terminal
+npm --prefix web install      # first time only
+npm --prefix web run dev      # http://localhost:5273
+```
+
+The token never reaches the browser: `web/vite.config.ts` reads it from `.env`
+and attaches the header as requests pass through the dev proxy. Startup fails
+without it rather than serving the whole warehouse unauthenticated.
+
+Keys: `/` focuses the command bar, then a ticker and Enter. `asof 2026-06-30`
+rolls the entire terminal back to what the warehouse knew that day — prices
+*and* the derived signals computed from them, since every `derived_*` table
+carries its own `knowledge_date` vintage. `asof clear` returns to now.
+
+Panels are draggable and the arrangement is saved; **reset layout** restores
+the default.
+
 ## Layout
 
 ```
