@@ -3,6 +3,7 @@ import type { CSSProperties } from 'react'
 import { AsOfScrubber } from './shell/AsOfScrubber'
 import { CommandBar } from './shell/CommandBar'
 import { Dock, resetLayout } from './shell/Dock'
+import { PanelLauncher } from './shell/PanelLauncher'
 import { StatusStrip } from './shell/StatusStrip'
 import { useContextStore } from './store/context'
 
@@ -16,6 +17,7 @@ export function App() {
         <CommandBar />
         <span style={{ flex: 1 }} />
         <AsOfScrubber />
+        <PanelLauncher />
         <button style={S.reset} className="mono" onClick={resetLayout}
                 title="Restore the default panel arrangement">
           reset layout

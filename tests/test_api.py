@@ -215,6 +215,62 @@ def test_reload_views_picks_up_a_dataset_written_after_startup(client, tmp_path)
     assert client.post("/api/ops/reload-views", headers=H).json()["registered"] == before + 1
 
 
+# ------------------------------------------------------------- panel routes
+# The fixture warehouse holds only nse_bhavcopy and derived_factor_model, so
+# these pin how the wave-1 routes behave when their dataset has NOT been
+# ingested -- which is the normal state on a fresh checkout and the state most
+# likely to be got wrong.
+
+EMPTY_OK = [
+    "/api/flows/divergence",       # returns an empty frame: optional dataset
+    "/api/climate/enso",
+]
+NEEDS_DATA = [
+    "/api/flows/participants",     # 404s: the panel's whole subject is missing
+    "/api/flows/fii-dii",
+    "/api/supply-chain/regimes",
+    "/api/supply-chain/breaks",
+    "/api/supply-chain/transits",
+    "/api/climate/monsoon",
+    "/api/instrument/NIFTY/options",
+]
+
+
+@pytest.mark.parametrize("path", EMPTY_OK)
+def test_optional_datasets_return_an_empty_table_not_an_error(client, path):
+    """A panel whose SUPPORTING dataset is absent should still render its
+    frame; only a missing primary subject is a 404."""
+    r = client.get(f"{path}?fmt=json", headers=H)
+    assert r.status_code == 200
+    assert r.json()["count"] == 0
+
+
+@pytest.mark.parametrize("path", NEEDS_DATA)
+def test_a_missing_primary_dataset_is_a_404(client, path):
+    r = client.get(path, headers=H)
+    assert r.status_code == 404, f"{path} returned {r.status_code}"
+
+
+def test_credit_unions_agencies_and_returns_empty_when_none_ingested(client):
+    """Three agencies, one shape. With none present the union is empty rather
+    than a Binder Error on the first missing view."""
+    r = client.get("/api/credit/actions?fmt=json", headers=H)
+    assert r.status_code == 200 and r.json()["count"] == 0
+
+
+def test_correlation_refuses_a_single_symbol(client):
+    """A correlation of one name is not a question. Returning an empty frame
+    keeps the panel simple and avoids a pointless scan of a 9M-row table."""
+    r = client.get("/api/correlation?symbols=RELIANCE&fmt=json", headers=H)
+    assert r.status_code == 200 and r.json()["count"] == 0
+
+
+def test_every_panel_route_requires_a_token(client):
+    for path in EMPTY_OK + NEEDS_DATA + ["/api/correlation?symbols=A,B",
+                                         "/api/credit/actions"]:
+        assert client.get(path).status_code == 401, path
+
+
 # ---------------------------------------------------------- quality snapshot
 
 def test_quality_answers_immediately_while_still_computing(client):

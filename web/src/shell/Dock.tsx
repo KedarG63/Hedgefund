@@ -1,8 +1,7 @@
 import { DockviewReact, type DockviewApi, type DockviewReadyEvent } from 'dockview'
 import { useCallback, useRef } from 'react'
 
-import { FocusChart } from '../panels/FocusChart'
-import { Watchlist } from '../panels/Watchlist'
+import { DEFAULT_LAYOUT, DOCK_COMPONENTS } from '../panels/registry'
 
 /**
  * The tiled workspace. This is the tabs -> control-panel fix.
@@ -11,13 +10,24 @@ import { Watchlist } from '../panels/Watchlist'
  * so the terminal opens the way it was left. That persistence is what makes it
  * a workstation rather than a page: an analyst arranges the screen once for how
  * they work, not once per session.
+ *
+ * The component map and the default arrangement both come from
+ * panels/registry.tsx, so adding a panel is one registry entry rather than
+ * edits scattered across the shell.
  */
 
-const LAYOUT_KEY = 'qd.layout.v1'
+const LAYOUT_KEY = 'qd.layout.v2'
 
-const components = {
-  watchlist: () => <Watchlist />,
-  chart: () => <FocusChart />,
+let dockApi: DockviewApi | null = null
+
+export function openPanel(id: string, title: string) {
+  if (!dockApi) return
+  const existing = dockApi.getPanel(id)
+  if (existing) {
+    existing.api.setActive()
+    return
+  }
+  dockApi.addPanel({ id, component: id, title })
 }
 
 export function Dock() {
@@ -33,6 +43,7 @@ export function Dock() {
 
   const onReady = useCallback((event: DockviewReadyEvent) => {
     api.current = event.api
+    dockApi = event.api
 
     const saved = (() => {
       try {
@@ -46,9 +57,9 @@ export function Dock() {
     if (saved) {
       try {
         event.api.fromJSON(saved)
-        // A saved layout from an older build can deserialise to nothing, which
-        // would leave a blank terminal with no way back short of clearing
-        // storage. Fall through to the default rather than trusting it.
+        // A layout saved by an older build can deserialise to nothing, leaving
+        // a blank terminal with no way back short of clearing storage. Fall
+        // through to the default rather than trusting it.
         if (event.api.panels.length > 0) {
           event.api.onDidLayoutChange(save)
           return
@@ -58,20 +69,23 @@ export function Dock() {
       }
     }
 
-    event.api.addPanel({ id: 'watchlist', component: 'watchlist', title: 'Watchlist' })
-    event.api.addPanel({
-      id: 'chart',
-      component: 'chart',
-      title: 'Chart',
-      position: { referencePanel: 'watchlist', direction: 'right' },
-    })
+    for (const { id, position } of DEFAULT_LAYOUT) {
+      const def = DOCK_COMPONENTS[id]
+      if (!def) continue
+      event.api.addPanel({
+        id,
+        component: id,
+        title: id.charAt(0).toUpperCase() + id.slice(1),
+        ...(position ? { position: position as never } : {}),
+      })
+    }
     event.api.onDidLayoutChange(save)
   }, [save])
 
   return (
     <div style={{ flex: 1, minHeight: 0 }}>
       <DockviewReact
-        components={components}
+        components={DOCK_COMPONENTS}
         onReady={onReady}
         className="dockview-theme-abyss"
       />

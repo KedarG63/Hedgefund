@@ -65,7 +65,13 @@ DATASET_KEYS: dict[str, list[str]] = {
     "derived_pairs_candidates":           ["symbol_a", "symbol_b", "as_of_date"],
     "derived_momentum_zscore":            ["symbol", "as_of_date"],
     "derived_variance_ratio":             ["symbol", "as_of_date", "lag"],
-    "derived_option_greeks":              ["symbol", "strike_price", "option_type", "as_of_date"],
+    # expiry_date is part of CONTRACT identity: the same strike and right on a
+    # different expiry is a different option. Without it the key is unique only
+    # while a capture happens to cover one expiry per strike -- true of every
+    # vintage on disk today, including one holding two expiries, but luck
+    # rather than a guarantee, and the failure would be silently dropped rows.
+    "derived_option_greeks":              ["symbol", "expiry_date", "strike_price",
+                                           "option_type", "as_of_date"],
     "derived_insider_filing_frequency":   ["symbol", "as_of_date"],
     "derived_bulk_block_anomaly":         ["symbol", "as_of_date"],
     "derived_fii_dii_divergence":         ["trade_date"],

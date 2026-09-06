@@ -73,6 +73,43 @@ def watchlist(as_of: AsOf = None, limit: int = Query(200, le=5000), fmt: str = "
     return frame(cursor().execute(sql), fmt)
 
 
+@router.get("/correlation")
+def correlation(symbols: str = Query(..., description="Comma-separated symbols."),
+                as_of: AsOf = None, fmt: str = "arrow"):
+    """
+    Pairwise correlation across the requested symbols.
+
+    derived_correlation is 9.08 MILLION rows -- a full pairwise matrix over the
+    NSE equity universe across vintages. This filters on symbol_a/symbol_b
+    inside DuckDB and never materialises the table; pulling it into pandas to
+    subset afterwards would move gigabytes to answer a question about six names.
+
+    Two steps, deliberately not folded into one ORDER BY: pit() collapses
+    vintages of the same (pair, as_of_date), then the outer window applies the
+    business rule -- of the surviving computation dates, show the most recent.
+    """
+    from core.asof import asof_sql
+
+    # Validate the REQUEST before probing warehouse state: a correlation of one
+    # name is malformed whether or not the dataset exists, and answering 404
+    # would blame the warehouse for the caller's argument.
+    wanted = [s.strip().upper() for s in symbols.split(",") if s.strip()][:40]
+    if len(wanted) < 2:
+        return frame(pd.DataFrame(columns=["symbol_a", "symbol_b", "correlation",
+                                           "n_obs", "as_of_date"]), fmt)
+    require_view("derived_correlation")
+    listed = ", ".join("'" + s.replace("'", "''") + "'" for s in wanted)
+
+    inner = asof_sql("derived_correlation", as_of,
+                     columns="symbol_a, symbol_b, correlation, n_obs, as_of_date",
+                     where=f"symbol_a IN ({listed}) AND symbol_b IN ({listed})")
+    sql = f"""SELECT * FROM ({inner})
+        QUALIFY row_number() OVER (
+            PARTITION BY symbol_a, symbol_b ORDER BY as_of_date DESC
+        ) = 1"""
+    return frame(cursor().execute(sql), fmt, {"symbols": len(wanted)})
+
+
 @router.get("/macro/snapshot")
 def macro_snapshot(as_of: AsOf = None, fmt: str = "arrow"):
     """

@@ -9,8 +9,8 @@ import {
 import { useEffect, useRef } from 'react'
 
 import { fetchFrame, num, str } from '../lib/api'
+import { PanelMessage } from '../lib/panel'
 import { contextKey, useContextStore } from '../store/context'
-import { PanelMessage } from './Watchlist'
 
 /**
  * OHLC + volume for the context symbol, with event markers.

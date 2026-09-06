@@ -159,6 +159,75 @@ def events(symbol: str, as_of: AsOf = None, limit: int = Query(200, le=2000),
     return frame(cursor().execute(sql), fmt, {"symbol": symbol.upper()})
 
 
+@router.get("/{symbol}/options")
+def options(symbol: str, expiry: str | None = None, as_of: AsOf = None,
+            fmt: str = "arrow"):
+    """
+    Option chain with solved Greeks, one row per strike.
+
+    CALLS and PUTS arrive as separate rows keyed on option_type; this pivots
+    them onto one row per strike so the panel can render the conventional
+    ladder -- calls left, strike centre, puts right -- which is how the skew is
+    actually read.
+
+    iv_divergence_vs_nse is carried through because it is the interesting
+    column: where our Black-Scholes solve disagrees with the exchange's
+    published IV, one of the two is using a different underlying or rate.
+    """
+    from core.asof import latest_per
+
+    require_view("nse_optchain")
+    sym = _sql_quote(symbol.upper())
+    where = f"symbol = {sym}"
+    if expiry:
+        where += f" AND expiry_date = {_sql_quote(expiry)}"
+
+    chain = latest_per(
+        "nse_optchain", ["symbol", "expiry_date", "strike_price", "option_type"], as_of,
+        columns="symbol, expiry_date, strike_price, option_type, open_interest, "
+                "change_in_oi, total_traded_volume, implied_volatility_nse, "
+                "last_price, bid_price, ask_price, underlying_value",
+        where=where,
+    )
+
+    greeks_join = ""
+    greek_cols = ""
+    if "derived_option_greeks" in views():
+        g = latest_per(
+            "derived_option_greeks",
+            ["symbol", "strike_price", "option_type", "expiry_date"], as_of,
+            columns="symbol, expiry_date, strike_price, option_type, nse_delta, "
+                    "nse_gamma, nse_vega, nse_theta, implied_volatility_solved, "
+                    "iv_divergence_vs_nse",
+            where=where,
+        )
+        greeks_join = (f"LEFT JOIN ({g}) g "
+                       f"USING (symbol, expiry_date, strike_price, option_type)")
+        greek_cols = (", g.nse_delta, g.nse_gamma, g.nse_vega, g.nse_theta, "
+                      "g.implied_volatility_solved, g.iv_divergence_vs_nse")
+
+    joined = f"SELECT c.*{greek_cols} FROM ({chain}) c {greeks_join}"
+
+    # One row per strike, calls and puts side by side.
+    sql = f"""
+        SELECT expiry_date, strike_price, any_value(underlying_value) AS underlying,
+               max(CASE WHEN option_type = 'CE' THEN open_interest END) AS call_oi,
+               max(CASE WHEN option_type = 'CE' THEN change_in_oi END) AS call_oi_chg,
+               max(CASE WHEN option_type = 'CE' THEN last_price END) AS call_ltp,
+               max(CASE WHEN option_type = 'CE' THEN implied_volatility_nse END) AS call_iv,
+               max(CASE WHEN option_type = 'CE' THEN nse_delta END) AS call_delta,
+               max(CASE WHEN option_type = 'PE' THEN open_interest END) AS put_oi,
+               max(CASE WHEN option_type = 'PE' THEN change_in_oi END) AS put_oi_chg,
+               max(CASE WHEN option_type = 'PE' THEN last_price END) AS put_ltp,
+               max(CASE WHEN option_type = 'PE' THEN implied_volatility_nse END) AS put_iv,
+               max(CASE WHEN option_type = 'PE' THEN nse_delta END) AS put_delta
+        FROM ({joined})
+        GROUP BY expiry_date, strike_price
+        ORDER BY expiry_date, strike_price
+    """
+    return frame(cursor().execute(sql), fmt, {"symbol": symbol.upper()})
+
+
 @router.get("/{symbol}/fundamentals")
 def fundamentals(symbol: str, statement: str = Query("income", pattern="^(income|balance|cash)$"),
                  consolidated: str | None = None, as_of: AsOf = None, fmt: str = "arrow"):

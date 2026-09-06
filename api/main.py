@@ -38,7 +38,7 @@ from fastapi.staticfiles import StaticFiles                           # noqa: E4
 
 from api import deps                                                  # noqa: E402
 from api.background import quality_snapshot                           # noqa: E402
-from api.routers import instrument, market, ops                       # noqa: E402
+from api.routers import credit, flows, instrument, market, ops, world  # noqa: E402
 
 WEB_DIST = Path(_REPO_ROOT) / "web" / "dist"
 
@@ -73,6 +73,9 @@ app = FastAPI(
 # for liveness probes. Every route that returns DATA carries it.
 app.include_router(instrument.router, dependencies=[Depends(deps.auth)])
 app.include_router(market.router, dependencies=[Depends(deps.auth)])
+app.include_router(flows.router, dependencies=[Depends(deps.auth)])
+app.include_router(world.router, dependencies=[Depends(deps.auth)])
+app.include_router(credit.router, dependencies=[Depends(deps.auth)])
 app.include_router(ops.router, dependencies=[Depends(deps.auth)])
 
 
